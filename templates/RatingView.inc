@@ -1,4 +1,4 @@
 <?php getView("HeaderView.inc", null); ?>
-<div><p>BigBen Rating</p></div>
+<div id="feed"><h1>BigBen Rating</h1></div>
 <?php getView("Footer.inc", null); ?>
 </body>
