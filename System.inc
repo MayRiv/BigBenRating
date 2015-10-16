@@ -19,7 +19,13 @@ class System
 	}
 	public function showAdminPanel()
 	{
-
+		session_start();
+		getView("AdminPanelView.inc", null);
+	}
+	public function getPersonalStat()
+	{
+		session_start();
+		getView("PersonalStatView.inc", null);
 	}
 	public function login()
 	{
