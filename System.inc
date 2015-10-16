@@ -25,8 +25,8 @@ class System
 		session_start();
 		if ($_SERVER['REQUEST_METHOD'] == 'POST')
 		{
-			echo "TEST";
-			if (MD5($_POST['Pass']) === $passwordAdmin)
+			echo $_POST['Password'];
+			if (MD5($_POST['Password']) === $password)
 			{		
 				$_SESSION['authorizedAdmin'] = 1;
 				header("Location: /maska9/?action=insertGame");
