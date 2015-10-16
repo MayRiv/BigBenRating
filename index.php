@@ -15,6 +15,12 @@
 			System::getInstance()->showGames();
 		else if ($_GET['action'] == 'getPersonalStat')
 			System::getInstance()->getPersonalStat();
+		else if ($_GET['action'] == 'showAdminPanel')
+			System::getInstance()->showAdminPanel();
+		else if ($_GET['action'] == 'logout')
+			System::getInstance()->logout();
+		else if ($_GET['action'] == 'login')
+			System::getInstance()->login();
 		else 
 			System::getInstance()->getRating();
 	}
