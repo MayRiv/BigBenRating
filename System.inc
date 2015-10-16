@@ -14,7 +14,7 @@ class System
 	}
 	public function getRating()
 	{
-		echo "BigBenRating";
+		getView("RatingView.inc", null);
 	}
 
 }
