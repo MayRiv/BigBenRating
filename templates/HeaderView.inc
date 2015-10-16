@@ -6,7 +6,7 @@
 <body>
 	<div id="auth-div">
 		<?php
-		if (isset($_SESSION['authorizedAdmin']) && $_SESSION['authorizedAdmin'] == 1)
+		if (isset($_SESSION['isAuth']) && $_SESSION['isAuth'] == 1)
 		{
 			echo "<p>Привет".$_SESSION['player']."</p>";
 			echo "<a href='/?action=logout'>Выйти</a>";

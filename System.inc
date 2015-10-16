@@ -14,6 +14,7 @@ class System
 	}
 	public function getRating()
 	{
+		session_start();
 		getView("RatingView.inc", null);
 	}
 	public function showAdminPanel()
@@ -31,7 +32,7 @@ class System
 			{
 				if (MD5($_POST['Password']) === $account[0]['Password'])
 				{
-					$_SESSION['authorizedAdmin'] = 1;
+					$_SESSION['isAuth'] = 1;
 					$_SESSION['player'] = $_POST['Player'];
 					$_SESSION['status'] = $account[0]['Status'];
 					header("Location: \?action=getPersonalStat");
