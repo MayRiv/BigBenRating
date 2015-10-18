@@ -6,6 +6,7 @@
   			<p><input type="submit" value="Войти"></p>
  	</form>
 </div>
+<?php getView("Footer.inc", null); ?>
 </body>
 <datalist id="players_list">
 <?php	foreach ($obj as $player)
