@@ -2,7 +2,7 @@
 	require("viewer.inc");
 	require("DBManager.inc");
 	require("System.inc");
-	//define ("DEV", 1);
+	define ("DEV", 0);
 	if (DEV)
 	{
 		$host = "localhost";
