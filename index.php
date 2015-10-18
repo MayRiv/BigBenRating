@@ -2,10 +2,21 @@
 	require("viewer.inc");
 	require("DBManager.inc");
 	require("System.inc");
-	$host = "mysql.hostinger.com.ua";
-	$dbName = "u825515718_bbrat";
-	$user = "u825515718_bbrat";
-	$password = "B1gBenMafia";
+	//define ("DEV", 1);
+	if (DEV)
+	{
+		$host = "localhost";
+		$dbName = "u825515718_bbrat";
+		$user = "root";
+		$password = "";
+	}
+	else
+	{
+		$host = "mysql.hostinger.com.ua";
+		$dbName = "u825515718_bbrat";
+		$user = "u825515718_bbrat";
+		$password = "B1gBenMafia";
+	}	
 	DBManager::getInstance()->connect($host, $dbName, $user, $password);
 	if (isset($_GET['action']))
 	{
@@ -21,6 +32,14 @@
 			System::getInstance()->logout();
 		else if ($_GET['action'] == 'login')
 			System::getInstance()->login();
+		else if ($_GET['action'] == 'addGame')
+			System::getInstance()->addGame();
+		else if ($_GET['action'] == 'addPlayer')
+			System::getInstance()->addPlayer();
+		else if ($_GET['action'] == 'changePassword')
+			System::getInstance()->changePassword();
+		else if ($_GET['action'] == 'showGame')
+			System::getInstance()->showGame();
 		else 
 			System::getInstance()->getRating();
 	}

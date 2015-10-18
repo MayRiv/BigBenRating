@@ -1,4 +1,8 @@
 <?php getView("HeaderView.inc", null); ?>
-<div id="feed"><p>Личный кабинет</p></div>
+<div id="feed">
+	<h1>Личный кабинет</h1>
+	<a href="?action=changePassword">Сменить пароль</a>
+
+</div>
 <?php getView("Footer.inc", null); ?>
 </body>

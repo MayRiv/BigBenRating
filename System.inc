@@ -1,4 +1,5 @@
 <?php
+require("Game.inc");
 class System 
 {
 	private static $_instance;
@@ -20,19 +21,27 @@ class System
 	public function showAdminPanel()
 	{
 		session_start();
-		getView("AdminPanelView.inc", null);
+		if ($_SESSION['isAuth'] && ($_SESSION['status'] === "Master" || $_SESSION['status'] === "Admin"))	
+			getView("AdminPanelView.inc", null);
+		else 
+			header("Location: ?action=getRating");
 	}
 	public function getPersonalStat()
 	{
 		session_start();
-		getView("PersonalStatView.inc", null);
+		if (!$_SESSION['isAuth'])
+		{
+			$players = SQL("Select Name from Players")->getAll();
+			getView("Auth.inc",$players);
+		}
+		else
+			getView("PersonalStatView.inc", null);
 	}
 	public function login()
 	{
 		session_start();
 		if ($_SERVER['REQUEST_METHOD'] == 'POST')
 		{
-			echo $_POST['Password'];
 			$account = SQL("select  Status, Password from Players join Statuses USING(StatusId) where Name like ?", array($_POST['Player']))->getAll();
 			if (isset($account[0]))
 			{
@@ -41,20 +50,104 @@ class System
 					$_SESSION['isAuth'] = 1;
 					$_SESSION['player'] = $_POST['Player'];
 					$_SESSION['status'] = $account[0]['Status'];
-					header("Location: \?action=getPersonalStat");
+					header("Location: ?action=getPersonalStat");
 				}
 			}
 			else echo "Wrong password or login";
 		}
 		else
 		{
-
-			getView("Auth.inc",NULL);
+			$players = SQL("Select Name from Players")->getAll();
+			getView("Auth.inc",$players);
+		}
+	}
+	public function changePassword()
+	{
+		session_start();
+		if (!($_SESSION['isAuth']))
+			header("Location: ?action=getRating");
+		else
+		{
+			if ($_SERVER['REQUEST_METHOD'] == 'GET')
+			{
+				getView("ChangePasswordView.inc", NULL);
+			}
+			else
+			{
+				$oldPass = MD5($_POST['OldPass']);
+				if ($oldPass === SQL("select Password from Players where Name like ?", array($_SESSION['player']))->getAll()[0]['Password'])
+				{
+					if ($_POST['NewPass1'] === $_POST['NewPass2'])
+					{
+						SQL("Update Players SET Password=? where Name like ?", array(MD5($_POST['NewPass1']),$_SESSION['player']));
+					}
+				}
+				header("Location: ?action=getPersonalStat");
+			}
 		}
 	}
 	public function logout()
 	{
-
+		session_start();
+		$_SESSION['isAuth'] = 0;
+		header("Location: ?action=getRating");
+	}
+	public function addGame()
+	{
+		session_start();
+		if (!($_SESSION['isAuth'] && ($_SESSION['status'] === "Master" || $_SESSION['status'] === "Admin")))
+			header("Location: ?action=getRating");
+		else
+		{
+			if ($_SERVER['REQUEST_METHOD'] == 'GET')
+			{
+				$players = SQL("Select Name from Players")->getAll();
+				getView("AddGameView.inc",$players);
+			}
+			else
+			{
+				$game = new Game($_POST);
+				$game->saveToSql();
+				header("Location: ?action=showAdminPanel");
+			}
+		}
+	}
+	public function addPlayer()
+	{
+		session_start();
+		if (!($_SESSION['isAuth'] && ($_SESSION['status'] === "Master" || $_SESSION['status'] === "Admin")))
+			header("Location: ?action=getRating");
+		else
+		{
+			if ($_SERVER['REQUEST_METHOD'] == 'GET')
+			{
+				getView("AddPlayerView.inc", NULL);
+			}
+			else
+			{
+				SQL("INSERT IGNORE INTO `Players`(`Name`, `Password`, `StatusId`) VALUES (?,?,?)", array($_POST['Name'],
+MD5("player"), $_POST['Status']));
+			header("Location: ?action=showAdminPanel");
+			}
+		}
+	}
+	public function showGames()
+	{
+		session_start();
+		$games = array();
+		$res = SQL("select GameId, Master, date, RoomId from Games  order by date DESC, roomId", null)->getAll();
+		foreach($res as $game)
+		{
+			$games[$game['date']][$game['RoomId']] = array($game['Master'], $game['GameId']);
+		}		
+		getView("ShowGamesView.inc", $games);
+	}
+	public function showGame()
+	{
+		session_start();
+		$gameId = (int)$_GET['GameId'];
+		$game = new Game($gameId);
+		$game->show();
 	}
 }
 
