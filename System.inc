@@ -125,6 +125,10 @@ class System
 			}
 			else
 			{
+				if ($_POST['Status'] == 1)
+					$pass = MD5("player");
+				else
+					$pass = MD5("bbmaster123");
 				SQL("INSERT IGNORE INTO `Players`(`Name`, `Password`, `StatusId`) VALUES (?,?,?)", array($_POST['Name'],
 MD5("player"), $_POST['Status']));
 			header("Location: ?action=showAdminPanel");
