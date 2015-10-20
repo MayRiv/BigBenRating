@@ -78,7 +78,10 @@ class Game
 		{
 			echo "<tr><td>$name</td><td>".$player['Role']."</td><td>".$player['BestPlayer']."</td><td>".$player['BestMove']."</td><td>".$player['Warnings']."</td></tr>";
 			if ($player['WasShotFirst'])
-				$firstBlood = ('Name'=>$name, 'BestMove'=>$player['BestMove']);
+			{
+				$firstBlood['Name'] =$name;
+				$firstBlood['BestMove'] =$player['BestMove'];
+			}
 		}
 	echo '</table><div id="feed">';
 	if ($this->status == 1)
@@ -88,7 +91,7 @@ class Game
 	if ($this->status == 0)
 		$victoryTeam = "Ничья";
 	if (isset($firstBlood))
-		echo "<p>Первоубиенный ".$firstBlood['Name']."Попал в ".$firstBlood['BestMove']." черных игроков</p>";
+		echo "<p>Первоубиенный ".$firstBlood['Name']." Попал в ".$firstBlood['BestMove']." черных игроков</p>";
 	echo "<p>Победила команда: $victoryTeam</p>";
 	echo "<p>Ведущий: ".$this->master."</p></div>";
 	getView("Footer.inc", NULL);
