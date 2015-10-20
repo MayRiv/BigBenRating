@@ -8,7 +8,11 @@
 		foreach ($obj as $date => $tables) {
 			
 			foreach ($tables as $roomId => $game) {
-				echo "<tr><td>$date</td><td>$roomId зал</td><td>Ведущий $game[0]</td><td><a href='?action=showGame&GameId=$game[1]'>Игра №".$game[1]."</a></td></tr>";
+				$date_parsed = date_parse($date);
+				$year = $date_parsed["year"];
+				$month = $date_parsed["month"];
+				$day = $date_parsed["day"];
+				echo "<tr><td>$year-$month-$day</td><td>$roomId зал</td><td>Ведущий $game[0]</td><td><a href='?action=showGame&GameId=$game[1]'>Игра №".$game[1]."</a></td></tr>";
 			}
 		}
 	}
