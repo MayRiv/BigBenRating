@@ -73,10 +73,12 @@ class Game
 	{
 		getView("HeaderView.inc", NULL);
 		echo '<body><table class="table_dark">';
-		echo "<tr><th>Игрок</th><th>Роль</th><th>Лучший</th><th>Лучший ход</th><th>Фолы</th></tr>";
+		echo "<tr><th>Игрок</th><th>Роль</th><th>Лучший</th><th>Фолы</th></tr>";
 		foreach ($this->players as $name =>$player) 
 		{
 			echo "<tr><td>$name</td><td>".$player['Role']."</td><td>".$player['BestPlayer']."</td><td>".$player['BestMove']."</td><td>".$player['Warnings']."</td></tr>";
+			if ($player['WasShotFirst'])
+				$firstBlood = $player;
 		}
 	echo '</table><div id="feed">';
 	if ($this->status == 1)
@@ -85,6 +87,8 @@ class Game
 		$victoryTeam = "Мафия";
 	if ($this->status == 0)
 		$victoryTeam = "Ничья";
+	if (isset($firstBlood))
+		echo "<p>Первоубиенный ".$firstBlood['Name']."Попал в ".$firstBlood['BestMove']." черных игроков</p>"
 	echo "<p>Победила команда: $victoryTeam</p>";
 	echo "<p>Ведущий: ".$this->master."</p></div>";
 	getView("Footer.inc", NULL);
