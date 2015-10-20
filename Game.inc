@@ -78,7 +78,7 @@ class Game
 		{
 			echo "<tr><td>$name</td><td>".$player['Role']."</td><td>".$player['BestPlayer']."</td><td>".$player['BestMove']."</td><td>".$player['Warnings']."</td></tr>";
 			if ($player['WasShotFirst'])
-				$firstBlood = $player;
+				$firstBlood = ('Name'=>$name, 'BestMove'=>$player['BestMove']);
 		}
 	echo '</table><div id="feed">';
 	if ($this->status == 1)
