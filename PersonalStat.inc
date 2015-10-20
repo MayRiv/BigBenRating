@@ -56,8 +56,8 @@ class PersonalStat
 	
 	public function show()
 	{
-		getView("HeaderView.inc", NULL);
-		echo "<div id='feed'><p>Статистика игрока $this->player</p>";
+		//getView("HeaderView.inc", NULL);
+		echo "<div><p>Статистика игрока $this->player</p>";
 		echo "<p>Убит в первую ночь $this->firstBloodCount раз</p>";
 		if($this->firstBloodCount)
 			echo "<p>В среднем $this->firstBloodCount черных в лучших ходе</p></div>";
@@ -83,8 +83,8 @@ class PersonalStat
 		echo '</table>';
 	
 		
-		getView("Footer.inc", NULL);
-		echo "</body>";
+		//getView("Footer.inc", NULL);
+		//echo "</body>";
 	}
 }
 ?>

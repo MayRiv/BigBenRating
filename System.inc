@@ -1,5 +1,6 @@
 <?php
 require("Game.inc");
+require("PersonalStat.inc");
 class System 
 {
 	private static $_instance;
@@ -35,7 +36,11 @@ class System
 			getView("Auth.inc",$players);
 		}
 		else
-			getView("PersonalStatView.inc", null);
+		{
+			$stat = new PersonalStat($_SESSION['player']);
+			getView("PersonalStatView.inc", $stat);
+		}
+			//getView("PersonalStatView.inc", null);
 	}
 	public function login()
 	{
