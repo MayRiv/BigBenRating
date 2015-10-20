@@ -88,7 +88,7 @@ class Game
 	if ($this->status == 0)
 		$victoryTeam = "Ничья";
 	if (isset($firstBlood))
-		echo "<p>Первоубиенный ".$firstBlood['Name']."Попал в ".$firstBlood['BestMove']." черных игроков</p>"
+		echo "<p>Первоубиенный ".$firstBlood['Name']."Попал в ".$firstBlood['BestMove']." черных игроков</p>";
 	echo "<p>Победила команда: $victoryTeam</p>";
 	echo "<p>Ведущий: ".$this->master."</p></div>";
 	getView("Footer.inc", NULL);
