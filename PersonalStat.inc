@@ -57,7 +57,10 @@ class PersonalStat
 	public function show()
 	{
 		getView("HeaderView.inc", NULL);
-		echo "<div id='feed'><p>Статистика игрока $this->player</p></div>";
+		echo "<div id='feed'><p>Статистика игрока $this->player</p>";
+		echo "<p>Убит в первую ночь $this->firstBloodCount раз</p>";
+		if($this->firstBloodCount)
+			echo "<p>В среднем $this->firstBloodCount черных в лучших ходе</p></div>";
 		$totalRedCountGames = $this->citizensGameCount + $this->sherifGameCount;
 		$totalRedVictoryGames = $this->citizensVictoryCount + $this->sherifVictoryCount;
 		$totalBlackCountGames = $this->mafiaGameCount + $this->donGameCount;
@@ -77,11 +80,9 @@ class PersonalStat
 		echo	"<tr><td>Мафия</td><td>$this->mafiaGameCount</td><td>$this->mafiaVictoryCount</td></tr>";
 		echo	"<tr><td>Дон</td><td>$this->donGameCount</td><td>$this->donVictoryCount</th></td>";
 		
-		echo '</table><div id="feed">';
+		echo '</table>';
 	
-		echo "<p>Убит в первую ночь $this->firstBloodCount раз</p>";
-		if($this->firstBloodCount)
-			echo "<p>В среднем $this->firstBloodCount черных в лучших ходе</p>";
+		
 		getView("Footer.inc", NULL);
 		echo "</body>";
 	}
