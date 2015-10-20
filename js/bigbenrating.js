@@ -4,7 +4,7 @@ var bbr = (function() {
 	
 
   return {
-    defaults: function trySend() {
+    trySend: function() {
 		alert(1) 
 
 	}
