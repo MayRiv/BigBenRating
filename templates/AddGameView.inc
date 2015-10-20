@@ -49,7 +49,7 @@
 				<option value="Draw">Ничья</option>
 			</select>
 			</div>
-		<p><input type="submit" value="Send"></p>
+		<p><input type="button" value="Send" onclick="bbr.trySend()"></p>
 	</form>
 
 <datalist id="players_list">
