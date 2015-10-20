@@ -11,10 +11,9 @@
 		$firstBlood = $player;
 }
 
-	echo"</table>
-	<div id='feed>'"
+	echo "</table><div id='feed>'"
 
-	echo "<p>Первоубиенный "$player['Name']."Попал в ".$player['BestMove']." черных игроков</p>"
+	echo "<p>Первоубиенный ".$firstBlood['Name']."Попал в ".$firstBlood['BestMove']." черных игроков</p>"
 	echo "<p>Победила команда: ".$obj['game']["Status"]."</p>";
 	echo "<p>Ведущий: ".$obj['game']["MasterName"]."</p>";
 ?>
