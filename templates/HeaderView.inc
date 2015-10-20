@@ -2,7 +2,7 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="templates/bigbenrating.css"/>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<script type="тип" src="js/bigbenrating.js"></script>
+	<script type="text/javascript" src="js/bigbenrating.js"></script>
 </head>
 <body>
 	<div id="auth-div" style="float:right">
