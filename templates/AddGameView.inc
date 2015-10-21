@@ -3,7 +3,7 @@
 <div id="inserter">
 <div>
 	
-	<form action="?action=addGame" method="post">
+	<form id="form" action="?action=addGame" method="post">
 		<div>
 		<p>Выберите номер игрового зала
 		<select name='RoomId'>
@@ -17,7 +17,7 @@
 		<tr><th>№</th><th>Игрок</th><th>Роль</th><th>Лучший</th><th>Фолы</th>
 <?php	for ( $i = 0; $i < 10; $i++)	
 	echo "<tr><td>".($i+1)."</td><td><input type='text' name=Player$i list='players_list'></td>
-		<td><select name='Role$i'>
+		<td><select id='Role$i' name='Role$i'>
 			<option>Citizen</option>
 			<option>Sherif</option>
 			<option>Mafia</option>
