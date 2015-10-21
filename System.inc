@@ -106,7 +106,7 @@ class System
 		{
 			if ($_SERVER['REQUEST_METHOD'] == 'GET')
 			{
-				$players = SQL("select  Status, Password from Players join Statuses USING(StatusId)")->getAll();
+				$players = SQL("select  Status, Name from Players join Statuses USING(StatusId)")->getAll();
 				getView("AddGameView.inc",$players);
 			}
 			else
