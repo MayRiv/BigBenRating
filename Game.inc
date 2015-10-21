@@ -26,7 +26,7 @@ class Game
 	private function initByPostArray($post)
 	{
 		$this->roomId = $post['RoomId'];
-		$this->master = $_SESSION['player'];
+		$this->master = $_POST['Master'];
 		if ($post['result'] === "City")
 			$this->status = 1;
 		if ($post['result'] === "Mafia")
@@ -83,19 +83,48 @@ class Game
 				$firstBlood['BestMove'] =$player['BestMove'];
 			}
 		}
-	echo '</table><div id="feed">';
-	if ($this->status == 1)
-		$victoryTeam = "Город";
-	if ($this->status == -1)
-		$victoryTeam = "Мафия";
-	if ($this->status == 0)
-		$victoryTeam = "Ничья";
-	if (isset($firstBlood))
-		echo "<p>Первоубиенный ".$firstBlood['Name']." Попал в ".$firstBlood['BestMove']." черных игроков</p>";
-	echo "<p>Победила команда: $victoryTeam</p>";
-	echo "<p>Ведущий: ".$this->master."</p></div>";
-	getView("Footer.inc", NULL);
-echo "</body>";
+		echo '</table><div id="feed">';
+		if ($this->status == 1)
+			$victoryTeam = "Город";
+		if ($this->status == -1)
+			$victoryTeam = "Мафия";
+		if ($this->status == 0)
+			$victoryTeam = "Ничья";
+		if (isset($firstBlood))
+			echo "<p>Первоубиенный ".$firstBlood['Name']." Попал в ".$firstBlood['BestMove']." черных игроков</p>";
+		echo "<p>Победила команда: $victoryTeam</p>";
+		echo "<p>Ведущий: ".$this->master."</p></div>";
+		getView("Footer.inc", NULL);
+		echo "</body>";
 	}
+	public function editShow()
+	{
+		getView("HeaderView.inc", NULL);
+		echo '<body><table class="table_dark">';
+		echo "<tr><th>Игрок</th><th>Роль</th><th>Лучший</th><th>Фолы</th></tr>";
+		foreach ($this->players as $name =>$player) 
+		{
+			echo "<tr><td>$name</td><td>".$player['Role']."</td><td>".$player['BestPlayer']."</td><td>".$player['BestMove']."</td><td>".$player['Warnings']."</td></tr>";
+			if ($player['WasShotFirst'])
+			{
+				$firstBlood['Name'] =$name;
+				$firstBlood['BestMove'] =$player['BestMove'];
+			}
+		}
+		echo '</table><div id="feed">';
+		if ($this->status == 1)
+			$victoryTeam = "Город";
+		if ($this->status == -1)
+			$victoryTeam = "Мафия";
+		if ($this->status == 0)
+			$victoryTeam = "Ничья";
+		if (isset($firstBlood))
+			echo "<p>Первоубиенный ".$firstBlood['Name']." Попал в ".$firstBlood['BestMove']." черных игроков</p>";
+		echo "<p>Победила команда: $victoryTeam</p>";
+		echo "<p>Ведущий: ".$this->master."</p></div>";
+		getView("Footer.inc", NULL);
+		echo "</body>";
+	}
+
 }
 ?>

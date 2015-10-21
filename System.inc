@@ -106,7 +106,7 @@ class System
 		{
 			if ($_SERVER['REQUEST_METHOD'] == 'GET')
 			{
-				$players = SQL("Select Name from Players")->getAll();
+				$players = SQL("Select Name, Status from Players")->getAll();
 				getView("AddGameView.inc",$players);
 			}
 			else
@@ -131,6 +131,19 @@ class System
 				$players = SQL("delete from PlayerGame where game=?", array($_GET['gameid']));
 				header("Location: ?action=showGames");
 			}
+		}
+	}
+	public function editGame()
+	{
+		session_start();
+
+		if (!($_SESSION['isAuth'] && ($_SESSION['status'] === "Master" || $_SESSION['status'] === "Admin")))
+			header("Location: ?action=getRating");
+		else
+		{
+			$gameId = (int)$_GET['gameid'];
+			$game = new Game($gameId);
+			$game->showEdit();
 		}
 	}
 	public function addPlayer()

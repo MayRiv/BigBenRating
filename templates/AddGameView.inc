@@ -12,6 +12,7 @@
 			<option>3</option>
 			<option>4</option>
 		</select></p>
+		<p><input type='text' name='Master' list='masters_list' value='<?=$_SESSION["player"]?>'></p>
 		<table>
 		
 		<tr><th>№</th><th>Игрок</th><th>Роль</th><th>Лучший</th><th>Фолы</th>
@@ -54,7 +55,13 @@
 
 <datalist id="players_list">
 <?php	foreach ($obj as $player)
-    		echo "<option>".$player['Name']."</option>";?>
+			if (!($_SESSION['isAuth'] && ($_SESSION['status'] === "Master" || $_SESSION['status'] === "Admin")))
+    			echo "<option>".$player['Name']."</option>";?>
+</datalist>
+<datalist id="masters_list">
+<?php	foreach ($obj as $player)
+			if (($_SESSION['isAuth'] && ($_SESSION['status'] === "Master" || $_SESSION['status'] === "Admin")))
+    			echo "<option>".$player['Name']."</option>";?>
 </datalist>
 <datalist id="roles_list">
     		<option>citizen</option>

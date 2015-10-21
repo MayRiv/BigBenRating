@@ -4,7 +4,7 @@
 <?php
 	if (isset($obj))
 	{
-		echo "<tr><th>Дата</th><th>Зал</th><th>Ведущий</th><th>Подробно</th><th>Удалить</th></tr>";
+		echo "<tr><th>Дата</th><th>Зал</th><th>Ведущий</th><th>Подробно</th><th>Удалить</th><th>Редактирование</th></tr>";
 		foreach ($obj as $date => $tables) {
 			
 			foreach ($tables as $roomId => $game) {
@@ -14,7 +14,7 @@
 				$day = $date_parsed["day"];
 				echo "<tr><td>$year-$month-$day</td><td>$roomId зал</td><td>Ведущий $game[0]</td><td><a href='?action=showGame&GameId=$game[1]'>Игра №".$game[1]."</a></td>";
 				if (($_SESSION['isAuth'] && ($_SESSION['status'] === "Master" || $_SESSION['status'] === "Admin")))
-					echo "<td><a href='?action=deleteGame&gameid=$game[1]'>Удалить</a></td>";
+					echo "<td><a href='?action=deleteGame&gameid=$game[1]'>Удалить</a></td><td><a href='?action=editGame&gameid=$game[1]'>Редактировать</a></td>";
 				echo "</tr>";
 			}
 		}
