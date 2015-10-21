@@ -104,7 +104,7 @@ class Game
 		echo "<tr><th>Игрок</th><th>Роль</th><th>Лучший</th><th>Фолы</th></tr>";
 		foreach ($this->players as $name =>$player) 
 		{
-			echo "<tr><td>$name</td><td>".$player['Role']."</td><td>".$player['BestPlayer']."</td><td>".$player['BestMove']."</td><td>".$player['Warnings']."</td></tr>";
+			echo "<tr><td>$name</td><td>".$player['Role']."</td><td>".$player['BestPlayer']."</td><td>".$player['Warnings']."</td></tr>";
 			if ($player['WasShotFirst'])
 			{
 				$firstBlood['Name'] =$name;
