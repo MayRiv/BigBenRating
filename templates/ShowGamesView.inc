@@ -4,7 +4,7 @@
 <?php
 	if (isset($obj))
 	{
-		echo "<tr><th>Дата</th><th>Зал</th><th>Ведущий</th><th>Подробно</th></tr>";
+		echo "<tr><th>Дата</th><th>Зал</th><th>Ведущий</th><th>Подробно</th><th>Удалить</th></tr>";
 		foreach ($obj as $date => $tables) {
 			
 			foreach ($tables as $roomId => $game) {
