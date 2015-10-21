@@ -12,10 +12,11 @@ class PersonalStat
 	private $donVictoryCount=0;
 	private $firstBloodCount=0;
 	private $averageBestMove = 0;
+	private $bestVotes = 0;
 	public function __construct($playerName)
 	{
 		$this->player = $playerName;
-		$games  = SQL("Select Role, Won, WasShotFirst, BestMove from PlayerGame where player like ?", array($playerName))->getAll();
+		$games  = SQL("Select Role, Won, WasShotFirst, BestMove, BestPlayer from PlayerGame where player like ?", array($playerName))->getAll();
 		$totalBestMove = 0;
 		foreach($games as $game)
 		{	
@@ -49,6 +50,8 @@ class PersonalStat
 				$this->firstBloodCount++;
 				$totalBestMove += $game['BestMove'];
 			}
+			if ($game['BestPlayer'])
+				$this->bestVotes+= $game['BestPlayer'];
 		}
 		if($this->firstBloodCount)
 			$this->averageBestMove = $totalBestMove / $this->firstBloodCount;
@@ -58,6 +61,7 @@ class PersonalStat
 	{
 		//getView("HeaderView.inc", NULL);
 		echo "<div><h2>Статистика игрока $this->player</h2>";
+		echo "<p>Получил $this->bestVotes лучших</p>";
 		echo "<p>Убит в первую ночь $this->firstBloodCount раз</p>";
 		if($this->firstBloodCount)
 			echo "<p>В среднем $this->firstBloodCount черных в лучших ходе</p></div>";
