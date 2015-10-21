@@ -34,6 +34,8 @@
 			System::getInstance()->login();
 		else if ($_GET['action'] == 'addGame')
 			System::getInstance()->addGame();
+		else if ($_GET['action'] == 'deleteGame')
+			System::getInstance()->deleteGame();
 		else if ($_GET['action'] == 'addPlayer')
 			System::getInstance()->addPlayer();
 		else if ($_GET['action'] == 'changePassword')

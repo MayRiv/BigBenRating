@@ -117,6 +117,22 @@ class System
 			}
 		}
 	}
+	public function deleteGame()
+	{
+		session_start();
+
+		if (!($_SESSION['isAuth'] && ($_SESSION['status'] === "Master" || $_SESSION['status'] === "Admin")))
+			header("Location: ?action=getRating");
+		else
+		{
+			if ($_SERVER['REQUEST_METHOD'] == 'GET')
+			{
+				$players = SQL("delete from Games where gameid=?", array($_GET['gameid']));
+				$players = SQL("delete from PlayerGame where game=?", array($_GET['gameid']));
+				header("Location: ?action=showGames");
+			}
+		}
+	}
 	public function addPlayer()
 	{
 		session_start();
