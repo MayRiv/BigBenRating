@@ -4,9 +4,8 @@
 <?php
 	if (isset($obj))
 	{
-		echo "<tr><th>Дата</th><th>Зал</th><th>Ведущий</th><th>Подробно</th><th>Удалить</th><th>Редактирование</th></tr>";
+		echo "<tr><th>Дата</th><th>Зал</th><th>Ведущий</th><th>Подробно</th><th>Удалить</th></tr>";
 		foreach ($obj as $date => $tables) {
-			
 			foreach ($tables as $roomId => $game) {
 				$date_parsed = date_parse($date);
 				$year = $date_parsed["year"];

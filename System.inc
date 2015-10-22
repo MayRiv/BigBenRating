@@ -27,6 +27,10 @@ class System
 		else 
 			header("Location: ?action=getRating");
 	}
+	public function comparePlayer()
+	{
+		echo "Тестируем" + $_POST['name'];
+	}
 	public function getPersonalStat()
 	{
 		session_start();
@@ -38,9 +42,14 @@ class System
 		else
 		{
 			$stat = new PersonalStat($_SESSION['player']);
+			if (isset($_POST['name']))
+			{
+				$player = $_POST["name"];
+
+				$stat->compare($player);		
+			}
 			getView("PersonalStatView.inc", $stat);
 		}
-			//getView("PersonalStatView.inc", null);
 	}
 	public function login()
 	{
@@ -133,19 +142,7 @@ class System
 			}
 		}
 	}
-	public function editGame()
-	{
-		session_start();
 
-		if (!($_SESSION['isAuth'] && ($_SESSION['status'] === "Master" || $_SESSION['status'] === "Admin")))
-			header("Location: ?action=getRating");
-		else
-		{
-			$gameId = (int)$_GET['gameid'];
-			$game = new Game($gameId);
-			$game->showEdit();
-		}
-	}
 	public function addPlayer()
 	{
 		session_start();

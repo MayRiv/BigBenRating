@@ -26,13 +26,33 @@ var bbr = (function() {
 	}
 
   return {
-    trySend: function() {
+	trySend: function() {
 		if (checkRoles())
 			document.getElementById('form').submit()
 		else
 			alert("Invalid Roles");
 
+	},
+	compare: function(player){
+		player =  document.getElementById('ComparePlayer').value;
+
+		var xhr = new XMLHttpRequest();
+
+		var body = 'name=' + encodeURIComponent(player);
+
+		xhr.open("POST", '?action=compare', true)
+		xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+
+		xhr.onreadystatechange = function() { // Ждём ответа от сервера
+			if (xhr.readyState == 4) { // Ответ пришёл
+		        if(xhr.status == 200) { // Сервер вернул код 200 (что хорошо)
+		        	document.getElementById("CompareDiv").innerHTML = xhr.responseText; // Выводим ответ сервера
+		        }
+		    }
+		};
+
+		xhr.send(body);
 	}
-  }
+}
 
 })();

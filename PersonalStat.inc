@@ -2,6 +2,7 @@
 class PersonalStat
 {
 	private $player;
+	private $games;
 	private $citizensGameCount=0;	
 	private $sherifGameCount=0;	
 	private $mafiaGameCount=0;	
@@ -13,14 +14,16 @@ class PersonalStat
 	private $firstBloodCount=0;
 	private $averageBestMove = 0;
 	private $bestVotes = 0;
+
+	private $compareResult;
 	public function __construct($playerName)
 	{
 		$this->player = $playerName;
-		$games  = SQL("Select Role, Won, WasShotFirst, BestMove, BestPlayer from PlayerGame where player like ?", array($playerName))->getAll();
+		$games  = SQL("Select Game,Role, Won, WasShotFirst, BestMove, BestPlayer from PlayerGame where player like ?", array($playerName))->getAll();
 		$totalBestMove = 0;
 		foreach($games as $game)
 		{	
-			
+			$this->games[] = $game['Game'];
 			if ($game['Role'] == "Citizen")
 			{
 				$this->citizensGameCount++;
@@ -86,9 +89,14 @@ class PersonalStat
 		
 		echo '</table>';
 	
-		
-		//getView("Footer.inc", NULL);
-		//echo "</body>";
+	}
+	public function compare($p)
+	{
+		$query = "Select Game,Role, Won, WasShotFirst, BestMove, BestPlayer from PlayerGame where player like ? and Game IN (".$this->games[0];
+		for($i = 1; $i < count($this->games);$i++)
+			$query .= ",".$games[$i];
+		$query .= ")";
+		$this->compareResult = SQL($query,array($p))->getAll();
 	}
 }
 ?>
