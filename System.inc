@@ -29,7 +29,8 @@ class System
 	}
 	public function comparePlayer()
 	{
-		echo "Тестируем " . $_POST['name'];
+		echo $_POST['name'];
+		//echo "Тестируем" + $_POST['name'];
 	}
 	public function getPersonalStat()
 	{
@@ -152,8 +153,7 @@ class System
 		{
 			if ($_SERVER['REQUEST_METHOD'] == 'GET')
 			{
-				$players = SQL("Select Name from Players")->getAll();
-				getView("AddPlayerView.inc", $players);
+				getView("AddPlayerView.inc", NULL);
 			}
 			else
 			{
