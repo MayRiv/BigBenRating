@@ -184,6 +184,17 @@ class System
 		$game = new Game($gameId);
 		$game->show();
 	}
+	public function getDomination()
+	{
+		session_start();
+		$data = null;
+		if (!$_SERVER['REQUEST_METHOD'] == 'GET')
+		{
+				$data['comparePlayer1'] = $_POST['comparePlayer1'];
+				$data['comparePlayer2'] = $_POST['comparePlayer2'];
+		}
+		getView("DominationView.inc", $data);
+	}
 }
 
 ?>

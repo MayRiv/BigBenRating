@@ -30,6 +30,10 @@
 					<span class="text-top">Личный кабинет</span>
 					<span class="text-bottom">Статистика игрока</span>
 				</a></li>
+				<li><a href="?action=getDomination">
+					<span class="text-top">Парная статистика</span>
+					<span class="text-bottom">Доминация</span>
+				</a></li>
 				<li><a href="?action=showGames">
 					<span class="text-top">Подробно про игры</span>
 					<span class="text-bottom">История игр</span>

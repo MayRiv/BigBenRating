@@ -46,6 +46,8 @@
 			System::getInstance()->changePassword();
 		else if ($_GET['action'] == 'showGame')
 			System::getInstance()->showGame();
+		else if ($_GET['action'] == 'getDomination')
+			System::getInstance()->getDomination();
 		else 
 			System::getInstance()->getRating();
 	}
