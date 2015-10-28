@@ -10,7 +10,6 @@
 <?php
 	if (isset($obj))
 	{
-		var_dump($obj);
 		echo '<body><table class="table_dark"><caption>Статистика совместных игр</caption>';
 		echo "	<tr><th>Роли</th><th>Всего игр</th><th>Побед у ".$obj['comparePlayer1']."</th>";
 		
