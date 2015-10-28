@@ -153,7 +153,8 @@ class System
 		{
 			if ($_SERVER['REQUEST_METHOD'] == 'GET')
 			{
-				getView("AddPlayerView.inc", NULL);
+				$players = SQL("Select Name from Players")->getAll();
+				getView("AddPlayerView.inc", $players);
 			}
 			else
 			{
