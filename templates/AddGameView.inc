@@ -12,7 +12,7 @@
 			<option>3</option>
 			<option>4</option>
 		</select></p>
-		<p>Дата проведения игры <input type="date" name="data" value='<?=$obj['date']?>' /></p>
+		<p>Дата проведения игры <input type="date" name="date" value='<?=$obj['date']?>' /></p>
 		<p>Ведущий: <input type='text' name='Master' list='masters_list' value='<?=$_SESSION["player"]?>'></p>
 		<table>
 		
