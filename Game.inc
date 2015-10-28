@@ -33,7 +33,7 @@ class Game
 			$this->status = -1;
 		if ($post['result'] === "Draw")
 			$this->status = 0;
-		$this->date = $post['date'];//  
+		$this->date = $post['date'];
 		$this->gameId = SQL("select max(GameId) as m from Games")->getAll()[0]['m'] + 1;
 				
 		$this->players = array();

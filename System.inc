@@ -190,10 +190,15 @@ class System
 	{
 		session_start();
 		$data = null;
-		if (!$_SERVER['REQUEST_METHOD'] == 'GET')
+		if ($_SERVER['REQUEST_METHOD'] != 'GET')
 		{
 				$data['comparePlayer1'] = $_POST['comparePlayer1'];
 				$data['comparePlayer2'] = $_POST['comparePlayer2'];
+				//$playerGames = SQL("SELECT * FROM ( SELECT player as p1,Role as r1, Won as w1, Game FROM  `PlayerGame` WHERE player LIKE  ?) t1
+				//					JOIN (SELECT player as p2,Role as r2, Won as w2, Game FROM  `PlayerGame` WHERE player LIKE  ?) t2 
+				//					USING ( Game )", array($data['comparePlayer1'], $data['comparePlayer2']))->getAll();
+				$BRed = SQL("select count(*), SUM(w1) from (SELECT * FROM (SELECT player AS p1, Role AS r1, Won AS w1, GameFROM  `PlayerGame` WHERE player LIKE  ?)t1JOIN (SELECT player AS p2, Role AS r2, Won AS w2, GameFROM  `PlayerGame` WHERE player LIKE  ?) t2 USING ( Game )) G where r1 like ? and r2 like ?", array($data['comparePlayer1'], $data['comparePlayer2'], "Citizen","Citizen"))->getAll();
+				$data['BRed'] = $BRed;
 		}
 		getView("DominationView.inc", $data);
 	}
