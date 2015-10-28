@@ -11,12 +11,12 @@
 	if (isset($obj['BRed']))
 	{
 		echo '<body><table class="table_dark"><caption>Статистика совместных игр</caption>';
-		echo "	<tr><th>Роли</th><th>Всего игр</th><th>Побед у ".$obj['comparePlayer1']."</th>";
+		echo "	<tr><th>Роли</th><th>Всего игр</th><th>Побед у ".$obj['comparePlayer1']."</th><th>Побед у ".$obj['comparePlayer2']."</th></tr>";
 		
-		echo "<tr><td>Оба красных</td><td>".$obj['BRed']['total']."</td><td>".$obj['BRed']['v']."</td></tr>";
-		echo "<tr><td>Оба черных</td><td>".$obj['BBlack']['total']."</td><td>".$obj['BBlack']['v']."</td></tr>";
-		echo "<tr><td>".$obj['comparePlayer1']." красный, ".$obj['comparePlayer2']." черный</td><td>".$obj['RB']['total']."</td><td>".$obj['RB']['v']."</td></tr>";
-		echo "<tr><td>".$obj['comparePlayer1']." черный, ".$obj['comparePlayer2']." красный</td><td>".$obj['BR']['total']."</td><td>".$obj['BR']['v']."</td></tr>";
+		echo "<tr><td>Оба красных</td><td>".$obj['BRed']['total']."</td><td>".$obj['BRed']['v1']."</td><td>".$obj['BRed']['v2']."</td></tr>";
+		echo "<tr><td>Оба черных</td><td>".$obj['BBlack']['total']."</td><td>".$obj['BBlack']['v1']."</td><td>".$obj['BBlack']['v2']."</td></tr>";
+		echo "<tr><td>".$obj['comparePlayer1']." красный, ".$obj['comparePlayer2']." черный</td><td>".$obj['RB']['total']."</td><td>".$obj['RB']['v1']."</td><td>".$obj['RB']['v2']."</td></tr>";
+		echo "<tr><td>".$obj['comparePlayer1']." черный, ".$obj['comparePlayer2']." красный</td><td>".$obj['BR']['total']."</td><td>".$obj['BR']['v1']."</td><td>".$obj['BR']['v2']."</td></tr>";
 		echo '</table>';
 	}
 ?>
