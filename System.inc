@@ -189,7 +189,8 @@ class System
 	public function getDomination()
 	{
 		session_start();
-		$data = null;
+		$players = SQL("Select Name from Players")->getAll();
+		$data['players'] = $players;
 		if ($_SERVER['REQUEST_METHOD'] != 'GET')
 		{		
 				

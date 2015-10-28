@@ -4,11 +4,11 @@
 	
 	<form id="form" action="?action=getDomination" method="post">
 		<p>Чтобы получить статистику общих игр двух игркоов введите их ники и нажмите "Сравнить"</p>
-		<p><input name='ComparePlayer1' type="text"/><input name='ComparePlayer2' type="text"/></p>
+		<p><input name='ComparePlayer1' type="text" list='players_list'/><input name='ComparePlayer2' type="text" list='players_list'/></p>
 		<p><input type="submit" value="Сравнить"/></p>
 	</form>
 <?php
-	if (isset($obj))
+	if (isset($obj['BRed']))
 	{
 		echo '<body><table class="table_dark"><caption>Статистика совместных игр</caption>';
 		echo "	<tr><th>Роли</th><th>Всего игр</th><th>Побед у ".$obj['comparePlayer1']."</th>";
@@ -21,6 +21,10 @@
 	}
 ?>
 </div>
-
+<datalist id="players_list">
+<?php	foreach ($obj['players'] as $player)
+			if (!($player['Status'] === "Master" || $player['Status'] === "Admin"))
+    			echo "<option>".$player['Name']."</option>";?>
+</datalist>
 <?php getView("Footer.inc", null); ?>
 </body>
