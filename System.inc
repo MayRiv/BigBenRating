@@ -173,7 +173,7 @@ class System
 		$res = SQL("select GameId, Master, date, RoomId from Games  order by date DESC, roomId", null)->getAll();
 		foreach($res as $game)
 		{
-			$games[$game['date']][$game['RoomId']] = array($game['Master'], $game['GameId']);
+			$games[$game['date']][] = array($game['Master'], $game['GameId'], $game['RoomId']);		
 		}		
 		getView("ShowGamesView.inc", $games);
 	}
