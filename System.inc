@@ -191,14 +191,27 @@ class System
 		session_start();
 		$data = null;
 		if ($_SERVER['REQUEST_METHOD'] != 'GET')
-		{
-				$data['comparePlayer1'] = $_POST['comparePlayer1'];
-				$data['comparePlayer2'] = $_POST['comparePlayer2'];
-				//$playerGames = SQL("SELECT * FROM ( SELECT player as p1,Role as r1, Won as w1, Game FROM  `PlayerGame` WHERE player LIKE  ?) t1
-				//					JOIN (SELECT player as p2,Role as r2, Won as w2, Game FROM  `PlayerGame` WHERE player LIKE  ?) t2 
-				//					USING ( Game )", array($data['comparePlayer1'], $data['comparePlayer2']))->getAll();
-				$BRed = SQL("select count(*), SUM(w1) from (SELECT * FROM (SELECT player AS p1, Role AS r1, Won AS w1, GameFROM  `PlayerGame` WHERE player LIKE  ?)t1JOIN (SELECT player AS p2, Role AS r2, Won AS w2, GameFROM  `PlayerGame` WHERE player LIKE  ?) t2 USING ( Game )) G where r1 like ? and r2 like ?", array($data['comparePlayer1'], $data['comparePlayer2'], "Citizen","Citizen"))->getAll();
-				$data['BRed'] = $BRed;
+		{		
+				
+				$data['comparePlayer1'] = $_POST['ComparePlayer1'];
+				$data['comparePlayer2'] = $_POST['ComparePlayer2'];
+				$BRed = SQL("select count(*) as total, SUM(w1) as v from (SELECT * FROM ( SELECT player as p1,Role as r1, Won as w1, Game FROM  `PlayerGame` WHERE player LIKE  ?) t1
+									JOIN (SELECT player as p2,Role as r2, Won as w2, Game FROM  `PlayerGame` WHERE player LIKE  ?) t2 
+									USING ( Game )) G where (r1 like 'Citizen' or r1 like 'Sherif') and (r2 like 'Citizen' or r2 like 'Sherif')", array($data['comparePlayer1'], $data['comparePlayer2']))->getAll();
+				$BBlack= SQL("select count(*) as total, SUM(w1) as v from (SELECT * FROM ( SELECT player as p1,Role as r1, Won as w1, Game FROM  `PlayerGame` WHERE player LIKE  ?) t1
+									JOIN (SELECT player as p2,Role as r2, Won as w2, Game FROM  `PlayerGame` WHERE player LIKE  ?) t2 
+									USING ( Game )) G where (r1 like 'Mafia' or r1 like 'Don') and (r2 like 'Mafia' or r2 like 'Don')", array($data['comparePlayer1'], $data['comparePlayer2']))->getAll();
+				$BR= SQL("select count(*) as total, SUM(w1) as v from (SELECT * FROM ( SELECT player as p1,Role as r1, Won as w1, Game FROM  `PlayerGame` WHERE player LIKE  ?) t1
+									JOIN (SELECT player as p2,Role as r2, Won as w2, Game FROM  `PlayerGame` WHERE player LIKE  ?) t2 
+									USING ( Game )) G where (r1 like 'Mafia' or r1 like 'Don') and (r2 like 'Citizen' or r2 like 'Sherif')", array($data['comparePlayer1'], $data['comparePlayer2']))->getAll();
+				$RB= SQL("select count(*) as total, SUM(w1) as v from (SELECT * FROM ( SELECT player as p1,Role as r1, Won as w1, Game FROM  `PlayerGame` WHERE player LIKE  ?) t1
+									JOIN (SELECT player as p2,Role as r2, Won as w2, Game FROM  `PlayerGame` WHERE player LIKE  ?) t2 
+									USING ( Game )) G where (r1 like 'Citizen' or r2 like 'Sherif') and (r2 like'Mafia' or r1 like 'Don')", array($data['comparePlayer1'], $data['comparePlayer2']))->getAll();
+				
+				$data['BRed'] = $BRed[0];
+				$data['BBlack'] = $BBlack[0];
+				$data['RB'] = $RB[0];
+				$data['BR'] = $BR[0];
 		}
 		getView("DominationView.inc", $data);
 	}
