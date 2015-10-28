@@ -19,7 +19,7 @@ class PersonalStat
 	public function __construct($playerName)
 	{
 		$this->player = $playerName;
-		$this->$games  = SQL("Select Game,Role, Won, WasShotFirst, BestMove, BestPlayer from PlayerGame where player like ?", array($playerName))->getAll();
+		$games  = SQL("Select Game,Role, Won, WasShotFirst, BestMove, BestPlayer from PlayerGame where player like ?", array($playerName))->getAll();
 		$totalBestMove = 0;
 		foreach($games as $game)
 		{	
@@ -90,10 +90,10 @@ class PersonalStat
 		echo '</table>';
 
 		echo "<div><p>Сыграл в играх: ";
-		foreach ($games as $game) {
-			echo "<a href='?action=showGame&GameId=".$game['Game'].">".$game['Game']."</a> ";
+		foreach ($this->games as $game) {
+			echo "<a href='?action=showGame&GameId=".$game."'>".$game."</a> ";
 		}
-		echo "</p></div>"
+		echo "</p></div>";
 	
 	}
 }
