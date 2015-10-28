@@ -12,6 +12,7 @@
 			<option>3</option>
 			<option>4</option>
 		</select></p>
+		<p>Дата проведения игры <input type="date" name="data" value='<?=$obj['date']?>' /></p>
 		<p>Ведущий: <input type='text' name='Master' list='masters_list' value='<?=$_SESSION["player"]?>'></p>
 		<table>
 		
@@ -54,12 +55,12 @@
 	</form>
 
 <datalist id="players_list">
-<?php	foreach ($obj as $player)
+<?php	foreach ($obj['players'] as $player)
 			if (!($player['Status'] === "Master" || $player['Status'] === "Admin"))
     			echo "<option>".$player['Name']."</option>";?>
 </datalist>
 <datalist id="masters_list">
-<?php	foreach ($obj as $player)
+<?php	foreach ($obj['players'] as $player)
 			if ($player['Status'] === "Master" || $player['Status'] === "Admin")
     				echo "<option>".$player['Name']."</option>";?>
 </datalist>
