@@ -101,7 +101,7 @@ class Game
 	{
 		getView("HeaderView.inc", NULL);
 		echo "<form id='form' action='?action=addGame' method='post'>
-		<div>
+		<div id='feed'>;
 		<p>Выберите номер игрового зала
 		<select name='RoomId'>";
 		for($i = 1; $i < 5; $i++)
@@ -112,10 +112,10 @@ class Game
 				echo "<option>$i</option>";
 		}
 		echo "</select></p>
-		<p>Дата проведения игры <input type='date' name='date' value=this->date /></p>
+		<p>Дата проведения игры <input type='date' name='date' value=$this->date /></p>
 		<p>Ведущий: <input type='text' name='Master' list='players_list' value=$this->master></p>
 		<body><table class='table_dark'>
-		tr><th>Игрок</th><th>Роль</th><th>Лучший</th><th>Фолы</th></tr>";
+		<tr><th>Игрок</th><th>Роль</th><th>Лучший</th><th>Фолы</th></tr>";
 		foreach ($this->players as $name =>$player) 
 		{
 			echo "<tr><td>$name</td><td>".$player['Role']."</td><td>".$player['BestPlayer']."</td><td>".$player['Warnings']."</td></tr>";
@@ -125,7 +125,7 @@ class Game
 				$firstBlood['BestMove'] =$player['BestMove'];
 			}
 		}
-		echo '</table><div id="feed">';
+		echo '</table>';
 		if ($this->status == 1)
 			$victoryTeam = "Город";
 		if ($this->status == -1)
@@ -155,8 +155,8 @@ class Game
 		echo "<p>Ведущий: ".$this->master."</p></div>";
 		getView("Footer.inc", NULL);
 		echo "<datalist id='players_list'>";
-		foreach ($this->players as $player)
-    			echo "<option>".$player['Name']."</option>";
+		foreach ($this->players as $name =>$player) 
+    			echo "<option>$name</option>";
 		echo "</datalist>";
 		echo "</body>";
 	}
