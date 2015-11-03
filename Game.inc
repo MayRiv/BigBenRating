@@ -200,7 +200,7 @@ class Game
 			if (!($player['Status'] === "Master" || $player['Status'] === "Admin"))
     			echo "<option>".$player['Name']."</option>";
 		echo "</datalist>
-		<datalist id='masters_list'>"
+		<datalist id='masters_list'>";
 		foreach ($obj['players'] as $player)
 			if ($player['Status'] === "Master" || $player['Status'] === "Admin")
     				echo "<option>".$player['Name']."</option>";
