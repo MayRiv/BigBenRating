@@ -110,6 +110,7 @@ class Game
 	{
 		getView("HeaderView.inc", NULL);
 		echo "<form id='form' action='?action=editGame' method='post'>
+		<input name='GameId' type='hidden'  value='$this->gameId'>
 		<div id='feed'>
 		<p>Выберите номер игрового зала
 		<select name='RoomId'>";
