@@ -204,7 +204,7 @@ class System
 				$gameId = (int)$_POST['GameId'];
 				$game = new Game($_POST);
 				$game->update($gameId);
-				header("Location: ?showGame&GameId=$gameId");
+				header("Location: ?action=showGame&GameId=$gameId");
 			}
 		}
 	}
