@@ -138,8 +138,8 @@ class System
 		{
 			if ($_SERVER['REQUEST_METHOD'] == 'GET')
 			{
-				$players = SQL("delete from Games where gameid=?", array($_GET['gameid']));
-				$players = SQL("delete from PlayerGame where game=?", array($_GET['gameid']));
+				$players = SQL("delete from Games where gameid=?", array($_GET['GameId']));
+				$players = SQL("delete from PlayerGame where game=?", array($_GET['GameId']));
 				header("Location: ?action=showGames");
 			}
 		}

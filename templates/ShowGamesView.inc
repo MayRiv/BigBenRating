@@ -17,10 +17,10 @@
 		echo "</tr>";
 		foreach ($obj as $date => $games) {
 			foreach ($games as $game) {
-				echo "<tr><td>$date</td><td>".$game[2]." зал</td><td>Ведущий $game[0]</td><td><a href='?action=showGame&GameId=$game[1]'>Игра №".$game[1]."</a></td>";
+				echo "<tr><td>$date</td><td>".$game[2]."</td><td>Ведущий $game[0]</td><td><a href='?action=showGame&GameId=$game[1]'>Игра №".$game[1]."</a></td>";
 				if ($isAdmin)
-					echo "<td><a href='?action=editGame&gameid=$game[1]'>Редактировать</a>";
-					echo "<td><a href='?action=deleteGame&gameid=$game[1]'>Удалить</a>";
+					echo "<td><a href='?action=editGame&GameId=$game[1]'>Редактировать</a>";
+					echo "<td><a href='?action=deleteGame&GameId=$game[1]'>Удалить</a>";
 				echo "</tr>";
 			}
 		}
