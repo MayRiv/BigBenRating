@@ -131,7 +131,7 @@ class Game
 		if ($player['BestPlayer'] > 0)
 			echo "<input type='checkbox' checked name='Best$i'/></td><td>";
 		else 
-			echo "<input type='checkbox' checked name='Best$i'/></td><td>";
+			echo "<input type='checkbox' name='Best$i'/></td><td>";
 		echo "<select name='Warnings$i'>";
 			for($i =0; $i < 5; $i++)
 				if ($i==$player['Warnings'])
@@ -149,7 +149,7 @@ class Game
 		echo '</table>';
 
 		if (isset($firstBlood))
-			echo "<p>Первоубиенный <input type='text' name='BestMovePlayer' placeholder='Первоубиенный' list='players_list' value=".$firstBlood['Name']."/>";
+			echo "<p>Первоубиенный <input type='text' name='BestMovePlayer' placeholder='Первоубиенный' list='players_list' value='".$firstBlood['Name']."' />";
 			echo "Попал в <td><select name='BestMovePoints'>";
 			for ($i = 0; $i < 4; $i++)
 			{
@@ -180,7 +180,7 @@ class Game
 			else
 				echo "<option value='$team'>$message</option>";
 		}
-		echo "<p><input type='button' value='Send' onclick='bbr.trySend()'/></p>
+		echo "<p><input type='button' value='Update' onclick='bbr.trySend()'/></p>
 	</form>";
 		getView("Footer.inc", NULL);
 		echo "<datalist id='players_list'>";
