@@ -196,12 +196,12 @@ class Game
 		getView("Footer.inc", NULL);
 		$res = SQL("select  Status, Name from Players join Statuses USING(StatusId)")->getAll();
 		echo "<datalist id='players_list'>";
-		foreach ($obj['players'] as $player)
+		foreach ($res as $player)
 			if (!($player['Status'] === "Master" || $player['Status'] === "Admin"))
     			echo "<option>".$player['Name']."</option>";
 		echo "</datalist>
 		<datalist id='masters_list'>";
-		foreach ($obj['players'] as $player)
+		foreach ($res as $player)
 			if ($player['Status'] === "Master" || $player['Status'] === "Admin")
     				echo "<option>".$player['Name']."</option>";
 		echo "</datalist>";
