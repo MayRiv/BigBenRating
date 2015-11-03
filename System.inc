@@ -201,9 +201,10 @@ class System
 			}
 			if ($_SERVER['REQUEST_METHOD'] == 'POST')
 			{
-				$gameId = (int)$_GET['GameId'];
+				$gameId = (int)$_POST['GameId'];
 				$game = new Game($_POST);
 				$game->update($gameId);
+				header("Location: ?showGame&GameId=$gameId");
 			}
 		}
 	}
