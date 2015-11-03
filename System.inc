@@ -191,7 +191,7 @@ class System
 		session_start();
 		$gameId = (int)$_GET['GameId'];
 		$game = new Game($gameId);
-		$game->edit();
+		$game->editShow();
 	}
 	public function getDomination()
 	{
