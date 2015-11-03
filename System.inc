@@ -189,9 +189,23 @@ class System
 	public function editGame()
 	{
 		session_start();
-		$gameId = (int)$_GET['GameId'];
-		$game = new Game($gameId);
-		$game->editShow();
+		if (!($_SESSION['isAuth'] && ($_SESSION['status'] === "Master" || $_SESSION['status'] === "Admin")))
+			header("Location: ?action=getRating");
+		else
+		{
+			if ($_SERVER['REQUEST_METHOD'] == 'GET')
+			{	
+				$gameId = (int)$_GET['GameId'];
+				$game = new Game($gameId);
+				$game->editShow();
+			}
+			if ($_SERVER['REQUEST_METHOD'] == 'POST')
+			{
+				$gameId = (int)$_GET['GameId'];
+				$game = new Game($_POST);
+				$game->update($gameId);
+			}
+		}
 	}
 	public function getDomination()
 	{

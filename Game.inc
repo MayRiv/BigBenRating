@@ -19,7 +19,16 @@ class Game
 		
 		foreach ($this->players as $playerName => $info)
 		{	
-		SQL("INSERT INTO `PlayerGame`(`Player`, `Game`, `Role`, `BestPlayer`, `Warnings`, `WasShotFirst`, `BestMove`, `Won`) VALUES (?,?,?,?,?,?,?,?)", array($playerName, $this->gameId, $info['Role'], $info['BestPlayer'], $info['Warnings'], $info['WasShotFirst'], $info['BestMove'], $info['Won']));
+			SQL("INSERT INTO `PlayerGame`(`Player`, `Game`, `Role`, `BestPlayer`, `Warnings`, `WasShotFirst`, `BestMove`, `Won`) VALUES (?,?,?,?,?,?,?,?)", array($playerName, $this->gameId, $info['Role'], $info['BestPlayer'], $info['Warnings'], $info['WasShotFirst'], $info['BestMove'], $info['Won']));
+		}
+	}
+	public function update($gameId)
+	{
+		SQL("UPDATE `Games` SET `RoomId`=?,`Master`=?,`CityVictory`=?,`date`=? WHERE GameId=?", array($this->roomId, $this->master, $this->status, $this->date, $this->gameId));
+		SQK("Delete from PlayerGame where GameId=?", array($this->gameId));
+		foreach ($this->players as $playerName => $info)
+		{	
+			SQL("INSERT INTO `PlayerGame`(`Player`, `Game`, `Role`, `BestPlayer`, `Warnings`, `WasShotFirst`, `BestMove`, `Won`) VALUES (?,?,?,?,?,?,?,?)", array($playerName, $this->gameId, $info['Role'], $info['BestPlayer'], $info['Warnings'], $info['WasShotFirst'], $info['BestMove'], $info['Won']));
 		}
 	}
 
@@ -100,7 +109,7 @@ class Game
 	public function editShow()
 	{
 		getView("HeaderView.inc", NULL);
-		echo "<form id='form' action='?action=addGame' method='post'>
+		echo "<form id='form' action='?action=editGame' method='post'>
 		<div id='feed'>
 		<p>Выберите номер игрового зала
 		<select name='RoomId'>";
@@ -114,7 +123,7 @@ class Game
 		echo "</select></p>
 		<p>Дата проведения игры <input type='date' name='date' value=$this->date /></p>
 		<p>Ведущий: <input type='text' name='Master' list='players_list' value=$this->master></p>
-		<body><table class='table_dark'>
+		<body><table>
 		<tr><th>Игрок</th><th>Роль</th><th>Лучший</th><th>Фолы</th></tr>";
 		$roles = array("Citizen", "Sherif","Mafia","Don");
 		foreach ($this->players as $name =>$player) 
