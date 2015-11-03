@@ -102,6 +102,8 @@ class Game
 		getView("HeaderView.inc", NULL);
 		echo '<body><table class="table_dark">';
 		echo "<tr><th>Игрок</th><th>Роль</th><th>Лучший</th><th>Фолы</th></tr>";
+		var_dump($this->players);
+		var_dump($this);
 		foreach ($this->players as $name =>$player) 
 		{
 			echo "<tr><td>$name</td><td>".$player['Role']."</td><td>".$player['BestPlayer']."</td><td>".$player['Warnings']."</td></tr>";
