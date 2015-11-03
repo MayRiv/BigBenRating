@@ -122,10 +122,11 @@ class Game
 		}
 		echo "</select></p>
 		<p>Дата проведения игры <input type='date' name='date' value=$this->date /></p>
-		<p>Ведущий: <input type='text' name='Master' list='players_list' value=$this->master></p>
+		<p>Ведущий: <input type='text' name='Master' list='masters_list' value=$this->master></p>
 		<body><table>
 		<tr><th>Игрок</th><th>Роль</th><th>Лучший</th><th>Фолы</th></tr>";
 		$roles = array("Citizen", "Sherif","Mafia","Don");
+		$i = 0;
 		foreach ($this->players as $name =>$player) 
 		{
 			echo "<tr><td><input type='text' name=Player$i list='players_list' value=$name></td><td>
@@ -154,6 +155,7 @@ class Game
 				$firstBlood['Name'] =$name;
 				$firstBlood['BestMove'] =$player['BestMove'];
 			}
+			$i++;
 		}
 		echo '</table>';
 
@@ -192,9 +194,16 @@ class Game
 		echo "<p><input type='button' value='Update' onclick='bbr.trySend()'/></p>
 	</form>";
 		getView("Footer.inc", NULL);
+		$res = SQL("select  Status, Name from Players join Statuses USING(StatusId)")->getAll();
 		echo "<datalist id='players_list'>";
-		foreach ($this->players as $name =>$player) 
-    			echo "<option>$name</option>";
+		foreach ($obj['players'] as $player)
+			if (!($player['Status'] === "Master" || $player['Status'] === "Admin"))
+    			echo "<option>".$player['Name']."</option>";
+		echo "</datalist>
+		<datalist id='masters_list'>"
+		foreach ($obj['players'] as $player)
+			if ($player['Status'] === "Master" || $player['Status'] === "Admin")
+    				echo "<option>".$player['Name']."</option>";
 		echo "</datalist>";
 		echo "</body>";
 	}
