@@ -100,10 +100,22 @@ class Game
 	public function editShow()
 	{
 		getView("HeaderView.inc", NULL);
-		echo '<body><table class="table_dark">';
-		echo "<tr><th>Игрок</th><th>Роль</th><th>Лучший</th><th>Фолы</th></tr>";
-		var_dump($this->players);
-		var_dump($this);
+		echo "<form id='form' action='?action=addGame' method='post'>
+		<div>
+		<p>Выберите номер игрового зала
+		<select name='RoomId'>"
+		for($i = 1; $i < 5; $i++)
+		{
+			if ($i == $this->roomId)
+				echo "<option selected>$i</option>";
+			else
+				echo "<option>$i</option>";
+		}
+		echo "</select></p>
+		<p>Дата проведения игры <input type='date' name='date' value=this->date /></p>
+		<p>Ведущий: <input type='text' name='Master' list='players_list' value=$this->master></p>
+		<body><table class='table_dark'>
+		tr><th>Игрок</th><th>Роль</th><th>Лучший</th><th>Фолы</th></tr>";
 		foreach ($this->players as $name =>$player) 
 		{
 			echo "<tr><td>$name</td><td>".$player['Role']."</td><td>".$player['BestPlayer']."</td><td>".$player['Warnings']."</td></tr>";
@@ -122,9 +134,30 @@ class Game
 			$victoryTeam = "Ничья";
 		if (isset($firstBlood))
 			echo "<p>Первоубиенный ".$firstBlood['Name']." Попал в ".$firstBlood['BestMove']." черных игроков</p>";
-		echo "<p>Победила команда: $victoryTeam</p>";
+
+		echo "<p>Победила команда: </p>";
+		echo "<select name=\"result\">";
+		$teams = array("City"=>"Мирных жителей", "Mafia"=>"Мафии", "Draw"=> "Ничья");
+		if ($this->status == 1)
+			$victoryTeam = "City";
+		if ($this->status == -1)
+			$victoryTeam = "Mafia";
+		if ($this->status == 0)
+			$victoryTeam = "Draw";
+		foreach ($teams as $team =>$message) {
+			if ($team === $victoryTeam)
+				echo "<option value='$team' selected>$message</option>";
+			else
+				echo "<option value='$team'>$message</option>";
+		}
+		echo "<p><input type="button" value="Send" onclick="bbr.trySend()"/></p>
+	</form>"
 		echo "<p>Ведущий: ".$this->master."</p></div>";
 		getView("Footer.inc", NULL);
+		echo "<datalist id='players_list'>";
+		foreach ($this->players as $player)
+    			echo "<option>".$player['Name']."</option>";
+		echo "</datalist>";
 		echo "</body>";
 	}
 
