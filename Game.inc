@@ -143,11 +143,11 @@ class Game
 		else 
 			echo "<input type='checkbox' name='Best$i'/></td><td>";
 		echo "<select name='Warnings$i'>";
-			for($i =0; $i < 5; $i++)
+			for($c =0; $c < 5; $c++)
 				if ($i==$player['Warnings'])
-					echo "<option selected>$i</option>";
+					echo "<option selected>$c</option>";
 				else 
-					echo "<option>$i</option>";
+					echo "<option>$c</option>";
 
 			echo "</select></td></tr>";
 			if ($player['WasShotFirst'])
