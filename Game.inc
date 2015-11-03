@@ -151,7 +151,7 @@ class Game
 				echo "<option value='$team'>$message</option>";
 		}
 		echo "<p><input type='button' value='Send' onclick='bbr.trySend()'/></p>
-	</form>"
+	</form>";
 		echo "<p>Ведущий: ".$this->master."</p></div>";
 		getView("Footer.inc", NULL);
 		echo "<datalist id='players_list'>";
