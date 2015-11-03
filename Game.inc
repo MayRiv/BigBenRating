@@ -103,7 +103,7 @@ class Game
 		echo "<form id='form' action='?action=addGame' method='post'>
 		<div>
 		<p>Выберите номер игрового зала
-		<select name='RoomId'>"
+		<select name='RoomId'>";
 		for($i = 1; $i < 5; $i++)
 		{
 			if ($i == $this->roomId)
