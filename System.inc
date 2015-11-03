@@ -203,10 +203,8 @@ class System
 			{
 				$gameId = (int)$_POST['GameId'];
 				$game = new Game($_POST);
-				var_dump($_POST);
-				var_dump($game);
 				$game->update($gameId);
-				//header("Location: ?showGame&GameId=$gameId");
+				header("Location: ?showGame&GameId=$gameId");
 			}
 		}
 	}
