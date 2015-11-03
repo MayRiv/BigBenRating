@@ -186,6 +186,13 @@ class System
 		$game = new Game($gameId);
 		$game->show();
 	}
+	public function editGame()
+	{
+		session_start();
+		$gameId = (int)$_GET['GameId'];
+		$game = new Game($gameId);
+		$game->edit();
+	}
 	public function getDomination()
 	{
 		session_start();
