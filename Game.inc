@@ -24,11 +24,11 @@ class Game
 	}
 	public function update($gameId)
 	{
-		SQL("UPDATE `Games` SET `RoomId`=?,`Master`=?,`CityVictory`=?,`date`=? WHERE GameId=?", array($this->roomId, $this->master, $this->status, $this->date, $gameId));
-		SQL("Delete from PlayerGame where GameId=?", array(gameId));
+		DSQL("UPDATE `Games` SET `RoomId`=?,`Master`=?,`CityVictory`=?,`date`=? WHERE GameId=?", array($this->roomId, $this->master, $this->status, $this->date, $gameId));
+		DSQL("Delete from PlayerGame where GameId=?", array(gameId));
 		foreach ($this->players as $playerName => $info)
 		{	
-			SQL("INSERT INTO `PlayerGame`(`Player`, `Game`, `Role`, `BestPlayer`, `Warnings`, `WasShotFirst`, `BestMove`, `Won`) VALUES (?,?,?,?,?,?,?,?)", array($playerName, $gameId, $info['Role'], $info['BestPlayer'], $info['Warnings'], $info['WasShotFirst'], $info['BestMove'], $info['Won']));
+			DSQL("INSERT INTO `PlayerGame`(`Player`, `Game`, `Role`, `BestPlayer`, `Warnings`, `WasShotFirst`, `BestMove`, `Won`) VALUES (?,?,?,?,?,?,?,?)", array($playerName, $gameId, $info['Role'], $info['BestPlayer'], $info['Warnings'], $info['WasShotFirst'], $info['BestMove'], $info['Won']));
 		}
 	}
 
