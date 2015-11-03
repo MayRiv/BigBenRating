@@ -67,7 +67,7 @@ class PersonalStat
 		echo "<p>Получил $this->bestVotes лучших</p>";
 		echo "<p>Убит в первую ночь $this->firstBloodCount раз</p>";
 		if($this->firstBloodCount)
-			echo "<p>В среднем $this->firstBloodCount черных в лучших ходе</p></div>";
+			echo "<p>В среднем $this->averageBestMove черных в лучших ходе</p></div>";
 		$totalRedCountGames = $this->citizensGameCount + $this->sherifGameCount;
 		$totalRedVictoryGames = $this->citizensVictoryCount + $this->sherifVictoryCount;
 		$totalBlackCountGames = $this->mafiaGameCount + $this->donGameCount;
