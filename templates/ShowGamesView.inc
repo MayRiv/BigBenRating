@@ -7,7 +7,7 @@
 		$isAdmin = false;
 		if (($_SESSION['isAuth'] && ($_SESSION['status'] === "Master" || $_SESSION['status'] === "Admin")))
 			$isAdmin = true;
-
+		echo "<p><a href='?action=showGames'>Назад</a></p>";
 		echo "<tr><th>Дата</th><th>Зал</th><th>Ведущий</th><th>Подробно</th>";
 		if ($isAdmin)
 		{
