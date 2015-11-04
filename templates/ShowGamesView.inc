@@ -31,7 +31,7 @@
 	{
 		echo "<tr><th>Дата</th><th>Посмотреть игры</th></tr>";
 		foreach ($obj['dates'] as $date) {
-				echo "<tr><td>".$date[0]."</td><td><a href='?action=showGames&date=$game[0]'>Перейти к играм</a></td></tr>";
+				echo "<tr><td>".$date['date']."</td><td><a href='?action=showGames&date=".$game['date']."'>Перейти к играм</a></td></tr>";
 		}
 	}
 
