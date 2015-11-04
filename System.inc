@@ -181,7 +181,7 @@ class System
 			{
 				$games[$game['date']][] = array($game['Master'], $game['GameId'], $game['RoomId']);		
 			}
-			getView("ShowGamesView.inc", array('type'=>"games", 'games'=>$games);
+			getView("ShowGamesView.inc", array('type'=>"games", 'games'=>$games));
 		}	
 		else
 		{
