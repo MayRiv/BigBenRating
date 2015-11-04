@@ -15,7 +15,7 @@
 			echo "<th>Удалить</th>";
 		}
 		echo "</tr>";
-		foreach ($obj as $date => $games) {
+		foreach ($obj['games'] as $date => $games) {
 			foreach ($games as $game) {
 				echo "<tr><td>$date</td><td>".$game[2]."</td><td>$game[0]</td><td><a href='?action=showGame&GameId=$game[1]'>Игра №".$game[1]."</a></td>";
 				if ($isAdmin)

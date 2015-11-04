@@ -185,7 +185,7 @@ class System
 		}	
 		else
 		{
-			$dates = SQL("select DISTINCT(date) from Games")->getAll();	
+			$dates = SQL("select DISTINCT(date) from Games order by date DESC")->getAll();	
 			getView("ShowGamesView.inc", array('type'=>"dates", 'dates'=>$dates));
 		}
 		
