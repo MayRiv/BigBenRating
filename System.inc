@@ -186,7 +186,7 @@ class System
 		else
 		{
 			$dates = SQL("select DISTINCT(date) from Games");	
-			getView("ShowGamesView.inc", array('type'=>"dates", 'dates'=>$dates);
+			getView("ShowGamesView.inc", array('type'=>"dates", 'dates'=>$dates));
 		}
 		
 	}
