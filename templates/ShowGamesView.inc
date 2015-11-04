@@ -2,7 +2,7 @@
 <body>
 	<table class="table_dark">
 <?php
-	if (isset($obj))
+	if ($obj['type'] == "games")
 	{
 		$isAdmin = false;
 		if (($_SESSION['isAuth'] && ($_SESSION['status'] === "Master" || $_SESSION['status'] === "Admin")))
@@ -27,6 +27,14 @@
 			}
 		}
 	}
+	else if ($obj['type'] == "dates")
+	{
+		echo "<tr><th>Дата</th><th>Посмотреть игры</th></tr>";
+		foreach ($obj['dates'] as $date) {
+				echo "<tr><td>".$date[0]."</td><td><a href='?action=showGames&date=$game[0]'>Перейти к играм</a></td></tr>";
+		}
+	}
+
 ?>
 	</table>
 <?php getView("Footer.inc", $obj);?>

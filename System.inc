@@ -172,13 +172,23 @@ class System
 	public function showGames()
 	{
 		session_start();
-		$games = array();
-		$res = SQL("select GameId, Master, date, RoomId from Games  order by date DESC, roomId", null)->getAll();
-		foreach($res as $game)
+		$games = null;
+		if (isset($_GET['date']))
 		{
-			$games[$game['date']][] = array($game['Master'], $game['GameId'], $game['RoomId']);		
-		}		
-		getView("ShowGamesView.inc", $games);
+			$games = array();
+			$res = SQL("select GameId, Master, date, RoomId from Games  where date = ? order by roomId", array($_GET['date']))->getAll();
+			foreach($res as $game)
+			{
+				$games[$game['date']][] = array($game['Master'], $game['GameId'], $game['RoomId']);		
+			}
+			getView("ShowGamesView.inc", array('type'=>"games", 'games'=>$games);
+		}	
+		else
+		{
+			$dates = SQL("select DISTINCT(date) from Games");	
+			getView("ShowGamesView.inc", array('type'=>"dates", 'dates'=>$dates);
+		}
+		
 	}
 	public function showGame()
 	{
