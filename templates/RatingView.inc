@@ -4,9 +4,13 @@
 		<tr><th>#</th><th>Игрок</th><th>Рейтинг</th><th>Количество игр</th></tr>
 
 <?php
-	$i = 1;
-	foreach ($obj as $player) {
-		echo "<tr><th>$i++</th><th>".$player['player']."</th><th>".$player['r']."</th><th>".$player['t']."</th></tr>";
+	if (($_SESSION['isAuth'] && ($_SESSION['status'] === "Master" || $_SESSION['status'] === "Admin")))
+	{
+		$i = 1;
+		foreach ($obj as $player) {
+			echo "<tr><td>$i</th><td>".$player['player']."</td><td>".$player['r']."</td><td>".$player['t']."</td></tr>";
+			$i++;
+		}
 	}
 ?>
 </table>
