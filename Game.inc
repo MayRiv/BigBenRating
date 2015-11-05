@@ -102,7 +102,12 @@ class Game
 		if (isset($firstBlood))
 			echo "<p>Первоубиенный ".$firstBlood['Name']." Попал в ".$firstBlood['BestMove']." черных игроков</p>";
 		echo "<p>Победила команда: $victoryTeam</p>";
-		echo "<p>Ведущий: ".$this->master."</p></div>";
+		echo "<p>Ведущий: ".$this->master."</p>"
+		if (($_SESSION['isAuth'] && ($_SESSION['status'] === "Master" || $_SESSION['status'] === "Admin")))
+		{
+			echo "<p><a href='?action=editGame&GameId=$this->gameId'><img src='Pictures/edit.png'></a>";
+			echo "<a href='?action=deleteGame&GameId=$this->gameId'><img src='Pictures/delete.png'></a></p></div>";
+		}
 		getView("Footer.inc", NULL);
 		echo "</body>";
 	}
