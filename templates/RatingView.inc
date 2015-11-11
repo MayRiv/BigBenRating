@@ -8,7 +8,7 @@
 	{
 		$i = 1;
 		foreach ($obj as $player) {
-			echo "<tr><td>$i</th><td>".$player['player']."</td><td>".$player['r']."</td><td>".$player['t']."</td></tr>";
+			echo "<tr><td>$i</th><td>".$player['player']."</td><td>".(int)(1000 * $player['r'])."</td><td>".$player['t']."</td></tr>";
 			$i++;
 		}
 	}
