@@ -8,12 +8,29 @@
 	//if (($_SESSION['isAuth'] && ($_SESSION['status'] === "Master" || $_SESSION['status'] === "Admin")))
 	{
 		$i = 1;
-		foreach ($obj as $player) {
-			echo "<tr><td>$i</th><td>".$player['player']."</td><td>".(int)(1000 * $player['r'])."</td><td>".$player['t']."</td><td>";
-$percent = round($player['v'] / $player['t'] * 100, 2);
-echo $player['v']."($percent%)";
-echo "</td><td>".$player['b']."</td></tr>";
-			$i++;
+		$others = array();
+		foreach ($obj as $player) 
+			if ($player['t'] >= 15)		
+			{
+			
+				echo "<tr><td>$i</th><td>".$player['player']."</td><td>".(int)(1000 * $player['r'])."</td><td>".$playe['t']."</td><td>";
+				$percent = round($player['v'] / $player['t'] * 100, 2);
+				echo $player['v']."($percent%)"
+				echo"</td><td>".$player['b']."</td></tr>";
+				$i++;
+			}
+			else
+			{
+				$others[] = $player;
+			}
+		echo "<tr><td rowspan='6'>Игроки, сыгравшие менее 15 игр</td></tr>";
+		foreach($others as $player)
+		{
+			echo "<tr><td>$i</th><td>".$player['player']."</td><td>".(int)(1000 * $player['r'])."</td><td>".$playe['t']."</td><td>";
+				$percent = round($player['v'] / $player['t'] * 100, 2);
+				echo $player['v']."($percent%)"
+				echo"</td><td>".$player['b']."</td></tr>";
+				$i++;
 		}
 	}
 ?>
