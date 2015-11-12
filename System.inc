@@ -24,7 +24,7 @@ class System
 ) p, COUNT( * ) t, SUM( BestPlayer ) b, SUM( Won ) v FROM PlayerGame
 JOIN Games ON(Game=GameId)
 JOIN Players ON ( player = Name ) 
-WHERE StatusId !=2 AND Date < CAST('2015-11-08' AS DATE ) 
+WHERE StatusId !=2 AND DATE <= CAST(  '2015-11-11' AS DATE ) 
 GROUP BY player
 ) s
 ORDER BY r DESC, b DESC")->getAll();
