@@ -20,7 +20,7 @@ class System
 		//$maxGameCount = SQL("select max(t) total from (SELECT COUNT( * ) t FROM PlayerGame JOIN Players ON ( player = Name ) WHERE StatusId !=2 GROUP BY player) t")->getAll()[0]['total'];
 		//$players = SQL("SELECT player, p /(t * 3.25 + ? - t) AS r, t, b FROM ( SELECT player, ( SUM( Won ) *2 + SUM( BestPlayer ) * 0.5 + SUM( BestMove ) * 0.25) p, COUNT( * ) t, SUM(BestPlayer) b FROM PlayerGame JOIN Players ON ( player = Name ) WHERE StatusId !=2 GROUP BY player ) s  ORDER BY r DESC", array($maxGameCount))->getAll();
 
-		$players = SQL("SELECT player, p / t AS r, t FROM ( SELECT player, ( SUM( Won ) *2 + SUM( BestPlayer ) * 1.5 + SUM( BestMove ) * 0.25) p, COUNT( * ) t FROM PlayerGame JOIN Players ON ( player = Name ) WHERE StatusId !=2 GROUP BY player ) s WHERE t >14  ORDER BY r DESC")->getAll();
+		$players = SQL("SELECT player, p / t AS r, t, b FROM ( SELECT player, ( SUM( Won ) *2 + SUM( BestPlayer ) * 1.5 + SUM( BestMove ) * 0.25) p, COUNT( * ) t, SUM(BestPlayer) b FROM PlayerGame JOIN Players ON ( player = Name ) WHERE StatusId !=2 GROUP BY player ) s WHERE t >14  ORDER BY r DESC")->getAll();
 		getView("RatingView.inc", $players);
 	}
 	public function showAdminPanel()
