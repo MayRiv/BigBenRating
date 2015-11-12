@@ -13,7 +13,7 @@
 			if ($player['t'] >= 15)		
 			{
 			
-				echo "<tr><td>$i</th><td>".$player['player']."</td><td>".(int)(1000 * $player['r'])."</td><td>".$playe['t']."</td><td>";
+				echo "<tr><td>$i</th><td>".$player['player']."</td><td>".(int)(1000 * $player['r'])."</td><td>".$player['t']."</td><td>";
 				$percent = round($player['v'] / $player['t'] * 100, 2);
 				echo $player['v']."($percent%)";
 				echo"</td><td>".$player['b']."</td></tr>";
@@ -26,7 +26,7 @@
 		echo "<tr><td colspan='6'>Игроки, сыгравшие менее 15 игр</td></tr>";
 		foreach($others as $player)
 		{
-			echo "<tr><td>$i</th><td>".$player['player']."</td><td>".(int)(1000 * $player['r'])."</td><td>".$playe['t']."</td><td>";
+			echo "<tr><td>$i</th><td>".$player['player']."</td><td>".(int)(1000 * $player['r'])."</td><td>".$player['t']."</td><td>";
 				$percent = round($player['v'] / $player['t'] * 100, 2);
 				echo $player['v']."($percent%)";
 				echo"</td><td>".$player['b']."</td></tr>";
