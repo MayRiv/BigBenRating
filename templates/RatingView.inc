@@ -1,14 +1,17 @@
 <?php getView("HeaderView.inc", null); ?>
 <div id="feed"><h2>BigBen Rating</h2></div>
 <table class="table_dark">
-		<tr><th>#</th><th>Игрок</th><th>Рейтинг</th><th>Количество игр</th><th>Количество лучших</th></tr>
+		<tr><th>#</th><th>Игрок</th><th>Рейтинг</th><th>Сыграно игр</th><th>Винрейт</th><th>Количество лучших</th></tr>
 
 <?php
 	if (($_SESSION['isAuth'] && ($_SESSION['status'] === "Master" || $_SESSION['status'] === "Admin")))
 	{
 		$i = 1;
 		foreach ($obj as $player) {
-			echo "<tr><td>$i</th><td>".$player['player']."</td><td>".(int)(1000 * $player['r'])."</td><td>".$player['t']."</td><td>".$player['b']."</td></tr>";
+			echo "<tr><td>$i</th><td>".$player['player']."</td><td>".(int)(1000 * $player['r'])."</td><td>".$player['t']."</td><td>";
+$percent = $player['v'] / $player['t'] * 100;
+echo $player['v']."($percent%)";
+echo "</td><td>".$player['b']."</td></tr>";
 			$i++;
 		}
 	}
