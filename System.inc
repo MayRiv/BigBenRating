@@ -245,11 +245,11 @@ ORDER BY r DESC")->getAll();
 				$BBlack= SQL("select count(*) as total, SUM(w1) as v1, SUM(w2) as v2 from (SELECT * FROM ( SELECT player as p1,Role as r1, Won as w1, Game FROM  `PlayerGame` WHERE player LIKE  ?) t1
 									JOIN (SELECT player as p2,Role as r2, Won as w2, Game FROM  `PlayerGame` WHERE player LIKE  ?) t2 
 									USING ( Game )) G where (r1 like 'Mafia' or r1 like 'Don') and (r2 like 'Mafia' or r2 like 'Don')", array($data['comparePlayer1'], $data['comparePlayer2']))->getAll();
-				$BR= SQL("select count(*) as total, SUM(w1) as v1, SUM(w2) as v2, SUM(WasShotFirst) as s from (SELECT * FROM ( SELECT player as p1,Role as r1, Won as w1, Game FROM  `PlayerGame` WHERE player LIKE  'Рио') t1
-									JOIN (SELECT player as p2,Role as r2, Won as w2, Game, WasShotFirst FROM  `PlayerGame` WHERE player LIKE  'Хирург') t2 
+				$BR= SQL("select count(*) as total, SUM(w1) as v1, SUM(w2) as v2, SUM(WasShotFirst) as s from (SELECT * FROM ( SELECT player as p1,Role as r1, Won as w1, Game FROM  `PlayerGame` WHERE player LIKE  ?) t1
+									JOIN (SELECT player as p2,Role as r2, Won as w2, Game, WasShotFirst FROM  `PlayerGame` WHERE player LIKE  ?) t2 
 									USING ( Game )) G where (r1 like 'Mafia' or r1 like 'Don') and (r2 like 'Citizen' or r2 like 'Sherif')", array($data['comparePlayer1'], $data['comparePlayer2']))->getAll();
-				$RB= SQL("select count(*) as total, SUM(w1) as v1, SUM(w2) as v2, SUM(WasShotFirst) as s from (SELECT * FROM ( SELECT player as p1,Role as r1, Won as w1, Game, WasShotFirst FROM  `PlayerGame` WHERE player LIKE  'Рио') t1
-									JOIN (SELECT player as p2,Role as r2, Won as w2, Game FROM  `PlayerGame` WHERE player LIKE  'Хирург') t2 
+				$RB= SQL("select count(*) as total, SUM(w1) as v1, SUM(w2) as v2, SUM(WasShotFirst) as s from (SELECT * FROM ( SELECT player as p1,Role as r1, Won as w1, Game, WasShotFirst FROM  `PlayerGame` WHERE player LIKE  ?) t1
+									JOIN (SELECT player as p2,Role as r2, Won as w2, Game FROM  `PlayerGame` WHERE player LIKE  ?) t2 
 									USING ( Game )) G where (r1 like 'Citizen' or r1 like 'Sherif') and (r2 like 'Mafia' or r2 like 'Don')", array($data['comparePlayer1'], $data['comparePlayer2']))->getAll();
 				
 				$data['BRed'] = $BRed[0];
