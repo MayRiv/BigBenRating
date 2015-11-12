@@ -1,7 +1,7 @@
 <?php getView("HeaderView.inc", null); ?>
 <div id="feed"><h2>BigBen Rating</h2></div>
 <table class="table_dark">
-		<tr><th>#</th><th>Игрок</th><th>Рейтинг</th><th>Сыграно игр</th><th>Винрейт</th><th>Количество лучших</th></tr>
+		<tr><th>#</th><th>Игрок</th><th>Рейтинг</th><th>Сыграно игр</th><th>Победы</th><th>Количество лучших</th></tr>
 
 <?php
 	if (($_SESSION['isAuth'] && ($_SESSION['status'] === "Master" || $_SESSION['status'] === "Admin")))
