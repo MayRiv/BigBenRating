@@ -18,6 +18,8 @@
 		echo "<tr><td>".$obj['comparePlayer1']." красный, ".$obj['comparePlayer2']." черный</td><td>".$obj['RB']['total']."</td><td>".$obj['RB']['v1']."</td><td>".$obj['RB']['v2']."</td></tr>";
 		echo "<tr><td>".$obj['comparePlayer1']." черный, ".$obj['comparePlayer2']." красный</td><td>".$obj['BR']['total']."</td><td>".$obj['BR']['v1']."</td><td>".$obj['BR']['v2']."</td></tr>";
 		echo '</table>';
+		echo "<p>".$obj['comparePlayer1']." застрелил".$obj['comparePlayer2']." ". $obj['BR']['s']." раз</p>";
+		echo "<p>".$obj['comparePlayer2']." застрелил".$obj['comparePlayer1']." ". $obj['RB']['s']." раз</p>";
 	}
 ?>
 </div>
