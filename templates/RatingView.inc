@@ -5,7 +5,7 @@
 		<tr><th>#</th><th>Игрок</th><th>Рейтинг</th><th>Сыграно игр</th><th>Победы</th><th>Количество лучших</th></tr>
 
 <?php
-	//if (($_SESSION['isAuth'] && ($_SESSION['status'] === "Master" || $_SESSION['status'] === "Admin")))
+	if (($_SESSION['isAuth'] && ($_SESSION['status'] === "Master" || $_SESSION['status'] === "Admin")))
 	{
 		$i = 1;
 		$others = array();
@@ -23,7 +23,7 @@
 			{
 				$others[] = $player;
 			}
-		echo "<tr><td rowspan='6'>Игроки, сыгравшие менее 15 игр</td></tr>";
+		echo "<tr><td colspan='6'>Игроки, сыгравшие менее 15 игр</td></tr>";
 		foreach($others as $player)
 		{
 			echo "<tr><td>$i</th><td>".$player['player']."</td><td>".(int)(1000 * $player['r'])."</td><td>".$playe['t']."</td><td>";
