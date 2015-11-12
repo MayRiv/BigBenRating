@@ -27,7 +27,7 @@ JOIN Players ON ( player = Name )
 WHERE StatusId !=2 AND Date < '25-11-08'
 GROUP BY player
 ) s
-ORDER BY r DESC")->getAll();
+ORDER BY r DESC, b DESC")->getAll();
 		getView("RatingView.inc", $players);
 	}
 	public function showAdminPanel()
