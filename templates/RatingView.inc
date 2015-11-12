@@ -15,7 +15,7 @@
 			
 				echo "<tr><td>$i</th><td>".$player['player']."</td><td>".(int)(1000 * $player['r'])."</td><td>".$player['t']."</td><td>";
 				$percent = round($player['v'] / $player['t'] * 100, 2);
-				echo $player['v']."($percent%)";
+				echo $player['v']." ($percent%)";
 				echo"</td><td>".$player['b']."</td></tr>";
 				$i++;
 			}
