@@ -52,6 +52,12 @@ var bbr = (function() {
 		};
 
 		xhr.send(body);
+	},
+	tryDelete: function(gameId){
+		if (confirm("Вы действительно хотиле удалить игру " + gameId + "?"))
+		{
+			window.location = "?action=deleteGame&GameId=" + gameId;
+		}
 	}
 }
 

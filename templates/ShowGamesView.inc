@@ -20,8 +20,9 @@
 				echo "<tr><td>$date</td><td>".$game[2]."</td><td>$game[0]</td><td><a href='?action=showGame&GameId=$game[1]'>Игра №".$game[1]."</a></td>";
 				if ($isAdmin)
 				{
-					echo "<td><a href='?action=editGame&GameId=$game[1]'><img src='Pictures/edit.png'></a>";
-					echo "<td><a href='?action=deleteGame&GameId=$game[1]'><img src='Pictures/delete.png'></a>";
+					echo "<td><a href='?action=editGame&GameId=$game[1]'><img src='Pictures/edit.png'></a></td>";
+					//echo "<td><a href='?action=deleteGame&GameId=$game[1]'><img src='Pictures/delete.png'></a>";
+					echo "<img src='Pictures/delete.png'></a></td><td><img src='Pictures/delete.png' onclick='bbr.tryDelete($game[1])' onMouseOver='this.style.cursor=\"pointer\"'/></td>";
 				}
 				echo "</tr>";
 			}
