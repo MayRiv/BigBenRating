@@ -22,7 +22,7 @@
 				{
 					echo "<td><a href='?action=editGame&GameId=$game[1]'><img src='Pictures/edit.png'></a></td>";
 					//echo "<td><a href='?action=deleteGame&GameId=$game[1]'><img src='Pictures/delete.png'></a>";
-					echo "<img src='Pictures/delete.png'></a></td><td><img src='Pictures/delete.png' onclick='bbr.tryDelete($game[1])' onMouseOver='this.style.cursor=\"pointer\"'/></td>";
+					echo "<td><img src='Pictures/delete.png' onclick='bbr.tryDelete($game[1])' onMouseOver='this.style.cursor=\"pointer\"'/></td>";
 				}
 				echo "</tr>";
 			}
