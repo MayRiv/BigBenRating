@@ -43,9 +43,9 @@ var bbr = (function() {
 		xhr.open("POST", '?action=compare', true)
 		xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
 
-		xhr.onreadystatechange = function() { // Ждём ответа от сервера
-			if (xhr.readyState == 4) { // Ответ пришёл
-		        if(xhr.status == 200) { // Сервер вернул код 200 (что хорошо)
+		xhr.onreadystatechange = function() { 
+			if (xhr.readyState == 4) { 
+		        if(xhr.status == 200) { 
 		        	document.getElementById("CompareDiv").innerHTML = xhr.responseText; // Выводим ответ сервера
 		        }
 		    }
