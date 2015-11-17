@@ -5,8 +5,8 @@ class Logger
 	private static $_instance;
 	public static  function getInstance()
 	{
-		if (System::$_instance == null) System::$_instance = new System("history.log");
-		return System::$_instance;
+		if (Logger::$_instance == null) Logger::$_instance = new Logger("history.log");
+		return Logger::$_instance;
 	}
 
 	private function __construct($logPath)
