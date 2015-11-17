@@ -1,7 +1,7 @@
 <?php
 class Logger
 {
-	private static $fp;
+	private $fp;
 	private static $_instance;
 	public static  function getInstance()
 	{
