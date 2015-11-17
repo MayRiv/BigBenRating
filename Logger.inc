@@ -24,7 +24,7 @@ class Logger
 	public function show()
 	{
 		$this->fp = fopen($logPath, "r");
-		echo "<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head><body><div id='feed'>";
+		echo "<html><head><meta http-equiv='Content-Type' content='text/html; charset=utf-8' /></head><body><div id='feed'>";
 		while(!feof($this->fp)) { 
 	    	echo fgets($this->fp) . "<br />";
 		}
