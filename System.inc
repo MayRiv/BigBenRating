@@ -38,11 +38,6 @@ ORDER BY r DESC, b DESC")->getAll();
 		else 
 			header("Location: ?action=getRating");
 	}
-	public function comparePlayer()
-	{
-		echo $_POST['name'];
-		//echo "Тестируем" + $_POST['name'];
-	}
 	public function getPersonalStat()
 	{
 		session_start();

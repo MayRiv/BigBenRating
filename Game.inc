@@ -1,4 +1,5 @@
 <?php
+require("Logger.inc");
 class Game
 {
 	public $gameId;
@@ -17,6 +18,7 @@ class Game
 	{
 		SQL("INSERT INTO `Games`(`GameId`, `RoomId`, `Master`, `CityVictory`, `date`) VALUES (?,?,?,?,?)", array($this->gameId,$this->roomId, $this->master, $this->status, $this->date));
 		
+		Logger::getInstance()->write("$this->gameId is added");
 		foreach ($this->players as $playerName => $info)
 		{	
 			SQL("INSERT INTO `PlayerGame`(`Player`, `Game`, `Role`, `BestPlayer`, `Warnings`, `WasShotFirst`, `BestMove`, `Won`) VALUES (?,?,?,?,?,?,?,?)", array($playerName, $this->gameId, $info['Role'], $info['BestPlayer'], $info['Warnings'], $info['WasShotFirst'], $info['BestMove'], $info['Won']));
