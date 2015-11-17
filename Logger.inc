@@ -15,7 +15,7 @@ class Logger
 	}
 	public function write($line)
 	{
-		fwrite($this->fp, "[".date("F j, g:i a")."]  $line\n");
+		fwrite($this->fp, "[".date("F j, g:i a")."]  ".urldecode($line)."\n");
 	}
 	public function save()
 	{
