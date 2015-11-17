@@ -1,7 +1,7 @@
 <?php
 require("Game.inc");
 require("PersonalStat.inc");
-require("Logger.inc");
+require_once("Logger.inc");
 class System 
 {
 	private static $_instance;

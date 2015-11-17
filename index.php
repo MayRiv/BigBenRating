@@ -2,7 +2,7 @@
 	require("viewer.inc");
 	require("DBManager.inc");
 	require("System.inc");
-	require("Logger.inc");
+	require_once("Logger.inc");
 	define ("DEV", 0);
 	if (DEV)
 	{
