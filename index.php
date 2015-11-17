@@ -2,6 +2,7 @@
 	require("viewer.inc");
 	require("DBManager.inc");
 	require("System.inc");
+	require("Logger.inc");
 	define ("DEV", 0);
 	if (DEV)
 	{
@@ -53,4 +54,6 @@
 	}
 	else 
 		System::getInstance()->getRating();
+
+	Logger::getInstance()->save();
 ?>
