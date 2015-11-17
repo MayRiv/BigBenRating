@@ -1,4 +1,5 @@
 <?php
-require_once("Logger.inc");
-Logger::getInstance()->show();
+
+	require_once("Logger.inc");
+	echo "1";
 ?>
