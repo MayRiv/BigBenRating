@@ -18,7 +18,7 @@ class Game
 	{
 		SQL("INSERT INTO `Games`(`GameId`, `RoomId`, `Master`, `CityVictory`, `date`) VALUES (?,?,?,?,?)", array($this->gameId,$this->roomId, $this->master, $this->status, $this->date));
 		
-		Logger::getInstance()->write("$this->gameId is added");
+		Logger::getInstance()->write("Game with id $this->gameId is added, room is $this->roomId, adder is " . $_SESSION['player']);
 		foreach ($this->players as $playerName => $info)
 		{	
 			SQL("INSERT INTO `PlayerGame`(`Player`, `Game`, `Role`, `BestPlayer`, `Warnings`, `WasShotFirst`, `BestMove`, `Won`) VALUES (?,?,?,?,?,?,?,?)", array($playerName, $this->gameId, $info['Role'], $info['BestPlayer'], $info['Warnings'], $info['WasShotFirst'], $info['BestMove'], $info['Won']));
@@ -32,6 +32,7 @@ class Game
 		{	
 			SQL("INSERT INTO `PlayerGame`(`Player`, `Game`, `Role`, `BestPlayer`, `Warnings`, `WasShotFirst`, `BestMove`, `Won`) VALUES (?,?,?,?,?,?,?,?)", array($playerName, $gameId, $info['Role'], $info['BestPlayer'], $info['Warnings'], $info['WasShotFirst'], $info['BestMove'], $info['Won']));
 		}
+		Logger::getInstance()->write("Game with id $this->gameId has been updates, room is $this->roomId, updater is " . $_SESSION['player']);
 	}
 
 	private function initByPostArray($post)

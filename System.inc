@@ -1,6 +1,7 @@
 <?php
 require("Game.inc");
 require("PersonalStat.inc");
+require("Logger.inc");
 class System 
 {
 	private static $_instance;
@@ -146,6 +147,7 @@ ORDER BY r DESC, b DESC")->getAll();
 			{
 				$players = SQL("delete from Games where gameid=?", array($_GET['GameId']));
 				$players = SQL("delete from PlayerGame where game=?", array($_GET['GameId']));
+				Logger::getInstance()->write("Game with id ".$_GET['GameId']." has been deleted, deleter is " . $_SESSION['player']);
 				header("Location: ?action=showGames");
 			}
 		}
@@ -170,7 +172,8 @@ ORDER BY r DESC, b DESC")->getAll();
 				else
 					$pass = MD5("bbmaster123");
 				SQL("INSERT IGNORE INTO `Players`(`Name`, `Password`, `StatusId`) VALUES (?,?,?)", array($_POST['Name'],$pass, $_POST['Status']));
-			header("Location: ?action=showAdminPanel");
+				Logger::getInstance()->write("Player ".$_POST['Name']." has been added to system, Status is ".$_POST['Status']." adder is " . $_SESSION['player']);
+				header("Location: ?action=showAdminPanel");
 			}
 		}
 	}

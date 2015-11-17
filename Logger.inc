@@ -16,7 +16,6 @@ class Logger
 	public function write($line)
 	{
 		fwrite($this->fp, "[".date("F j, g:i a")."] " . $line);
-		//fclose($fp)
 	}
 
 }
