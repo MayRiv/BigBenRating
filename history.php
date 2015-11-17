@@ -1,6 +1,6 @@
 <?php
 
 	require_once("Logger.inc");
-	Logger::getInstance();
+	Logger::getInstance()->show();
 	echo "1";
 ?>

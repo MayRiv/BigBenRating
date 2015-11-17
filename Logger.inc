@@ -30,7 +30,7 @@ class Logger
 		}*/
 		//echo file_get_contents($fp);
 		echo "</div></body></html>";
-		fclose($this->fp);
+		//fclose($this->fp);
 	}
 }
 
