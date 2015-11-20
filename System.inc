@@ -36,7 +36,7 @@ JOIN Players ON ( player = Name )
 WHERE StatusId !=2 AND StatusId != 0 AND DATE BETWEEN CAST(  '2015-11-12' AS DATE ) AND CAST('2015-11-21' AS DATE)
 GROUP BY player
 ) s
-ORDER BY t,r DESC, b DESC")->getAll();
+ORDER BY player DESC,r DESC, b DESC")->getAll();
 		getView("RatingView.inc", $players);
 	}
 	public function showAdminPanel()
