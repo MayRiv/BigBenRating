@@ -19,10 +19,10 @@
 				echo"</td><td>".$player['b']."</td></tr>";
 				$i++;
 			}
-			else
+			/*else
 			{
 				$others[] = $player;
-			}
+			}*/
 		/*echo "<tr><td colspan='6'>Игроки, сыгравшие менее 15 игр</td></tr>";
 		foreach($others as $player)
 		{
