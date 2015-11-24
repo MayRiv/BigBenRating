@@ -1,6 +1,7 @@
 <?php
 require("Game.inc");
 require("PersonalStat.inc");
+require("PowerMap.inc");
 require_once("Logger.inc");
 class System 
 {
@@ -257,6 +258,20 @@ ORDER BY r DESC, b DESC")->getAll();
 		}
 		getView("DominationView.inc", $data);
 	}
+	public function getPowerMap()
+	{
+		session_start();
+		if ($_SESSION['isAuth'])
+		{
+			$pm = new PowerMap($_SESSION['player']);
+			var_dump($pm);
+			//getView("PowerMapView.inc", $pm);
+		}
+		
+		else
+			getView("Auth.inc",$players);
+	}
+
 }
 
 ?>
