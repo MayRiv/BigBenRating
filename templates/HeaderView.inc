@@ -34,6 +34,10 @@
 					<span class="text-top">Парная статистика</span>
 					<span class="text-bottom">Доминация</span>
 				</a></li>
+				<li><a href="?action=getPowerMap">
+					<span class="text-top">Групповая статистика</span>
+					<span class="text-bottom">Карта силы</span>
+				</a></li>
 				<li><a href="?action=showGames">
 					<span class="text-top">Подробно про игры</span>
 					<span class="text-bottom">История игр</span>
