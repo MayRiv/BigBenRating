@@ -19,10 +19,8 @@ function cmp($a, $b) {
 				echo "<tr style='color:#00FF00'><td colspan=3>".$_SESSION['player']."</td></tr>";
 				$zeroPlayerInserted = true;
 			}
-			else
-			{
+			if ($domination[0])
 				echo "<tr><td>$player</td><td>$domination[0]</td><td>$domination[1]</td></tr>";
-			}
 		}
 		echo '</table>';
 }
