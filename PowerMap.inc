@@ -10,8 +10,7 @@ class PowerMap
 		$this->zeroPlayer = $player;
 		$this->map = array();
 		foreach ($this->players as $p) {
-			echo $p;
-			$this->map[$p] = 0;//$this->getDomination($p);
+			$this->map[$p['Name']] =$this->getDomination($p['Name']);
 		}
 	}
 	private function getDomination($player)
