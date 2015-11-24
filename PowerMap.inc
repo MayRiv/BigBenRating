@@ -8,6 +8,7 @@ class PowerMap
 	{
 		$this->players = SQL("Select Name from Players")->getAll();
 		$this->zeroPlayer = $player;
+		$this->map = array();
 		foreach ($this->players as $p) {
 			$this->map[$p] = $this->getDomination($p);
 		}
