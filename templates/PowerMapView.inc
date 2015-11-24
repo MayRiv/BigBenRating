@@ -8,6 +8,7 @@
 		
 
 		$players = arsort($obj->map);
+		var_dump($players);
 		$zeroPlayerInserted = false;
 		foreach ($players as $player => $domination) {
 			if ($domination==0 && !$zeroPlayerInserted)
@@ -18,10 +19,6 @@
 			echo "<tr><td>$player</td><td>$domination</td></tr>";
 		}
 		echo '</table>';
-		if (isset($obj['BR']['s']))
-			echo "<p>".$obj['comparePlayer1']." застрелил ".$obj['comparePlayer2']." ". $obj['BR']['s']." раз</p>";
-		if (isset($obj['RB']['s']))
-			echo "<p>".$obj['comparePlayer2']." застрелил ".$obj['comparePlayer1']." ". $obj['RB']['s']." раз</p>";
 	}
 ?>
 </div>
