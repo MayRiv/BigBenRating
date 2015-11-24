@@ -14,7 +14,7 @@ function cmp($a, $b) {
 		$players = uasort($obj->map, 'cmp');
 		$zeroPlayerInserted = false;
 		foreach ($obj->map as $player => $domination) {
-			if ($domination==0 && !$zeroPlayerInserted)
+			if ($domination[0]==0 && !$zeroPlayerInserted)
 			{
 				echo "<tr style='color:#00FF00'><td colspan=3>".$_SESSION['player']."</td></tr>";
 				$zeroPlayerInserted = true;
