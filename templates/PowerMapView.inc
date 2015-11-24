@@ -9,7 +9,7 @@
 
 		$players = arsort($obj->map);
 		$zeroPlayerInserted = false;
-		foreach ($player as $player => $domination) {
+		foreach ($players as $player => $domination) {
 			if ($domination==0 && !$zeroPlayerInserted)
 			{
 				echo "<tr style='color:#00FF00'><td>".$_SESSION['player']."</td><td>0</td></tr>";
@@ -25,10 +25,5 @@
 	}
 ?>
 </div>
-<datalist id="players_list">
-<?php	foreach ($obj['players'] as $player)
-			if (!($player['Status'] === "Master" || $player['Status'] === "Admin"))
-    			echo "<option>".$player['Name']."</option>";?>
-</datalist>
 <?php getView("Footer.inc", null); ?>
 </body>
