@@ -49,6 +49,8 @@
 			System::getInstance()->showGame();
 		else if ($_GET['action'] == 'getDomination')
 			System::getInstance()->getDomination();
+		else if ($_GET['action'] == 'getPowerMap')
+			System::getInstance()->getPowerMap()
 		else 
 			System::getInstance()->getRating();
 	}
