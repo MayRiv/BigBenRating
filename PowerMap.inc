@@ -19,7 +19,7 @@ class PowerMap
 		if (count($res) > 0)
 			return $res[0]['v1'] - $res[0]['v2'];
 		else 
-			return 0;
+			return 100;
 	}
 }
 
