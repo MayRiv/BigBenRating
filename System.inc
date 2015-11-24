@@ -272,8 +272,8 @@ ORDER BY player DESC,r DESC, b DESC")->getAll();
 		if ($_SESSION['isAuth'])
 		{
 			$pm = new PowerMap($_SESSION['player']);
-			var_dump($pm);
-			//getView("PowerMapView.inc", $pm);
+			//var_dump($pm);
+			getView("PowerMapView.inc", $pm);
 		}
 		
 		else
