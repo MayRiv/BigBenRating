@@ -74,15 +74,13 @@ ORDER BY player DESC,r DESC, b DESC")->getAll();
 		if ($_SERVER['REQUEST_METHOD'] == 'POST')
 		{
 			$account = SQL("select  Status, Password from Players join Statuses USING(StatusId) where Name like ?", array($_POST['Player']))->getAll();
-			if (isset($account[0]))
+			if (isset($account[0]) && MD5($_POST['Password']) === $account[0]['Password'])
 			{
-				if (MD5($_POST['Password']) === $account[0]['Password'])
-				{
-					$_SESSION['isAuth'] = 1;
-					$_SESSION['player'] = $_POST['Player'];
-					$_SESSION['status'] = $account[0]['Status'];
-					header("Location: ?action=getPersonalStat");
-				}
+				
+				$_SESSION['isAuth'] = 1;
+				$_SESSION['player'] = $_POST['Player'];
+				$_SESSION['status'] = $account[0]['Status'];
+				header("Location: ?action=getPersonalStat");
 			}
 			else echo "Wrong password or login";
 		}
