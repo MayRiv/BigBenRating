@@ -25,9 +25,9 @@ class Domination
 									JOIN (SELECT player as p2,Role as r2, Won as w2, Game FROM  `PlayerGame` join Players ON(player = Name) WHERE player LIKE  ?) t2 
 									USING ( Game )) G where (r1 like 'Citizen' or r1 like 'Sherif') and (r2 like 'Mafia' or r2 like 'Don')", array($this->comparePlayer1, $this->comparePlayer2))->getAll()[0];
 
-		$this->games = SQL("SELECT Game FROM ( SELECT player, Game FROM  `PlayerGame`  WHERE player LIKE  ?) t1
+		$this->games = SQL("SELECT Game as id FROM ( SELECT player, Game FROM  `PlayerGame`  WHERE player LIKE  ?) t1
 									JOIN (SELECT player, Game FROM  `PlayerGame`  WHERE player LIKE  ?) t2 
-									USING ( Game )", array($this->comparePlayer1, $this->comparePlayer2))->getAll()[0];
+									USING ( Game )", array($this->comparePlayer1, $this->comparePlayer2))->getAll();
 	}
 }
 

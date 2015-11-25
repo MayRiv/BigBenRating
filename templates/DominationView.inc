@@ -10,7 +10,6 @@
 <?php
 	if (isset($obj['domination']))
 	{
-		var_dump($obj['domination']);
 		echo '<body><table class="table_dark"><caption>Статистика совместных игр</caption>';
 		echo "	<tr><th>Роли</th><th>Всего игр</th><th>Побед у ".$obj['domination']->comparePlayer1."</th><th>Побед у ".$obj['domination']->comparePlayer2."</th></tr>";
 		
@@ -23,6 +22,11 @@
 			echo "<p>".$obj['domination']->comparePlayer1." застрелил ".$obj['domination']->comparePlayer2." ". $obj['domination']->BR['s']." раз</p>";
 		if (isset($obj['domination']->RB['s']))
 			echo "<p>".$obj['domination']->comparePlayer2 ." застрелил ".$obj['domination']->comparePlayer1 ." ". $obj['domination']->RB['s']." раз</p>";
+		echo "<div><p>Сыграли в играх: ";
+		foreach ($obj['domination']->games as $game) {
+			echo "<a href='?action=showGame&GameId=".$game['id']."'>".$game['id']."</a> ";
+		}
+		echo "</p></div>";
 	}
 ?>
 </div>
