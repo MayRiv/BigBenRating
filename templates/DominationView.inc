@@ -8,7 +8,7 @@
 		<p><input type="submit" value="Сравнить"/></p>
 	</form>
 <?php
-	if (isset($obj['domination']))
+	if (isset($obj['domination']) && $obj['domination']->status)
 	{
 		echo '<body><table class="table_dark"><caption>Статистика совместных игр</caption>';
 		echo "	<tr><th>Роли</th><th>Всего игр</th><th>Побед у ".$obj['domination']->comparePlayer1."</th><th>Побед у ".$obj['domination']->comparePlayer2."</th></tr>";
