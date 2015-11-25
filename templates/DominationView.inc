@@ -10,6 +10,7 @@
 <?php
 	if (isset($obj['domination']))
 	{
+		var_dump($obj['domination']);
 		echo '<body><table class="table_dark"><caption>Статистика совместных игр</caption>';
 		echo "	<tr><th>Роли</th><th>Всего игр</th><th>Побед у ".$obj['domination']->comparePlayer1."</th><th>Побед у ".$obj['domination']->comparePlayer2."</th></tr>";
 		
