@@ -2,6 +2,7 @@
 require("Game.inc");
 require("PersonalStat.inc");
 require("PowerMap.inc");
+require ("Domination.inc");
 require_once("Logger.inc");
 class System 
 {
@@ -242,7 +243,7 @@ ORDER BY player DESC,r DESC, b DESC")->getAll();
 		if ($_SERVER['REQUEST_METHOD'] != 'GET')
 		{		
 				
-				$data['comparePlayer1'] = $_POST['ComparePlayer1'];
+				/*$data['comparePlayer1'] = $_POST['ComparePlayer1'];
 				$data['comparePlayer2'] = $_POST['ComparePlayer2'];
 				$BRed = SQL("select count(*) as total, SUM(w1) as v1, SUM(w2) as v2 from (SELECT * FROM ( SELECT player as p1,Role as r1, Won as w1, Game FROM  `PlayerGame`  join Players ON(player = Name) WHERE player LIKE  ?) t1
 									JOIN (SELECT player as p2,Role as r2, Won as w2, Game FROM  `PlayerGame` join Players ON(player = Name) WHERE player LIKE  ?) t2 
@@ -260,7 +261,8 @@ ORDER BY player DESC,r DESC, b DESC")->getAll();
 				$data['BRed'] = $BRed[0];
 				$data['BBlack'] = $BBlack[0];
 				$data['RB'] = $RB[0];
-				$data['BR'] = $BR[0];
+				$data['BR'] = $BR[0];*/
+				$data['domination'] = new Domination($_POST['ComparePlayer1'], $_POST['ComparePlayer2']);
 		}
 		getView("DominationView.inc", $data);
 	}
