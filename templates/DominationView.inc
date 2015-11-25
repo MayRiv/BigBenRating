@@ -8,6 +8,7 @@
 		<p><input type="submit" value="Сравнить"/></p>
 	</form>
 <?php
+	var_dump($obj);
 	if (isset($obj['domination']) && $obj['domination']->status)
 	{
 		echo '<body><table class="table_dark"><caption>Статистика совместных игр</caption>';

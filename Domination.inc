@@ -15,7 +15,7 @@ class Domination
 		$this->comparePlayer2 = $p2;
 		$s1 = SQL("Select StatusId from Players where Name = ?", array($p1))->getAll()[0];
 		$s2 = SQL("Select StatusId from Players where Name = ?", array($p2))->getAll()[0];
-		if ($s1 == 1 && $s2 ==1)
+		if ($s1 == 1 && $s2 == 1)
 		{
 			$this->BRed = SQL("select count(*) as total, SUM(w1) as v1, SUM(w2) as v2 from (SELECT * FROM ( SELECT player as p1,Role as r1, Won as w1, Game FROM  `PlayerGame`  join Players ON(player = Name) WHERE player LIKE  ?) t1
 										JOIN (SELECT player as p2,Role as r2, Won as w2, Game FROM  `PlayerGame` join Players ON(player = Name) WHERE player LIKE  ?) t2 
