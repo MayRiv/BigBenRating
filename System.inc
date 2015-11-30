@@ -39,7 +39,7 @@ WHERE StatusId !=2 AND StatusId != 0 AND DATE BETWEEN CAST(  '2015-11-12' AS DAT
 GROUP BY player
 ) s
 ORDER BY player DESC,r DESC, b DESC")->getAll();*/
-$players = SQL("SELECT player, /*p / t AS r,*/ t, b, v FROM (SELECT player, (SUM( Won ) *2 + SUM( BestPlayer ) * 1.5 + SUM( BestMove ) * 0.25
+$players = SQL("SELECT player, t, b, v FROM (SELECT player, (SUM( Won ) *2 + SUM( BestPlayer ) * 1.5 + SUM( BestMove ) * 0.25
 ) p, COUNT( * ) t, SUM( BestPlayer ) b, SUM( Won ) v FROM PlayerGame
 JOIN Games ON(Game=GameId)
 JOIN Players ON ( player = Name ) 
