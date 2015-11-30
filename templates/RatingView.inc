@@ -1,10 +1,10 @@
 <?php getView("HeaderView.inc", null); ?>
 <div id="feed"><h2>BigBen Rating</h2>
-		<p>Рейтинг игроков за период от 12 до 21 ноября. Ограничения на количество игр пока нет.</p></div>
+		<p>Статисткика игроков за период от 12 до 30 ноября. Система рейтинга будет использована позже.</p></div>
 <table class="table_dark">
-		<tr><th>#</th><th>Игрок</th><th>Рейтинг</th><th>Сыграно игр</th><th>Победы</th><th>Количество лучших</th></tr>
-
+		<tr><th>#</th><th>Игрок</th><th>Сыграно игр</th><th>Победы</th><th>Количество лучших</th></tr>
 <?php
+    //<tr><th>#</th><th>Игрок</th><th>Рейтинг</th><th>Сыграно игр</th><th>Победы</th><th>Количество лучших</th></tr>
 	//if (($_SESSION['isAuth'] && ($_SESSION['status'] === "Master" || $_SESSION['status'] === "Admin")))
 	{
 		$i = 1;
@@ -13,7 +13,8 @@
 			//if ($player['t'] >= 15)		
 			{
 			
-				echo "<tr><td>$i</th><td>".$player['player']."</td><td>".(int)(1000 * $player['r'])."</td><td>".$player['t']."</td><td>";
+				//echo "<tr><td>$i</th><td>".$player['player']."</td><td>".(int)(1000 * $player['r'])."</td><td>".$player['t']."</td><td>";
+				echo "<tr><td>$i</th><td>".$player['player']."</td><td>".$player['t']."</td><td>";
 				$percent = round($player['v'] / $player['t'] * 100, 2);
 				echo $player['v']." ($percent%)";
 				echo"</td><td>".$player['b']."</td></tr>";
