@@ -58,7 +58,7 @@ bbr.draw();
 			$games .= "[\"$date\",".(isset($stat['general']['total'])?$stat['general']['total']:0) ."],";
 		}
 		$games[strlen($games) - 1] = ']';
-		$games .= "}]; draw();";
+		$games .= "}];";
 		echo $games;
 		echo "var selection = [$start, $end];";
 	?>
