@@ -80,7 +80,7 @@ class PersonalStat
 
 		$role = "";
 		$this->stat = array();
-		$weeks = SQL("select DATE_FORMAT(date, '%d.%m.%Y') AS date FROM Games GROUP BY DATE_FORMAT(date,'%Y-%u')")->getAll();
+		$weeks = SQL("select DATE_FORMAT(date, '%Y/%m/%d') AS date FROM Games GROUP BY DATE_FORMAT(date,'%Y-%u')")->getAll();
 		foreach ($weeks as $week) {
 			$this->stat[$week['date']] = array('general','red','black','sherif','citizen', 'don', 'mafia');
 		}
