@@ -60,7 +60,6 @@
 		foreach ($obj->stat as $date => $stat) {
 			if (!isset($start))
 				$start = $date;
-			$end = $date;
 			$games .= "[\"$date\",".(isset($stat['red']['total'])?$stat['red']['total']:0) ."],";
 		}
 		$games[strlen($games) - 1] = ']';
@@ -77,7 +76,6 @@
 		foreach ($obj->stat as $date => $stat) {
 			if (!isset($start))
 				$start = $date;
-			$end = $date;
 			$games .= "[\"$date\",".(isset($stat['black']['total'])?$stat['black']['total']:0) ."],";
 		}
 		$games[strlen($games) - 1] = ']';

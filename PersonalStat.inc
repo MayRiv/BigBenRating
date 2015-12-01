@@ -87,21 +87,21 @@ class PersonalStat
 		//$weekStatGeneral= SQL("select DATE_FORMAT(date, '%d.%m.%Y') AS date, Sum(Won) v, count(*) t FROM PlayerGame join Games On(Game=GameId)  where player like ? ".$role." GROUP BY DATE_FORMAT(date,'%Y-%u') ", array($playerName))->getAll();
 		$weekStatSQL= SQL("select DATE_FORMAT(date, '%Y/%m/%d') AS date, Sum(Won) v, count(*) t FROM PlayerGame join Games On(Game=GameId)  where player like ? ".$role." GROUP BY DATE_FORMAT(date,'%Y-%u') ", array($playerName))->getAll();
 		foreach ($weekStatGeneral as $ws) {
-			$this->stat[$wg['date']]['general']['total'] = $ws['t'];
-			$this->stat[$wg['date']]['general']['victories'] = $ws['v'];
+			$this->stat[$ws['date']]['general']['total'] = $ws['t'];
+			$this->stat[$ws['date']]['general']['victories'] = $ws['v'];
 		}
 		$role = "And Role = 'Sherif' And Role = 'Citizen' ";
 		$weekStatSQL= SQL("select DATE_FORMAT(date, '%Y/%m/%d') AS date, Sum(Won) v, count(*) t FROM PlayerGame join Games On(Game=GameId)  where player like ? ".$role." GROUP BY DATE_FORMAT(date,'%Y-%u') ", array($playerName))->getAll();
 		foreach ($weekStatGeneral as $ws) {
-			$this->stat[$wg['date']]['red']['total'] = $ws['t'];
-			$this->stat[$wg['date']]['red']['victories'] = $ws['v'];
+			$this->stat[$ws['date']]['red']['total'] = $ws['t'];
+			$this->stat[$ws['date']]['red']['victories'] = $ws['v'];
 		}
 
 		$role = "And Role = 'Don' And Role = 'Mafia' ";
 		$weekStatSQL= SQL("select DATE_FORMAT(date, '%Y/%m/%d') AS date, Sum(Won) v, count(*) t FROM PlayerGame join Games On(Game=GameId)  where player like ? ".$role." GROUP BY DATE_FORMAT(date,'%Y-%u') ", array($playerName))->getAll();
 		foreach ($weekStatGeneral as $ws) {
-			$this->stat[$wg['date']]['black']['total'] = $ws['t'];
-			$this->stat[$wg['date']]['black']['victories'] = $ws['v'];
+			$this->stat[$ws['date']]['black']['total'] = $ws['t'];
+			$this->stat[$ws['date']]['black']['victories'] = $ws['v'];
 		}
 		/*$weekStatBlack = SQL("select DATE_FORMAT(date, '%d.%m.%Y') AS date, Sum(Won) v, count(*) t FROM PlayerGame join Games On(Game=GameId)  where player like ? AND Role=? GROUP BY DATE_FORMAT(date,'%Y-%u') ", array($playerName, $role))->getAll();
 		foreach ($weekStatRed as $wr) {
