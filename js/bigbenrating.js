@@ -2,6 +2,8 @@ var bbr = (function() {
 
 	var version;
 	var plot_conf;
+	var selection;
+	var hide;
 	function checkRoles()
 	{
 		var arr = [];
@@ -62,7 +64,8 @@ var bbr = (function() {
 	},
 	draw: function()
 	{
-		var hide = [];
+		selection = ["2008/12/01", "2010/12/01"];
+		hide = [];
 // преобразуем даты в формат, понятный Flot'у
 for(var j = 0; j < all_data.length; ++j) {
   hide.push(false); // не скрываем j-ый ряд. пока что.
