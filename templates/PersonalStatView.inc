@@ -48,15 +48,19 @@ var all_data = [
 ];
 bbr.draw();
 </script>';*/
+
 		$games= '<script language="javascript" type="text/javascript">var all_data = [{ label: "Все роли сыграно", color: 0, data: [';
-		var_dump($obj->stat);
+		$start = null;
 		foreach ($obj->stat as $date => $stat) {
+			if (!isset($start))
+				$start = $date;
+			$end = $date;
 			$games .= "[\"$date\",".(isset($stat['general']['total'])?$stat['general']['total']:0) ."],";
 		}
 		$games[strlen($games) - 1] = ']';
 		$games .= "}]; draw();";
 		echo $games;
-
+		echo "var selection = [$start, $end];";
 	?>
 var hide = [];
 // преобразуем даты в формат, понятный Flot'у
