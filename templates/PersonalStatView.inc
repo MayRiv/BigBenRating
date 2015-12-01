@@ -56,7 +56,7 @@
 		$games[strlen($games) - 1] = ']';
 		$games .= "},";
 
-		$games .= '{ label: "Красный сыграно", color: 2, data: [';
+		/*$games .= '{ label: "Красный сыграно", color: 2, data: [';
 		foreach ($obj->stat as $date => $stat) {
 			if (!isset($start))
 				$start = $date;
@@ -86,7 +86,7 @@
 			$games .= "[\"$date\",".(isset($stat['black']['victories'])?$stat['black']['victories']:0) ."],";
 		}
 		$games[strlen($games) - 1] = ']';
-		$games .= "}];";
+		$games .= "}];";*/
 		echo $games;
 		echo "var selection = [\"$start\", \"$end\"];";
 		getView("DrawScriptRawPart.inc", null);

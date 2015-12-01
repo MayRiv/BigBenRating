@@ -90,7 +90,7 @@ class PersonalStat
 			$this->stat[$ws['date']]['general']['total'] = $ws['t'];
 			$this->stat[$ws['date']]['general']['victories'] = $ws['v'];
 		}
-		$role = "And (Role = 'Sherif' OR Role = 'Citizen')";
+		/*$role = "And (Role = 'Sherif' OR Role = 'Citizen')";
 		$weekStatSQL= SQL("select DATE_FORMAT(date, '%Y/%m/%d') AS date, Sum(Won) v, count(*) t FROM PlayerGame join Games On(Game=GameId)  where player (like ?) ".$role." GROUP BY DATE_FORMAT(date,'%Y-%u') ", array($playerName))->getAll();
 		foreach ($weekStatSQL as $ws) {
 			$this->stat[$ws['date']]['red']['total'] = $ws['t'];
@@ -102,24 +102,8 @@ class PersonalStat
 		foreach ($weekStatSQL as $ws) {
 			$this->stat[$ws['date']]['black']['total'] = $ws['t'];
 			$this->stat[$ws['date']]['black']['victories'] = $ws['v'];
-		}
-		/*$weekStatBlack = SQL("select DATE_FORMAT(date, '%d.%m.%Y') AS date, Sum(Won) v, count(*) t FROM PlayerGame join Games On(Game=GameId)  where player like ? AND Role=? GROUP BY DATE_FORMAT(date,'%Y-%u') ", array($playerName, $role))->getAll();
-		foreach ($weekStatRed as $wr) {
-			$weekStatRed[$wr['date']]['total'] = $wr['t'];
-			$weekStatRed[$wr['date']]['victories'] = $wr['v'];
-		}
-
-		$weekStatRed = SQL("select DATE_FORMAT(date, '%d.%m.%Y') AS date, Sum(Won) v, count(*) t FROM PlayerGame join Games On(Game=GameId)  where player like ? AND Role=? GROUP BY DATE_FORMAT(date,'%Y-%u') ", array($playerName, $role))->getAll();
-		foreach ($weekStatRed as $wr) {
-			$weekStatRed[$wr['date']]['total'] = $wr['t'];
-			$weekStatRed[$wr['date']]['victories'] = $wr['v'];
-		}
-
-		$weekStatRed = SQL("select DATE_FORMAT(date, '%d.%m.%Y') AS date, Sum(Won) v, count(*) t FROM PlayerGame join Games On(Game=GameId)  where player like ? AND Role=? GROUP BY DATE_FORMAT(date,'%Y-%u') ", array($playerName, $role))->getAll();
-		foreach ($weekStatRed as $wr) {
-			$weekStatRed[$wr['date']]['total'] = $wr['t'];
-			$weekStatRed[$wr['date']]['victories'] = $wr['v'];
 		}*/
+		
 	}
 }
 ?>
