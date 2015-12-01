@@ -33,7 +33,7 @@
     <div id="placeholder" style="width:600px;height:300px;display: inline-block;"></div>
     <div style="display: inline-block;">
       <div id="legend"></div>
-      <p style="postion:relative;text-align: center;"><a href="#" onclick="switch_show(); return false;">Сменить вид</a></p>
+      <p style="postion:relative;text-align: center;"><a href="#" onclick="bbr.switch_show(); return false;">Сменить вид</a></p>
     </div>
     <div style="clear: both;"></div>
     <div id="overview" style="margin-top:20px;width:600px;height:50px;display: inline-block;"></div></div>';

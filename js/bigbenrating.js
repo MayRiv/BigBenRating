@@ -27,6 +27,24 @@ var bbr = (function() {
 		return true;
 		else return false;
 	}
+	function switch_show() {
+	  	show_bars = !show_bars; // изменяем тип диаграм
+
+	  	var new_conf = {
+	   	series: {
+	      stack: show_bars ? true : null,
+	      lines: { show: !show_bars },
+	      bars: { show: show_bars }
+	    	}
+	  	};
+
+	  // обновляем конфиг
+	  	$.extend(true, plot_conf, new_conf);
+	  	$.extend(true, overview_conf, new_conf);
+
+	  	// перерисовываем
+	  	redraw();
+	}
 
   return {
 	trySend: function() {
@@ -61,6 +79,9 @@ var bbr = (function() {
 		{
 			window.location = "?action=deleteGame&GameId=" + gameId;
 		}
+	},
+	switch_show: function(){
+		return switch_show();
 	},
 	draw: function()
 	{
@@ -120,24 +141,7 @@ var overview_conf = {
 };
  
 // меняем вид - столбики или линии
-function switch_show() {
-  show_bars = !show_bars; // изменяем тип диаграм
 
-  var new_conf = {
-    series: {
-      stack: show_bars ? true : null,
-      lines: { show: !show_bars },
-      bars: { show: show_bars }
-    }
-  };
-
-  // обновляем конфиг
-  $.extend(true, plot_conf, new_conf);
-  $.extend(true, overview_conf, new_conf);
-
-  // перерисовываем
-  redraw();
-}
 
 // перерисовываем все и вся :)
 function redraw() {
