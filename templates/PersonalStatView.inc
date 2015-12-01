@@ -54,6 +54,7 @@ bbr.draw();
 		}
 		$data[strlen($data) - 1] = ']';
 		$games .= "}]; bbr.draw(); </script>";
+		echo $games;
 
 	?>
 
