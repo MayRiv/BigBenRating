@@ -70,12 +70,12 @@ class PersonalStat
 			$this->averageBestMove = $totalBestMove / $this->firstBloodCount;
 
 
-		$totalRedCountGames = $this->citizensGameCount + $this->sherifGameCount;
-		$totalRedVictoryGames = $this->citizensVictoryCount + $this->sherifVictoryCount;
-		$totalBlackCountGames = $this->mafiaGameCount + $this->donGameCount;
-		$totalBlackVictoryGames = $this->mafiaVictoryCount + $this->donVictoryCount;
-		$totalGamesCount = $totalRedCountGames + $totalBlackCountGames;
-		$totalVictoryCount = $totalRedVictoryGames + $totalBlackVictoryGames;
+		$this->totalRedCountGames = $this->citizensGameCount + $this->sherifGameCount;
+		$this->totalRedVictoryGames = $this->citizensVictoryCount + $this->sherifVictoryCount;
+		$this->totalBlackCountGames = $this->mafiaGameCount + $this->donGameCount;
+		$this->totalBlackVictoryGames = $this->mafiaVictoryCount + $this->donVictoryCount;
+		$this->totalGamesCount = $this->totalRedCountGames + $this->totalBlackCountGames;
+		$this->totalVictoryCount = $this->totalRedVictoryGames + $this->totalBlackVictoryGames;
 
 
 		$role = "";
