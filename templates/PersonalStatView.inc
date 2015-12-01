@@ -35,7 +35,7 @@
       <div id="legend"></div>
       <p style="text-align: center;"><a href="#" onclick="switch_show(); return false;">Сменить вид</a></p>
     </div>
-    <div style="clear: both;"></div>
+    <div style="clear: both; margin:auto;"></div>
     <div id="overview" style="margin-top:20px;width:600px;height:50px"></div>';
 
 		echo '<script language="javascript" type="text/javascript">
