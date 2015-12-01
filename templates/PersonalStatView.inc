@@ -31,8 +31,8 @@
 		echo "</p></div>";
 		echo "<p>График побед игровыми ролям по неделям.</p>";
 		echo '<div  style="margin:auto;"><p><noscript><strong style="color: red;">Для отображения данных необходимо включить JavaScript!</strong></noscript></p>
-    <div id="placeholder" style="width:600px;height:300px;display: inline-block;"></div>
-    <div style="display: inline-block;">
+    <div id="placeholder" style="height:300px;"></div>
+    <div>
       <div id="legend"></div>
       <p style="postion:relative;text-align: center;"><a href="#" onclick="switch_show(); return false;">Сменить вид</a></p>
     </div>
