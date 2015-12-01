@@ -30,8 +30,8 @@
 		}
 		echo "</p></div>";
 		echo '<div  style="margin:auto;"><p><noscript><strong style="color: red;">Для отображения данных необходимо включить JavaScript!</strong></noscript></p>
-    <div id="placeholder" style="width:600px;height:300px;"></div>
-    <div ">
+    <div id="placeholder" style="width:600px;height:300px;text-align: center;"></div>
+    <div>
       <div id="legend"></div>
       <p style="postion:relative;text-align: center;"><a href="#" onclick="switch_show(); return false;">Сменить вид</a></p>
     </div>
