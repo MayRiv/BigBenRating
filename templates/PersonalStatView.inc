@@ -36,7 +36,7 @@
       <p style="postion:relative;text-align: center;"><a href="#" onclick="switch_show(); return false;">Сменить вид</a></p>
     </div>
     <div style="clear: both;"></div>
-    <div id="overview" style="margin-top:20px;width:600px;height:50px"></div></div>';
+    <div id="overview" style="margin-top:20px;width:600px;height:50px;display: inline-block;"></div></div>';
 
 		echo '<script language="javascript" type="text/javascript">
 // выделенная область
