@@ -49,6 +49,7 @@ var all_data = [
 bbr.draw();
 </script>';*/
 		$games= '<script language="javascript" type="text/javascript">var all_data = [{ label: "Все роли сыграно", color: 0, data: [';
+		var_dump($obj->stat);
 		foreach ($obj->stat as $date => $stat) {
 			$games .= "[\"$date\",".(isset($stat['general']['total'])?$stat['general']['total']:0) ."],";
 		}
