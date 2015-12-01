@@ -24,6 +24,28 @@ var bbr = (function() {
 		return true;
 		else return false;
 	}
+	function calc_bar_width() {
+		  // поскольку по оси OX откладывается время,
+		  // ширина столбцов в гистограмме вычисляется в 1/1000-ых секунды
+		  // при масштабировании эту величину следует пересчитать
+		  var r = plot_conf.xaxis;
+		  // вычисляем, сколько столбцов попало в интервал
+		  var bars_count = 0;
+		  for(var i = 0; i < all_data[0].data.length; ++i)
+		    if(all_data[0].data[i][0] >= r.min &&
+		       all_data[0].data[i][0] <= r.max)
+		       bars_count++;
+
+		  // изменяем ширину столбцов
+		  var new_conf = {
+		    series: {
+		      bars: { // умножаем на два, чтобы оставалось место между столбцами
+		        barWidth: (r.max - r.min)/((bars_count + 1 /* на ноль не делим */) * 2) 
+		      }
+		    }
+		  };
+		  $.extend(true, plot_conf, new_conf);
+	}
 	
   	return {
 	trySend: function() {
@@ -91,28 +113,6 @@ var bbr = (function() {
 
 		  // последний аргумент - чтобы избежать рекурсии
 		  overview.setSelection({ x1: selection[0], x2: selection[1] }, true);
-	},
-	calc_bar_width: function () {
-		  // поскольку по оси OX откладывается время,
-		  // ширина столбцов в гистограмме вычисляется в 1/1000-ых секунды
-		  // при масштабировании эту величину следует пересчитать
-		  var r = plot_conf.xaxis;
-		  // вычисляем, сколько столбцов попало в интервал
-		  var bars_count = 0;
-		  for(var i = 0; i < all_data[0].data.length; ++i)
-		    if(all_data[0].data[i][0] >= r.min &&
-		       all_data[0].data[i][0] <= r.max)
-		       bars_count++;
-
-		  // изменяем ширину столбцов
-		  var new_conf = {
-		    series: {
-		      bars: { // умножаем на два, чтобы оставалось место между столбцами
-		        barWidth: (r.max - r.min)/((bars_count + 1 /* на ноль не делим */) * 2) 
-		      }
-		    }
-		  };
-		  $.extend(true, plot_conf, new_conf);
 	},
 	draw: function(){
 		var selection = ["2008/12/01", "2010/12/01"];
