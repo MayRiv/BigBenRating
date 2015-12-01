@@ -24,8 +24,40 @@ var bbr = (function() {
 		return true;
 		else return false;
 	}
+	function switch_show() {
+		  show_bars = !show_bars; // изменяем тип диаграм
 
-  return {
+		  var new_conf = {
+		    series: {
+		      stack: show_bars ? true : null,
+		      lines: { show: !show_bars },
+		      bars: { show: show_bars }
+		    }
+		  };
+
+		  // обновляем конфиг
+		  $.extend(true, plot_conf, new_conf);
+		  $.extend(true, overview_conf, new_conf);
+
+		  // перерисовываем
+		  redraw();
+	}
+	function redraw() {
+		  var data = [];
+		  for(var j = 0; j < all_data.length; ++j)
+		    if(!hide[j])
+		      data.push(all_data[j]);
+
+		  plot = $.plot($("#placeholder"), data, plot_conf);
+		  overview = $.plot($("#overview"), data, overview_conf);
+
+		  // легенду рисуем только один раз
+		  plot_conf.legend.show = false;
+
+		  // последний аргумент - чтобы избежать рекурсии
+		  overview.setSelection({ x1: selection[0], x2: selection[1] }, true);
+	}
+  	return {
 	trySend: function() {
 		if (checkRoles())
 			document.getElementById('form').submit()
@@ -117,41 +149,10 @@ var bbr = (function() {
 		};
 		 
 		// меняем вид - столбики или линии
-		function switch_show() {
-		  show_bars = !show_bars; // изменяем тип диаграм
-
-		  var new_conf = {
-		    series: {
-		      stack: show_bars ? true : null,
-		      lines: { show: !show_bars },
-		      bars: { show: show_bars }
-		    }
-		  };
-
-		  // обновляем конфиг
-		  $.extend(true, plot_conf, new_conf);
-		  $.extend(true, overview_conf, new_conf);
-
-		  // перерисовываем
-		  redraw();
-		}
+		
 
 		// перерисовываем все и вся :)
-		function redraw() {
-		  var data = [];
-		  for(var j = 0; j < all_data.length; ++j)
-		    if(!hide[j])
-		      data.push(all_data[j]);
-
-		  plot = $.plot($("#placeholder"), data, plot_conf);
-		  overview = $.plot($("#overview"), data, overview_conf);
-
-		  // легенду рисуем только один раз
-		  plot_conf.legend.show = false;
-
-		  // последний аргумент - чтобы избежать рекурсии
-		  overview.setSelection({ x1: selection[0], x2: selection[1] }, true);
-		}
+		
 
 		// вычисляем ширину колонки в соответствии с новой областью выделения
 		function calc_bar_width() {
@@ -213,7 +214,7 @@ var bbr = (function() {
 		}
 		legend_html += "</tbody></table>";
 		legend.innerHTML = legend_html;
-			}
 		}
+	}
 
 })();
