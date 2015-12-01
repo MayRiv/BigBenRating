@@ -60,7 +60,7 @@ bbr.draw();
 		$games[strlen($games) - 1] = ']';
 		$games .= "}];";
 		echo $games;
-		echo "var selection = [$start, $end];";
+		echo "var selection = [\"$start\", \"$end\"];";
 	?>
 var hide = [];
 // преобразуем даты в формат, понятный Flot'у
