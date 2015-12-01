@@ -29,6 +29,14 @@
 			echo "<a href='?action=showGame&GameId=".$game."'>".$game."</a> ";
 		}
 		echo "</p></div>";
+		echo '<p><noscript><strong style="color: red;">Для отображения данных необходимо включить JavaScript!</strong></noscript></p>
+    <div id="placeholder" style="width:600px;height:300px;float:left;"></div>
+    <div style="float:left;">
+      <div id="legend"></div>
+      <p style="text-align: center;"><a href="#" onclick="switch_show(); return false;">Сменить вид</a></p>
+    </div>
+    <div style="clear: both;"></div>
+    <div id="overview" style="margin-top:20px;width:600px;height:50px"></div>';
 
 		echo '<script language="javascript" type="text/javascript">
 // выделенная область
@@ -197,17 +205,6 @@ legend_html += "</tbody></table>";
 legend.innerHTML = legend_html;
 </script>';
 	?>
-
-
-
-	<p><noscript><strong style="color: red;">Для отображения данных необходимо включить JavaScript!</strong></noscript></p>
-    <div id="placeholder" style="width:600px;height:300px;float:left;"></div>
-    <div style="float:left;">
-      <div id="legend"></div>
-      <p style="text-align: center;"><a href="#" onclick="switch_show(); return false;">Сменить вид</a></p>
-    </div>
-    <div style="clear: both;"></div>
-    <div id="overview" style="margin-top:20px;width:600px;height:50px"></div>
 
 <p><a href="?action=changePassword">Сменить пароль</a></p>
 </div>
