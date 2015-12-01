@@ -24,39 +24,7 @@ var bbr = (function() {
 		return true;
 		else return false;
 	}
-	function switch_show() {
-		  show_bars = !show_bars; // изменяем тип диаграм
-
-		  var new_conf = {
-		    series: {
-		      stack: show_bars ? true : null,
-		      lines: { show: !show_bars },
-		      bars: { show: show_bars }
-		    }
-		  };
-
-		  // обновляем конфиг
-		  $.extend(true, plot_conf, new_conf);
-		  $.extend(true, overview_conf, new_conf);
-
-		  // перерисовываем
-		  redraw();
-	}
-	function redraw() {
-		  var data = [];
-		  for(var j = 0; j < all_data.length; ++j)
-		    if(!hide[j])
-		      data.push(all_data[j]);
-
-		  plot = $.plot($("#placeholder"), data, plot_conf);
-		  overview = $.plot($("#overview"), data, overview_conf);
-
-		  // легенду рисуем только один раз
-		  plot_conf.legend.show = false;
-
-		  // последний аргумент - чтобы избежать рекурсии
-		  overview.setSelection({ x1: selection[0], x2: selection[1] }, true);
-	}
+	
   	return {
 	trySend: function() {
 		if (checkRoles())
@@ -90,6 +58,61 @@ var bbr = (function() {
 		{
 			window.location = "?action=deleteGame&GameId=" + gameId;
 		}
+	},
+	switch_show: function () {
+		  show_bars = !show_bars; // изменяем тип диаграм
+
+		  var new_conf = {
+		    series: {
+		      stack: show_bars ? true : null,
+		      lines: { show: !show_bars },
+		      bars: { show: show_bars }
+		    }
+		  };
+
+		  // обновляем конфиг
+		  $.extend(true, plot_conf, new_conf);
+		  $.extend(true, overview_conf, new_conf);
+
+		  // перерисовываем
+		  redraw();
+	},
+	redraw: function() {
+		  var data = [];
+		  for(var j = 0; j < all_data.length; ++j)
+		    if(!hide[j])
+		      data.push(all_data[j]);
+
+		  plot = $.plot($("#placeholder"), data, plot_conf);
+		  overview = $.plot($("#overview"), data, overview_conf);
+
+		  // легенду рисуем только один раз
+		  plot_conf.legend.show = false;
+
+		  // последний аргумент - чтобы избежать рекурсии
+		  overview.setSelection({ x1: selection[0], x2: selection[1] }, true);
+	},
+	calc_bar_width: function () {
+		  // поскольку по оси OX откладывается время,
+		  // ширина столбцов в гистограмме вычисляется в 1/1000-ых секунды
+		  // при масштабировании эту величину следует пересчитать
+		  var r = plot_conf.xaxis;
+		  // вычисляем, сколько столбцов попало в интервал
+		  var bars_count = 0;
+		  for(var i = 0; i < all_data[0].data.length; ++i)
+		    if(all_data[0].data[i][0] >= r.min &&
+		       all_data[0].data[i][0] <= r.max)
+		       bars_count++;
+
+		  // изменяем ширину столбцов
+		  var new_conf = {
+		    series: {
+		      bars: { // умножаем на два, чтобы оставалось место между столбцами
+		        barWidth: (r.max - r.min)/((bars_count + 1 /* на ноль не делим */) * 2) 
+		      }
+		    }
+		  };
+		  $.extend(true, plot_conf, new_conf);
 	},
 	draw: function(){
 		var selection = ["2008/12/01", "2010/12/01"];
@@ -155,28 +178,7 @@ var bbr = (function() {
 		
 
 		// вычисляем ширину колонки в соответствии с новой областью выделения
-		function calc_bar_width() {
-		  // поскольку по оси OX откладывается время,
-		  // ширина столбцов в гистограмме вычисляется в 1/1000-ых секунды
-		  // при масштабировании эту величину следует пересчитать
-		  var r = plot_conf.xaxis;
-		  // вычисляем, сколько столбцов попало в интервал
-		  var bars_count = 0;
-		  for(var i = 0; i < all_data[0].data.length; ++i)
-		    if(all_data[0].data[i][0] >= r.min &&
-		       all_data[0].data[i][0] <= r.max)
-		       bars_count++;
-
-		  // изменяем ширину столбцов
-		  var new_conf = {
-		    series: {
-		      bars: { // умножаем на два, чтобы оставалось место между столбцами
-		        barWidth: (r.max - r.min)/((bars_count + 1 /* на ноль не делим */) * 2) 
-		      }
-		    }
-		  };
-		  $.extend(true, plot_conf, new_conf);
-		}
+		
 
 		// вычисляем ширину столбцов в гистограмме
 		calc_bar_width();
