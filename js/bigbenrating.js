@@ -1,6 +1,7 @@
 var bbr = (function() {
 
 	var version;
+	var plot_conf;
 	function checkRoles()
 	{
 		var arr = [];
@@ -74,7 +75,7 @@ for(var i = 0; i < selection.length; ++i)
 var overview; // "обзор" всех данных внизу страницы
 var plot; // график крупным планом
 var show_bars = false; // показывать столбики или линии
-var plot_conf = {
+plot_conf = {
   series: {
     stack: null,
     lines: { 
