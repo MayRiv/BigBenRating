@@ -149,3 +149,4 @@ for(var i = 0; i < legend_tbl.rows.length; i++) {
 }
 legend_html += "</tbody></table>";
 legend.innerHTML = legend_html;
+</script>
