@@ -80,10 +80,10 @@ class PersonalStat
 
 		$role = "";
 		$this->stat = array();
-		$weeks = SQL("select DATE_FORMAT(date, '%Y/%m/%d') AS date FROM Games GROUP BY DATE_FORMAT(date,'%Y-%u')")->getAll();
-		foreach ($weeks as $week) {
-			$this->stat[$week['date']] = array('general','red','black','sherif','citizen', 'don', 'mafia');
-		}
+		//$weeks = SQL("select DATE_FORMAT(date, '%Y/%m/%d') AS date FROM Games GROUP BY DATE_FORMAT(date,'%Y-%u')")->getAll();
+		//foreach ($weeks as $week) {
+		//	$this->stat[$week['date']] = array('general','red','black','sherif','citizen', 'don', 'mafia');
+		//}
 		//$weekStatGeneral= SQL("select DATE_FORMAT(date, '%d.%m.%Y') AS date, Sum(Won) v, count(*) t FROM PlayerGame join Games On(Game=GameId)  where player like ? ".$role." GROUP BY DATE_FORMAT(date,'%Y-%u') ", array($playerName))->getAll();
 		$weekStatGeneral= SQL("select DATE_FORMAT(date, '%Y/%m/%d') AS date, Sum(Won) v, count(*) t FROM PlayerGame join Games On(Game=GameId)  where player like ? ".$role." GROUP BY DATE_FORMAT(date,'%Y-%u') ", array($playerName))->getAll();
 		foreach ($weekStatGeneral as $wg) {
