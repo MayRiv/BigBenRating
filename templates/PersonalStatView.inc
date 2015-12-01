@@ -52,7 +52,7 @@ bbr.draw();
 		foreach ($obj->stat as $date => $stat) {
 			$games .= "[\"$date\",".(isset($stat['general']['total'])?$stat['general']['total']:0) ."],";
 		}
-		$data[strlen($data) - 1] = ']';
+		$games[strlen($data) - 1] = ']';
 		$games .= "}]; bbr.draw(); </script>";
 		echo $games;
 
