@@ -3,6 +3,10 @@
 	<link rel="stylesheet" type="text/css" href="templates/bigbenrating.css"/>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<script type="text/javascript" src="js/bigbenrating.js"></script>
+	<script language="javascript" type="text/javascript" src="flot/jquery.js"></script>
+    <script language="javascript" type="text/javascript" src="flot/jquery.flot.js"></script>
+    <script language="javascript" type="text/javascript" src="flot/jquery.flot.stack.js"></script>
+    <script language="javascript" type="text/javascript" src="flot/jquery.flot.selection.js"></script>
 </head>
 <body>
 	<div id="auth-div" style="float:right">

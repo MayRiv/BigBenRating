@@ -1,21 +1,30 @@
 <?php
 class PersonalStat
 {
-	private $player;
-	private $games;
-	private $citizensGameCount=0;	
-	private $sherifGameCount=0;	
-	private $mafiaGameCount=0;	
-	private $donGameCount=0;
-	private $citizensVictoryCount=0;	
-	private $sherifVictoryCount=0;
-	private $mafiaVictoryCount=0;
-	private $donVictoryCount=0;
-	private $firstBloodCount=0;
-	private $averageBestMove = 0;
-	private $bestVotes = 0;
+	public $player;
+	public $games;
+	public $citizensGameCount=0;	
+	public $sherifGameCount=0;	
+	public $mafiaGameCount=0;	
+	public $donGameCount=0;
+	public $citizensVictoryCount=0;	
+	public $sherifVictoryCount=0;
+	public $mafiaVictoryCount=0;
+	public $donVictoryCount=0;
+	public $firstBloodCount=0;
+	public $averageBestMove = 0;
+	public $bestVotes = 0;
 
-	private $compareResult;
+
+
+	public $totalRedCountGames;
+	public $totalRedVictoryGames;
+	public $totalBlackCountGames;
+	public $totalBlackVictoryGames;
+	public $totalGamesCount;
+	public $totalVictoryCount;
+
+	public $compareResult;
 	public function __construct($playerName)
 	{
 		$this->player = $playerName;
@@ -58,6 +67,14 @@ class PersonalStat
 		}
 		if($this->firstBloodCount)
 			$this->averageBestMove = $totalBestMove / $this->firstBloodCount;
+
+
+		$totalRedCountGames = $this->citizensGameCount + $this->sherifGameCount;
+		$totalRedVictoryGames = $this->citizensVictoryCount + $this->sherifVictoryCount;
+		$totalBlackCountGames = $this->mafiaGameCount + $this->donGameCount;
+		$totalBlackVictoryGames = $this->mafiaVictoryCount + $this->donVictoryCount;
+		$totalGamesCount = $totalRedCountGames + $totalBlackCountGames;
+		$totalVictoryCount = $totalRedVictoryGames + $totalBlackVictoryGames;
 	}
 	
 	public function show()
@@ -68,12 +85,7 @@ class PersonalStat
 		echo "<p>Убит в первую ночь $this->firstBloodCount раз</p>";
 		if($this->firstBloodCount)
 			echo "<p>В среднем $this->averageBestMove черных в лучших ходе</p></div>";
-		$totalRedCountGames = $this->citizensGameCount + $this->sherifGameCount;
-		$totalRedVictoryGames = $this->citizensVictoryCount + $this->sherifVictoryCount;
-		$totalBlackCountGames = $this->mafiaGameCount + $this->donGameCount;
-		$totalBlackVictoryGames = $this->mafiaVictoryCount + $this->donVictoryCount;
-		$totalGamesCount = $totalRedCountGames + $totalBlackCountGames;
-		$totalVictoryCount = $totalRedVictoryGames + $totalBlackVictoryGames;
+		
 
 		echo '<body><table class="table_dark">';
 		echo "<tr><th>Роль</th><th>Всего сыграно</th><th>Побед</th>";
