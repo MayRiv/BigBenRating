@@ -54,8 +54,41 @@
 			$games .= "[\"$date\",".(isset($stat['general']['victories'])?$stat['general']['victories']:0) ."],";
 		}
 		$games[strlen($games) - 1] = ']';
-		$games .= "}];";
+		$games .= "},";
 
+		$games .= '{ label: "Красный сыграно", color: 2, data: [';
+		foreach ($obj->stat as $date => $stat) {
+			if (!isset($start))
+				$start = $date;
+			$end = $date;
+			$games .= "[\"$date\",".(isset($stat['red']['total'])?$stat['red']['total']:0) ."],";
+		}
+		$games[strlen($games) - 1] = ']';
+		$games .= "},";
+
+		$games .= '{ label: "Красный победы", color: 3, data: [';
+		foreach ($obj->stat as $date => $stat) {
+			$games .= "[\"$date\",".(isset($stat['red']['victories'])?$stat['red']['victories']:0) ."],";
+		}
+		$games[strlen($games) - 1] = ']';
+		$games .= "},";
+
+		$games .= '{ label: "Черный сыграно", color: 4, data: [';
+		foreach ($obj->stat as $date => $stat) {
+			if (!isset($start))
+				$start = $date;
+			$end = $date;
+			$games .= "[\"$date\",".(isset($stat['black']['total'])?$stat['black']['total']:0) ."],";
+		}
+		$games[strlen($games) - 1] = ']';
+		$games .= "},";
+
+		$games .= '{ label: "Черный победы", color: 5, data: [';
+		foreach ($obj->stat as $date => $stat) {
+			$games .= "[\"$date\",".(isset($stat['black']['victories'])?$stat['black']['victories']:0) ."],";
+		}
+		$games[strlen($games) - 1] = ']';
+		$games .= "}];";
 		echo $games;
 		echo "var selection = [\"$start\", \"$end\"];";
 		getView("DrawScriptRawPart.inc", null);
