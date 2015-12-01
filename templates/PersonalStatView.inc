@@ -29,6 +29,7 @@
 			echo "<a href='?action=showGame&GameId=".$game."'>".$game."</a> ";
 		}
 		echo "</p></div>";
+		echo "<p>График побед игровыми ролям по неделям.</p>";
 		echo '<div  style="margin:auto;"><p><noscript><strong style="color: red;">Для отображения данных необходимо включить JavaScript!</strong></noscript></p>
     <div id="placeholder" style="width:600px;height:300px;display: inline-block;"></div>
     <div style="display: inline-block;">
