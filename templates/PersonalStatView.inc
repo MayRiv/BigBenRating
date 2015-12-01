@@ -40,6 +40,7 @@
     <div id="overview" style="margin-top:20px;width:600px;height:50px;display: inline-block;"></div></div>';
 		$games= '<script language="javascript" type="text/javascript">var all_data = [{ label: "Все роли сыграно", color: 0, data: [';
 		$start = null;
+		var_dump($obj->stat);
 		foreach ($obj->stat as $date => $stat) {
 			if (!isset($start))
 				$start = $date;
