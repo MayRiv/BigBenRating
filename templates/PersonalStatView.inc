@@ -48,12 +48,12 @@ var all_data = [
 ];
 bbr.draw();
 </script>';*/
-		$data = '<script language="javascript" type="text/javascript">var all_data = [{ label: "Все роли сыграно", color: 0, data: [';
+		$games= '<script language="javascript" type="text/javascript">var all_data = [{ label: "Все роли сыграно", color: 0, data: [';
 		foreach ($obj->stat as $date => $stat) {
-			echo "[\"$date\",".$stat['general']['total']."],";
+			$games .= "[\"$date\",".(isset($stat['general']['total'])?$stat['general']['total']:0) ."],";
 		}
 		$data[strlen($data) - 1] = ']';
-		$data .= "}]; bbr.draw(); </script>";
+		$games .= "}]; bbr.draw(); </script>";
 
 	?>
 
