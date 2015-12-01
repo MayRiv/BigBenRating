@@ -4,6 +4,10 @@ var bbr = (function() {
 	var plot_conf;
 	var selection;
 	var hide;
+	var show_bars;
+	var overview;
+	var plot; 
+	var overview_conf;
 	function checkRoles()
 	{
 		var arr = [];
@@ -96,9 +100,9 @@ for(var j = 0; j < all_data.length; ++j) {
 for(var i = 0; i < selection.length; ++i)
   selection[i] = Date.parse(selection[i]);
 
-var overview; // "обзор" всех данных внизу страницы
-var plot; // график крупным планом
-var show_bars = false; // показывать столбики или линии
+overview; // "обзор" всех данных внизу страницы
+plot; // график крупным планом
+show_bars = false; // показывать столбики или линии
 plot_conf = {
   series: {
     stack: null,
@@ -118,7 +122,7 @@ plot_conf = {
   }
 };
 
-var overview_conf = {
+overview_conf = {
   series: {
     lines: { 
       show: true,
