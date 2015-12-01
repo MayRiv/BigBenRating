@@ -76,37 +76,5 @@ class PersonalStat
 		$totalGamesCount = $totalRedCountGames + $totalBlackCountGames;
 		$totalVictoryCount = $totalRedVictoryGames + $totalBlackVictoryGames;
 	}
-	
-	public function show()
-	{
-		//getView("HeaderView.inc", NULL);
-		echo "<div><h2>Статистика игрока $this->player</h2>";
-		echo "<p>Получил $this->bestVotes лучших</p>";
-		echo "<p>Убит в первую ночь $this->firstBloodCount раз</p>";
-		if($this->firstBloodCount)
-			echo "<p>В среднем $this->averageBestMove черных в лучших ходе</p></div>";
-		
-
-		echo '<body><table class="table_dark">';
-		echo "<tr><th>Роль</th><th>Всего сыграно</th><th>Побед</th>";
-		echo	"<tr><td>Всего</td><td>$totalGamesCount</td><td>$totalVictoryCount</th></td>";
-		echo	"<tr><td>Красный</td><td>$totalRedCountGames</td><td>$totalRedVictoryGames</th></td>";
-		echo	"<tr><td>Черный</td><td>$totalBlackCountGames</td><td>$totalBlackVictoryGames</th></td>";
-		
-		echo "<tr><th colspan='3'>Подробно</th></tr>";
-		echo	"<tr><td>Мирный житель</td><td>$this->citizensGameCount</td><td>$this->citizensVictoryCount</td></tr>";
-		echo	"<tr><td>Шериф</td><td>$this->sherifGameCount</td><td>$this->sherifVictoryCount</td></tr>";
-		echo	"<tr><td>Мафия</td><td>$this->mafiaGameCount</td><td>$this->mafiaVictoryCount</td></tr>";
-		echo	"<tr><td>Дон</td><td>$this->donGameCount</td><td>$this->donVictoryCount</th></td>";
-		
-		echo '</table>';
-
-		echo "<div><p>Сыграл в играх: ";
-		foreach ($this->games as $game) {
-			echo "<a href='?action=showGame&GameId=".$game."'>".$game."</a> ";
-		}
-		echo "</p></div>";
-	
-	}
 }
 ?>
