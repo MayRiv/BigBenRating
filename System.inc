@@ -248,7 +248,7 @@ ORDER BY player ASC, b DESC")->getAll();
 		session_start();
 		$players = SQL("Select Name from Players")->getAll();
 		$data['players'] = $players;
-		if ($_SERVER['REQUEST_METHOD'] != 'GET')
+		if ($_SERVER['REQUEST_METHOD'] == 'GET')
 		{		
 				
 				/*$data['comparePlayer1'] = $_POST['ComparePlayer1'];
