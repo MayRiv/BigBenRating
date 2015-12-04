@@ -1,9 +1,11 @@
 <?php getView("HeaderView.inc", null); ?>
 <div id="feed">
 	<h1>Доминация</h1>
-		<p>Чтобы получить статистику общих игр двух игркоов введите их ники и нажмите "Сравнить"</p>
-		<p><input id='ComparePlayer1'  type="text" list='players_list'/><input id='ComparePlayer2' type="text" list='players_list'/></p>
-		<p><input type="button" value="Сравнить" onclick="bbr.tryGetDomination()"/></p>
+
+	<p>Чтобы получить статистику общих игр двух игркоов введите их ники и нажмите "Сравнить"</p> 
+	<p><input id='ComparePlayer1' type="text" list='players_list'/><input id='ComparePlayer2' type="text" list='players_list'/></p> 
+	<p><input type="button" value="Сравнить" onclick="bbr.tryGetDomination()"/></p>
+
 <?php
 	//var_dump($obj['domination']);
 	if (isset($obj['domination']) && $obj['domination']->status)

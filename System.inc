@@ -248,6 +248,7 @@ ORDER BY player ASC, b DESC")->getAll();
 		session_start();
 		$players = SQL("Select Name from Players")->getAll();
 		$data['players'] = $players;
+<<<<<<< HEAD
 		if ($_SERVER['REQUEST_METHOD'] == 'GET')
 		{		
 				
@@ -271,6 +272,10 @@ ORDER BY player ASC, b DESC")->getAll();
 				$data['RB'] = $RB[0];
 				$data['BR'] = $BR[0];*/
 
+=======
+		if (isset($_GET['ComparePlayer1']) && isset( $_GET['ComparePlayer2']))
+		{		
+>>>>>>> master
 				$data['domination'] = new Domination($_GET['ComparePlayer1'], $_GET['ComparePlayer2']);
 		}
 		getView("DominationView.inc", $data);
