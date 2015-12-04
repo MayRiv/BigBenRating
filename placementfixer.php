@@ -3,6 +3,7 @@
 $dbName = "u825515718_bbrat";
 $user = "u825515718_bbrat";
 $password = "B1gBenMafia";*/
+require("DBManager.inc");
 $host = "mysql.hostinger.com.ua"; 
 		$dbName = "u833869977_bbrat"; 
 		$user = "u833869977_bbrat"; 
