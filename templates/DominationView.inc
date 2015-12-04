@@ -2,7 +2,7 @@
 <div id="feed">
 	<h1>Доминация</h1>
 	
-	<form id="form" action="?action=getDomination" method="post">
+	<form id="form" action="?action=getDomination" method="get">
 		<p>Чтобы получить статистику общих игр двух игркоов введите их ники и нажмите "Сравнить"</p>
 		<p><input name='ComparePlayer1' type="text" list='players_list'/><input name='ComparePlayer2' type="text" list='players_list'/></p>
 		<p><input type="submit" value="Сравнить"/></p>

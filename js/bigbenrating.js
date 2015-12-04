@@ -58,6 +58,9 @@ var bbr = (function() {
 		{
 			window.location = "?action=deleteGame&GameId=" + gameId;
 		}
+	},
+	tryGetDomination: function(){
+		//document.getElementById('form').submit()encodeURIComponent
 	}
 }
 
