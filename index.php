@@ -6,10 +6,10 @@
 	define ("DEV", 0);
 	if (DEV)
 	{
-		$host = "localhost";
-		$dbName = "u825515718_bbrat";
-		$user = "root";
-		$password = "";
+		$host = "mysql.hostinger.com.ua"; 
+		$dbName = "u833869977_bbrat"; 
+		$user = "u833869977_bbrat"; 
+		$password = "konoplya_1";
 	}
 	else
 	{
