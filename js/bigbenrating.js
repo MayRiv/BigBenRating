@@ -60,7 +60,9 @@ var bbr = (function() {
 		}
 	},
 	tryGetDomination: function(){
-		//document.getElementById('form').submit()encodeURIComponent
+		form = document.getElementById('form');
+		form.action = "?action=getDomination&ComparePlayer1=" + encodeURIComponent(document.getElementById('ComparePlayer1')) + "&ComparePlayer2=" + encodeURIComponent(document.getElementById('ComparePlayer2')) //.submit()encodeURIComponent
+		form.submit();
 	}
 }
 

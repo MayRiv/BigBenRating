@@ -4,8 +4,8 @@
 	
 	<form id="form" action="?action=getDomination" method="get">
 		<p>Чтобы получить статистику общих игр двух игркоов введите их ники и нажмите "Сравнить"</p>
-		<p><input name='ComparePlayer1' type="text" list='players_list'/><input name='ComparePlayer2' type="text" list='players_list'/></p>
-		<p><input type="submit" value="Сравнить"/></p>
+		<p><input id='ComparePlayer1' name='ComparePlayer1' type="text" list='players_list'/><input id='ComparePlayer2' name='ComparePlayer2' type="text" list='players_list'/></p>
+		<p><input type="button" value="Сравнить" onclick="bbr.tryGetDomination()"/></p>
 	</form>
 <?php
 	//var_dump($obj['domination']);
