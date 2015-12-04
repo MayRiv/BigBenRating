@@ -270,7 +270,8 @@ ORDER BY player ASC, b DESC")->getAll();
 				$data['BBlack'] = $BBlack[0];
 				$data['RB'] = $RB[0];
 				$data['BR'] = $BR[0];*/
-				$data['domination'] = new Domination($_POST['ComparePlayer1'], $_POST['ComparePlayer2']);
+
+				$data['domination'] = new Domination($_GET['ComparePlayer1'], $_GET['ComparePlayer2']);
 		}
 		getView("DominationView.inc", $data);
 	}
