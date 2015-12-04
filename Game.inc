@@ -51,7 +51,7 @@ class Game
 		$this->players = array();
 		for ($i = 0; $i < 10; $i++)
 		{
-			$this->players[$post["Player$i"]] = array('Role'=>$post["Role$i"], 'WasShotFirst'=>0, 'BestMove'=> 0, 'BestPlayer'=>0, 'Won' => 0, 'Warnings' => $post["Warnings$i"], 'Place' => $i);
+			$this->players[$post["Player$i"]] = array('Role'=>$post["Role$i"], 'WasShotFirst'=>0, 'BestMove'=> 0, 'BestPlayer'=>0, 'Won' => 0, 'Warnings' => $post["Warnings$i"], 'Place' => $i + 1);
 			if(isset($post["Best$i"]))
 				$this->players[$post["Player$i"]]['BestPlayer'] = 1;
 			
