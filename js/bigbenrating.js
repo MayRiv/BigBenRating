@@ -60,9 +60,11 @@ var bbr = (function() {
 		}
 	},
 	tryGetDomination: function(){
-		form = document.getElementById('form');
-		form.action = "?action=getDomination&ComparePlayer1=" + encodeURIComponent(document.getElementById('ComparePlayer1')) + "&ComparePlayer2=" + encodeURIComponent(document.getElementById('ComparePlayer2')) //.submit()encodeURIComponent
-		form.submit();
+		//form = document.getElementById('form');
+		//form.action = "?action=getDomination&ComparePlayer1=" + encodeURIComponent(document.getElementById('ComparePlayer1')) + "&ComparePlayer2=" + encodeURIComponent(document.getElementById('ComparePlayer2')) //.submit()encodeURIComponent
+		//form.submit();
+		document.location.href = "?action=getDomination&ComparePlayer1=" + encodeURIComponent(document.getElementById('ComparePlayer1')) + "&ComparePlayer2=" + encodeURIComponent(document.getElementById('ComparePlayer2')) //.submit()encodeURIComponent
+		
 	}
 }
 
