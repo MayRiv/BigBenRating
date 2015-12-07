@@ -20,7 +20,6 @@
 
     		echo "bbr.generateAutocompleter('Name', choices);";
 ?>
-bbr.gener
 
 <datalist id="players_list">
 <?php	foreach ($obj as $player)

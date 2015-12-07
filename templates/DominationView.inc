@@ -35,7 +35,7 @@
 			if (!($player['Status'] === "Master" || $player['Status'] === "Admin"))
     			echo "<option>".$player['Name']."</option>";?>
 </datalist>
-
+<script type="text/javascript">
 <?php
     		$names = "var choices = [";
         	foreach ($obj['players'] as $player)
@@ -45,5 +45,6 @@
 
     		echo "bbr.generateAutocompleter('Name', choices);";
 ?>
+</script>
 <?php getView("Footer.inc", null); ?>
 </body>
