@@ -58,14 +58,14 @@
 <script type="text/javascript">
 <?php
 			$namesAdmin = "var choicesAdmin = [";
-        	foreach ($obj as $player)
+        	foreach ($obj['players'] as $player)
         		if ($player['Status'] === "Master" || $player['Status'] === "Admin")
     				$namesAdmin .= "'".$player['Name']."',";
     		$namesAdmin[strlen($namesAdmin) - 1] = ']';
     		echo $namesAdmin.";";
 
     		$names = "var choices = [";
-        	foreach ($obj as $player)
+        	foreach ($obj['players'] as $player)
     			$names .= "'".$player['Name']."',";
     		$names[strlen($names) - 1] = ']';
     		echo $names.";";
