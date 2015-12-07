@@ -16,7 +16,7 @@ new autoComplete({
 <?php
         	$names = "";
         	foreach ($obj as $player)
-    			$names .= $player['Name'].",";
+    			$names .= "'".$player['Name']."',";
     		$names[strlen($names) - 1] = ']';
     		echo $names;
 ?>
