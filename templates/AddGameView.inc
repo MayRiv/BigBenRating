@@ -18,7 +18,7 @@
 		
 		<tr><th>№</th><th>Игрок</th><th>Роль</th><th>Лучший</th><th>Фолы</th>
 <?php	for ( $i = 0; $i < 10; $i++)	
-	echo "<tr><td>".($i+1)."</td><td><input type='text' name=Player$i></td>
+	echo "<tr><td>".($i+1)."</td><td><input type='text' list='players_list' name=Player$i></td>
 		<td><select id='Role$i' name='Role$i'>
 			<option>Citizen</option>
 			<option>Sherif</option>
@@ -70,8 +70,8 @@
     		$names[strlen($names) - 1] = ']';
     		echo $names.";";
 
-    		for ($i = 0; $i < 10; $i++)
-    			echo "bbr.generateAutocompleter('Player$i', choices);";
+    		//for ($i = 0; $i < 10; $i++)
+    		//	echo "bbr.generateAutocompleter('Player$i', choices);";
     		echo "bbr.generateAutocompleter('Master', choicesAdmin);";
 ?>
 bbr.generateAutocompleter("Player", choices);
