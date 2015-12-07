@@ -12,13 +12,13 @@ new autoComplete({
     minChars: 2,
     source: function(term, suggest){
         term = term.toLowerCase();
-        var choices = [
+        
 <?php
-        	$names = "";
+        	$names = "var choices = [";
         	foreach ($obj as $player)
     			$names .= "'".$player['Name']."',";
     		$names[strlen($names) - 1] = ']';
-    		echo $names;
+    		echo $names".;";
 ?>
         var matches = [];
         for (i=0; i<choices.length; i++)
