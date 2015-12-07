@@ -18,7 +18,7 @@ new autoComplete({
         	foreach ($obj as $player)
     			$names .= "'".$player['Name']."',";
     		$names[strlen($names) - 1] = ']';
-    		echo $names".;";
+    		echo $names.";";
 ?>
         var matches = [];
         for (i=0; i<choices.length; i++)
