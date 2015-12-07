@@ -54,6 +54,29 @@
 		<p><input type="button" value="Send" onclick="bbr.trySend()"/></p>
 	</form>
 
+
+<script type="text/javascript">
+<?php
+			$namesAdmin = "var choicesAdmin = [";
+        	foreach ($obj as $player)
+        		if ($player['Status'] === "Master" || $player['Status'] === "Admin")
+    				$namesAdmin .= "'".$player['Name']."',";
+    		$namesAdmin[strlen($namesAdmin) - 1] = ']';
+    		echo $namesAdmin.";";
+
+    		$names = "var choices = [";
+        	foreach ($obj as $player)
+    			$names .= "'".$player['Name']."',";
+    		$names[strlen($names) - 1] = ']';
+    		echo $names.";";
+
+    		for ($i = 0; $i < 10; $i++)
+    			echo "bbr.generateAutocompleter('Player$i', choices);";
+    		echo "bbr.generateAutocompleter('Master', choicesAdmin);"
+?>
+bbr.generateAutocompleter("Player", choices);
+</script>
+
 <datalist id="players_list">
 <?php	foreach ($obj['players'] as $player)
 			if (!($player['Status'] === "Master" || $player['Status'] === "Admin"))
