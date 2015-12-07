@@ -1,12 +1,14 @@
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="templates/bigbenrating.css"/>
+	<link rel="stylesheet" type="text/css" href="templates/auto-complete.css">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<script type="text/javascript" src="js/bigbenrating.js"></script>
 	<script language="javascript" type="text/javascript" src="js/flot/jquery.js"></script>
     <script language="javascript" type="text/javascript" src="js/flot/jquery.flot.js"></script>
     <script language="javascript" type="text/javascript" src="js/flot/jquery.flot.stack.js"></script>
     <script language="javascript" type="text/javascript" src="js/flot/jquery.flot.selection.js"></script>
+    <script type="text/javascript" src="js/auto-complete.min.js"></script>
 </head>
 <body>
 	<div id="auth-div" style="float:right">

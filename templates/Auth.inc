@@ -1,11 +1,32 @@
 <?php getView("HeaderView.inc", null); ?>
 <div id="feed">
 	<form action="?action=login" method="post">
-  			<p><input type="text" name="Player" placeholder="Введите ник" list='players_list'></p>
+  			<p><input type="text" name="Player" placeholder="Введите ник"></p>
 			<p><input type="password" name="Password"placeholder="Введите пароль"></p>
   			<p><input type="submit" value="Войти"></p>
  	</form>
 </div>
+<script type="text/javascript">
+new autoComplete({
+    selector: 'input[name="Player"]',
+    minChars: 2,
+    source: function(term, suggest){
+        term = term.toLowerCase();
+        var choices = [
+        <?php
+        	$names = "";
+        	foreach ($obj as $player)
+    			$names .= "<option>".$player['Name'].",</option>";?>
+    		$names[strlen($names) - 1] = ']';
+    		echo $names;
+        ?>
+        var matches = [];
+        for (i=0; i<choices.length; i++)
+            if (~choices[i].toLowerCase().indexOf(term)) matches.push(choices[i]);
+        suggest(matches);
+    }
+});
+</script>
 <?php getView("Footer.inc", null); ?>
 </body>
 <datalist id="players_list">
