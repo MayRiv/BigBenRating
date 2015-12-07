@@ -3,7 +3,7 @@
 	<h1>Доминация</h1>
 
 	<p>Чтобы получить статистику общих игр двух игркоов введите их ники и нажмите "Сравнить"</p> 
-	<p><input id='ComparePlayer1' name="Player1" type="text"/><input id='ComparePlayer2' type="text"/></p> 
+	<p><input id='ComparePlayer1' name="Player1" type="text"/><input id='ComparePlayer2' name="Player2" type="text"/></p> 
 	<p><input type="button" name="Player2" value="Сравнить" onclick="bbr.tryGetDomination()"/></p>
 
 <?php
