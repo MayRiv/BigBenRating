@@ -13,13 +13,13 @@ new autoComplete({
     source: function(term, suggest){
         term = term.toLowerCase();
         var choices = [
-        <?php
+<?php
         	$names = "";
         	foreach ($obj as $player)
-    			$names .= "<option>".$player['Name'].",</option>";?>
+    			$names .= $player['Name'].",";
     		$names[strlen($names) - 1] = ']';
     		echo $names;
-        ?>
+?>
         var matches = [];
         for (i=0; i<choices.length; i++)
             if (~choices[i].toLowerCase().indexOf(term)) matches.push(choices[i]);
