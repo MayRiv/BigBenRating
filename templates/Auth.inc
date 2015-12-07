@@ -12,6 +12,7 @@ $names = "var choices = [";
         	foreach ($obj as $player)
     			$names .= "'".$player['Name']."',";
     		$names[strlen($names) - 1] = ']';
+    		echo $names;
 ?>
 bbr.generateAutocompleter("Player", choices);
 /*new autoComplete({
