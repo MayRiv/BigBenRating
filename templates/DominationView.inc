@@ -3,8 +3,8 @@
 	<h1>Доминация</h1>
 
 	<p>Чтобы получить статистику общих игр двух игркоов введите их ники и нажмите "Сравнить"</p> 
-	<p><input id='ComparePlayer1' name="Player" type="text"/><input id='ComparePlayer2' type="text"/></p> 
-	<p><input type="button" value="Сравнить" onclick="bbr.tryGetDomination()"/></p>
+	<p><input id='ComparePlayer1' name="Player1" type="text"/><input id='ComparePlayer2' type="text"/></p> 
+	<p><input type="button" name="Player2" value="Сравнить" onclick="bbr.tryGetDomination()"/></p>
 
 <?php
 	//var_dump($obj['domination']);
@@ -43,7 +43,8 @@
     		$names[strlen($names) - 1] = ']';
     		echo $names.";";
 
-    		echo "bbr.generateAutocompleter('Name', choices);";
+    		echo " bbr.generateAutocompleter('Player1', choices);";
+    		echo " bbr.generateAutocompleter('Player2', choices);";
 ?>
 </script>
 <?php getView("Footer.inc", null); ?>
