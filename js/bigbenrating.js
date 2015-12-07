@@ -61,6 +61,21 @@ var bbr = (function() {
 	},
 	tryGetDomination: function(){
 		document.location.href = "?action=getDomination&ComparePlayer1=" + encodeURIComponent(document.getElementById('ComparePlayer1').value) + "&ComparePlayer2=" + encodeURIComponent(document.getElementById('ComparePlayer2').value) //.submit()encodeURIComponent	
+	},
+	generateAutocompleter: function(fieldMame, values)
+	{
+		return new autoComplete({
+	   		selector: 'input[name='+fieldMame+']',
+	    	minChars: 2,
+	    	source: function(term, suggest){
+		        term = term.toLowerCase();
+				var choices = values;
+		        var matches = [];
+		        for (i=0; i<choices.length; i++)
+		            if (~choices[i].toLowerCase().indexOf(term)) matches.push(choices[i]);
+		        suggest(matches);
+	    	}
+		});
 	}
 }
 

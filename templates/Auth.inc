@@ -7,7 +7,14 @@
  	</form>
 </div>
 <script type="text/javascript">
-new autoComplete({
+<?php
+$names = "var choices = [";
+        	foreach ($obj as $player)
+    			$names .= "'".$player['Name']."',";
+    		$names[strlen($names) - 1] = ']';
+?>
+bbr.generateAutocompleter("Player", choices);
+/*new autoComplete({
     selector: 'input[name="Player"]',
     minChars: 2,
     source: function(term, suggest){
@@ -25,7 +32,7 @@ new autoComplete({
             if (~choices[i].toLowerCase().indexOf(term)) matches.push(choices[i]);
         suggest(matches);
     }
-});
+});*/
 </script>
 <?php getView("Footer.inc", null); ?>
 </body>
