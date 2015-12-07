@@ -21,7 +21,7 @@ class Game
 		Logger::getInstance()->write("Game with id $this->gameId is added, room is $this->roomId, adder is " . $_SESSION['player']);
 		foreach ($this->players as $playerName => $info)
 		{	
-			SQL("INSERT INTO `PlayerGame`(`Player`, `Game`, `Role`, `BestPlayer`, `Warnings`, `WasShotFirst`, `BestMove`, `Won`) VALUES (?,?,?,?,?,?,?,?)", array($playerName, $this->gameId, $info['Role'], $info['BestPlayer'], $info['Warnings'], $info['WasShotFirst'], $info['BestMove'], $info['Won']));
+			SQL("INSERT INTO `PlayerGame`(`Player`, `Game`, `Role`, `BestPlayer`, `Warnings`, `WasShotFirst`, `BestMove`, `Won`, `Place`) VALUES (?,?,?,?,?,?,?,?,?)", array($playerName, $this->gameId, $info['Role'], $info['BestPlayer'], $info['Warnings'], $info['WasShotFirst'], $info['BestMove'], $info['Won'], $info['Place']));
 		}
 	}
 	public function update($gameId)
@@ -30,7 +30,7 @@ class Game
 		SQL("Delete from PlayerGame where Game=?", array($gameId));
 		foreach ($this->players as $playerName => $info)
 		{	
-			SQL("INSERT INTO `PlayerGame`(`Player`, `Game`, `Role`, `BestPlayer`, `Warnings`, `WasShotFirst`, `BestMove`, `Won`) VALUES (?,?,?,?,?,?,?,?)", array($playerName, $gameId, $info['Role'], $info['BestPlayer'], $info['Warnings'], $info['WasShotFirst'], $info['BestMove'], $info['Won']));
+			SQL("INSERT INTO `PlayerGame`(`Player`, `Game`, `Role`, `BestPlayer`, `Warnings`, `WasShotFirst`, `BestMove`, `Won`, `Place`) VALUES (?,?,?,?,?,?,?,?,?)", array($playerName, $gameId, $info['Role'], $info['BestPlayer'], $info['Warnings'], $info['WasShotFirst'], $info['BestMove'], $info['Won'], $info['Place']));
 		}
 		Logger::getInstance()->write("Game with id $this->gameId has been updates, room is $this->roomId, updater is " . $_SESSION['player']);
 	}
@@ -51,7 +51,7 @@ class Game
 		$this->players = array();
 		for ($i = 0; $i < 10; $i++)
 		{
-			$this->players[$post["Player$i"]] = array('Role'=>$post["Role$i"], 'WasShotFirst'=>0, 'BestMove'=> 0, 'BestPlayer'=>0, 'Won' => 0, 'Warnings' => $post["Warnings$i"]);
+			$this->players[$post["Player$i"]] = array('Role'=>$post["Role$i"], 'WasShotFirst'=>0, 'BestMove'=> 0, 'BestPlayer'=>0, 'Won' => 0, 'Warnings' => $post["Warnings$i"], 'Place' => $i + 1);
 			if(isset($post["Best$i"]))
 				$this->players[$post["Player$i"]]['BestPlayer'] = 1;
 			
@@ -74,10 +74,10 @@ class Game
 			$this->master = $game[0]['Master'];
 			$this->status = $game[0]['Status'];
 		
-			$res = SQL("Select `Player`, `Game`, `Role`, `BestPlayer`, `Warnings`, `WasShotFirst`, `BestMove`, `Won` from `PlayerGame` WHERE Game = ?", array($GameId))->getAll();
+			$res = SQL("Select `Player`, `Game`, `Role`, `BestPlayer`, `Warnings`, `WasShotFirst`, `BestMove`, `Won`, `Place` from `PlayerGame` WHERE Game = ? order by Place ASC", array($GameId))->getAll();
 			foreach($res as $p)
 			{
-				$this->players[$p['Player']] = array('Role'=>$p["Role"], 'WasShotFirst'=>$p["WasShotFirst"], 'BestMove'=> $p["BestMove"], 'BestPlayer'=> $p["BestPlayer"], 'Won' => $p["Won"], 'Warnings' => $p["Warnings"]);
+				$this->players[$p['Player']] = array('Role'=>$p["Role"], 'WasShotFirst'=>$p["WasShotFirst"], 'BestMove'=> $p["BestMove"], 'BestPlayer'=> $p["BestPlayer"], 'Won' => $p["Won"], 'Warnings' => $p["Warnings"], 'Place' => $p['Place']);
 			}
 		} 
 	}
