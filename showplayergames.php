@@ -10,7 +10,7 @@ DBManager::getInstance()->connect($host, $dbName, $user, $password);
 echo "<html><body><div id='feed'>";
 $res = SQL("Select player as Name, game as Id from PlayerGame group by Name order by player")->getAll();
 foreach ($res as  $player) {
-	echo "<p><a href='?action=showGame&GameId=".$player['Id']."'>".$player['Name']."</a></p>";
+	echo "<p><a href='/?action=showGame&GameId=".$player['Id']."'>".$player['Name']."</a></p>";
 }
 echo "</div></body></html>";
 ?>
