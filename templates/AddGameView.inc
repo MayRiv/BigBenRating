@@ -18,7 +18,7 @@
 		
 		<tr><th>№</th><th>Игрок</th><th>Роль</th><th>Лучший</th><th>Фолы</th>
 <?php	for ( $i = 0; $i < 10; $i++)	
-	echo "<tr><td>".($i+1)."</td><td><input type='text' list='players_list' name=Player$i></td>
+	echo "<tr><td>".($i+1)."</td><td><input type='text'  id='Player$i' name=Player$i></td>
 		<td><select id='Role$i' name='Role$i'>
 			<option>Citizen</option>
 			<option>Sherif</option>
@@ -57,23 +57,18 @@
 
 <script type="text/javascript">
 <?php
-			$namesAdmin = "var choicesAdmin = [";
-        	foreach ($obj['players'] as $player)
-        		if ($player['Status'] === "Master" || $player['Status'] === "Admin")
-    				$namesAdmin .= "'".$player['Name']."',";
-    		$namesAdmin[strlen($namesAdmin) - 1] = ']';
-    		echo $namesAdmin.";";
+$names = "var availableTags = [";
+	foreach ($obj as $player)
+    	$names .= '"'.$player["Name"].'",';
+    $names[strlen($names) - 1] = ']';
+    echo $names.";";
+for ($i=0; $i < 10; $i++) { 
+	echo "$( \"#Player$i\" ).autocomplete({source: availableTags});";
+}
 
-    		$names = "var choices = [";
-        	foreach ($obj['players'] as $player)
-    			$names .= "'".$player['Name']."',";
-    		$names[strlen($names) - 1] = ']';
-    		echo $names.";";
-
-    		//for ($i = 0; $i < 10; $i++)
-    		//	echo "bbr.generateAutocompleter('Player$i', choices);";
-    		echo "bbr.generateAutocompleter('Master', choicesAdmin);";
 ?>
+</script>
+
 bbr.generateAutocompleter("Player", choices);
 </script>
 
