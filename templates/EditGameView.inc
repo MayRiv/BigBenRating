@@ -7,21 +7,21 @@
 		<?php
 		for($i = 1; $i < 5; $i++)
 		{
-			if ($i == $this->roomId)
+			if ($i == $obj["game"]->roomId)
 				echo "<option selected>$i</option>";
 			else
 				echo "<option>$i</option>";
 		}
 		?>
 		</select></p>
-		<p>Дата проведения игры <input type='date' name='date' value='<?=$this->date?>' /></p>
-		<p>Ведущий: <input type='text' name='Master' list='masters_list' value='<?=$this->master?>'></p>
+		<p>Дата проведения игры <input type='date' name='date' value='<?=$obj["game"]->date?>' /></p>
+		<p>Ведущий: <input type='text' name='Master' list='masters_list' value='<?=$obj["game"]->master?>'></p>
 		<body><table>
 		<tr><th>Игрок</th><th>Роль</th><th>Лучший</th><th>Фолы</th></tr>
 		<?php
 		$roles = array("Citizen", "Sherif","Mafia","Don");
 		$i = 0;
-		foreach ($this->players as $name =>$player) 
+		foreach ($obj["game"]->players as $name =>$player) 
 		{
 			echo "<tr><td><input type='text' name=Player$i list='players_list' value='$name'></td><td>
 			<select id='Role$i' name='Role$i'>";
@@ -65,20 +65,20 @@
 					echo "<option value=$i>$i</option>";
 			}
 		echo "</select> черных игроков</p>";
-		if ($this->status == 1)
+		if ($obj["game"]->status == 1)
 			$victoryTeam = "Город";
-		if ($this->status == -1)
+		if ($obj["game"]->status == -1)
 			$victoryTeam = "Мафия";
-		if ($this->status == 0)
+		if ($obj["game"]->status == 0)
 			$victoryTeam = "Ничья";
 		echo "<p>Победила команда: </p>";
 		echo "<select name=\"result\">";
 		$teams = array("City"=>"Мирных жителей", "Mafia"=>"Мафии", "Draw"=> "Ничья");
-		if ($this->status == 1)
+		if ($obj["game"]->status == 1)
 			$victoryTeam = "City";
-		if ($this->status == -1)
+		if ($obj["game"]->status == -1)
 			$victoryTeam = "Mafia";
-		if ($this->status == 0)
+		if ($obj["game"]->status == 0)
 			$victoryTeam = "Draw";
 		foreach ($teams as $team =>$message) {
 			if ($team === $victoryTeam)
