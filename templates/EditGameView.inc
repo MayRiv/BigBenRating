@@ -110,7 +110,5 @@ $admins = "var admins = [";
     $admins[strlen($admins) - 1] = ']';
     echo $admins.";";
 	echo "$( \"#Master\" ).autocomplete({source: admins});";
-}
-
 ?>
 </script>
