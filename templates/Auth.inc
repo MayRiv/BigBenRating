@@ -1,7 +1,7 @@
 <?php getView("HeaderView.inc", null); ?>
 <div id="feed">
 	<form action="?action=login" method="post">
-  			<p><input type="text" name="Player" placeholder="Введите ник"></p>
+  			<p><input type="text" id="Player" name="Player" placeholder="Введите ник"></p>
 			<p><input type="password" name="Password" placeholder="Введите пароль"></p>
   			<p><input type="submit" value="Войти"></p>
  	</form>
@@ -14,8 +14,19 @@ $names = "var choices = [";
     		$names[strlen($names) - 1] = ']';
     		echo $names.";";
 ?>
-bbr.generateAutocompleter("Player", choices);
 </script>
+ 
+<script type="text/javascript">
+var availableTags = [
+<?php	
+	foreach ($obj as $player)
+    	echo '"$player["Name"]",';
+?>
+];
+$( "#Player" ).autocomplete({source: availableTags});
+</script>
+
+
 <?php getView("Footer.inc", null); ?>
 </body>
 <datalist id="players_list">
