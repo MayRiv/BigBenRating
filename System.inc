@@ -230,9 +230,13 @@ ORDER BY player ASC, b DESC")->getAll();
 		{
 			if ($_SERVER['REQUEST_METHOD'] == 'GET')
 			{	
+				$players = SQL("Select Name from Players")->getAll();
+				$data['players'] = $players;
 				$gameId = (int)$_GET['GameId'];
 				$game = new Game($gameId);
-				$game->editShow();
+				$data['game'] = $game;
+				getView("EditGameView.inc", $data);
+				//$game->editShow();
 			}
 			if ($_SERVER['REQUEST_METHOD'] == 'POST')
 			{
