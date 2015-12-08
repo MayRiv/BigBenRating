@@ -15,7 +15,7 @@
 		?>
 		</select></p>
 		<p>Дата проведения игры <input type='date' name='date' value='<?=$obj["game"]->date?>' /></p>
-		<p>Ведущий: <input type='text' name='Master' value='<?=$obj["game"]->master?>'></p>
+		<p>Ведущий: <input type='text' name='Master' id='Master' value='<?=$obj["game"]->master?>'></p>
 		<body><table>
 		<tr><th>Игрок</th><th>Роль</th><th>Лучший</th><th>Фолы</th></tr>
 		<?php
@@ -102,24 +102,15 @@ $names = "var availableTags = [";
 		echo "$( \"#Player$i\" ).autocomplete({source: availableTags});";
 	echo "$( \"#FirstBlood\" ).autocomplete({source: availableTags});";
 }
+
+$admins = "var admins = [";
+	foreach ($obj['players'] as $player)
+    	if (if ($player['Status'] === "Master" || $player['Status'] === "Admin")
+    		$admins .= '"'.$player["Name"].'",';
+    $admins[strlen($admins) - 1] = ']';
+    echo $admins.";";
+	echo "$( \"#Master\" ).autocomplete({source: admins});";
+}
+
 ?>
 </script>
-<?php
-		getView("Footer.inc", NULL);
-		$res = SQL("select  Status, Name from Players join Statuses USING(StatusId)")->getAll();
-		echo "<datalist id='players_list'>";
-		foreach ($res as $player)
-			if (!($player['Status'] === "Master" || $player['Status'] === "Admin"))
-    			echo "<option>".$player['Name']."</option>";
-		echo "</datalist>
-		<datalist id='masters_list'>";
-		foreach ($res as $player)
-			if ($player['Status'] === "Master" || $player['Status'] === "Admin")
-    				echo "<option>".$player['Name']."</option>";
-		echo "</datalist>";
-		echo "</body>";
-?>
-
-
-
-	}

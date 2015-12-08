@@ -230,7 +230,7 @@ ORDER BY player ASC, b DESC")->getAll();
 		{
 			if ($_SERVER['REQUEST_METHOD'] == 'GET')
 			{	
-				$players = SQL("Select Name from Players")->getAll();
+				$players = SQL("select  Status, Name from Players join Statuses USING(StatusId)")->getAll();
 				$data['players'] = $players;
 				$gameId = (int)$_GET['GameId'];
 				$game = new Game($gameId);
