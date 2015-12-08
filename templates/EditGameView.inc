@@ -15,7 +15,7 @@
 		?>
 		</select></p>
 		<p>Дата проведения игры <input type='date' name='date' value='<?=$obj["game"]->date?>' /></p>
-		<p>Ведущий: <input type='text' name='Master' list='masters_list' value='<?=$obj["game"]->master?>'></p>
+		<p>Ведущий: <input type='text' name='Master' value='<?=$obj["game"]->master?>'></p>
 		<body><table>
 		<tr><th>Игрок</th><th>Роль</th><th>Лучший</th><th>Фолы</th></tr>
 		<?php
@@ -23,7 +23,7 @@
 		$i = 0;
 		foreach ($obj["game"]->players as $name =>$player) 
 		{
-			echo "<tr><td><input type='text' name=Player$i id='Player$i' list='players_list' value='$name'></td><td>
+			echo "<tr><td><input type='text' name=Player$i id='Player$i'  value='$name'></td><td>
 			<select id='Role$i' name='Role$i'>";
 			foreach ($roles as $role) {
 				if ($role === $player['Role'])
@@ -55,7 +55,7 @@
 		echo '</table>';
 
 		if (isset($firstBlood))
-			echo "<p>Первоубиенный <input type='text' name='BestMovePlayer' id='FirstBlood' placeholder='Первоубиенный' list='players_list' value='".$firstBlood['Name']."' />";
+			echo "<p>Первоубиенный <input type='text' name='BestMovePlayer' id='FirstBlood' placeholder='Первоубиенный' value='".$firstBlood['Name']."' />";
 			echo "Попал в <td><select name='BestMovePoints'>";
 			for ($i = 0; $i < 4; $i++)
 			{
