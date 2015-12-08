@@ -103,6 +103,7 @@ $names = "var availableTags = [";
 	echo "$( \"#FirstBlood\" ).autocomplete({source: availableTags});";
 }
 ?>
+</script>
 <?php
 		getView("Footer.inc", NULL);
 		$res = SQL("select  Status, Name from Players join Statuses USING(StatusId)")->getAll();
