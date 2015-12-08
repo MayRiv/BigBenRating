@@ -30,7 +30,4 @@ $( "#Player" ).autocomplete({source: availableTags});
 
 <?php getView("Footer.inc", null); ?>
 </body>
-<datalist id="players_list">
-<?php	foreach ($obj as $player)
-    		echo "<option>".$player['Name']."</option>";?>
-</datalist>
+

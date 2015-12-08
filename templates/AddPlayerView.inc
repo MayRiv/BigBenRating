@@ -22,9 +22,5 @@ $names = "var availableTags = [";
 $( "#Player" ).autocomplete({source: availableTags});
 </script>
 
-<datalist id="players_list">
-<?php	foreach ($obj as $player)
-    			echo "<option>".$player['Name']."</option>";?>
-</datalist>
 <?php getView("Footer.inc", null); ?>
 </body>
