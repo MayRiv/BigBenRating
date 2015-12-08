@@ -1,5 +1,7 @@
 <?php
 require("DBManager.inc");
+require("viewer.inc");
+getView("HeaderView.inc", null);
 $host = "mysql.hostinger.com.ua";
 $dbName = "u825515718_bbrat";
 $user = "u825515718_bbrat";
