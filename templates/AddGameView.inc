@@ -58,7 +58,7 @@
 <script type="text/javascript">
 <?php
 $names = "var availableTags = [";
-	foreach ($obj as $player)
+	foreach ($obj['players'] as $player)
     	$names .= '"'.$player["Name"].'",';
     $names[strlen($names) - 1] = ']';
     echo $names.";";
@@ -67,9 +67,6 @@ for ($i=0; $i < 10; $i++) {
 }
 
 ?>
-</script>
-
-bbr.generateAutocompleter("Player", choices);
 </script>
 
 <datalist id="players_list">
