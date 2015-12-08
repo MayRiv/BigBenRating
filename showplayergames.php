@@ -11,5 +11,5 @@ var_dump($res);
 foreach ($res as  $player) {
 	echo "<p><a href=showGame&GameId=".$player['Id'].">".$player['Player']."</a></p>";
 }
-echo "</body></html>"
+echo "</body></html>";
 ?>
