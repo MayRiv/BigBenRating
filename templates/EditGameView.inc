@@ -105,7 +105,7 @@ $names = "var availableTags = [";
 
 $admins = "var admins = [";
 	foreach ($obj['players'] as $player)
-    	if (if ($player['Status'] === "Master" || $player['Status'] === "Admin")
+    	if ($player['Status'] === "Master" || $player['Status'] === "Admin")
     		$admins .= '"'.$player["Name"].'",';
     $admins[strlen($admins) - 1] = ']';
     echo $admins.";";
