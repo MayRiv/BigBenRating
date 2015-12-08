@@ -20,7 +20,7 @@ $names = "var choices = [";
 var availableTags = [
 <?php	
 	foreach ($obj as $player)
-    	echo '"$player["Name"]",';
+    	echo '"'.$player["Name"].'",';
 ?>
 ];
 $( "#Player" ).autocomplete({source: availableTags});
