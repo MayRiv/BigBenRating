@@ -17,10 +17,12 @@ $names = "var choices = [";
 </script>
  
 <script type="text/javascript">
-var availableTags = [
-<?php	
+<?php
+$names = "var availableTags = [";
 	foreach ($obj as $player)
-    	echo '"'.$player["Name"].'",';
+    	$names .= '"'.$player["Name"].'",';
+    $names[strlen($names) - 1] = ']';
+    echo $names.";";
 ?>
 ];
 $( "#Player" ).autocomplete({source: availableTags});
