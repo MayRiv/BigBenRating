@@ -23,7 +23,7 @@
 		$i = 0;
 		foreach ($obj["game"]->players as $name =>$player) 
 		{
-			echo "<tr><td><input type='text' name=Player$i list='players_list' value='$name'></td><td>
+			echo "<tr><td><input type='text' name=Player$i id='Player$i' list='players_list' value='$name'></td><td>
 			<select id='Role$i' name='Role$i'>";
 			foreach ($roles as $role) {
 				if ($role === $player['Role'])
@@ -55,7 +55,7 @@
 		echo '</table>';
 
 		if (isset($firstBlood))
-			echo "<p>Первоубиенный <input type='text' name='BestMovePlayer' placeholder='Первоубиенный' list='players_list' value='".$firstBlood['Name']."' />";
+			echo "<p>Первоубиенный <input type='text' name='BestMovePlayer' id='FirstBlood' placeholder='Первоубиенный' list='players_list' value='".$firstBlood['Name']."' />";
 			echo "Попал в <td><select name='BestMovePoints'>";
 			for ($i = 0; $i < 4; $i++)
 			{
@@ -90,6 +90,19 @@
 
 		<p><input type='button' value='Update' onclick='bbr.trySend()'/></p>
 	</form>
+
+	<script type="text/javascript">
+<?php
+$names = "var availableTags = [";
+	foreach ($obj['players'] as $player)
+    	$names .= '"'.$player["Name"].'",';
+    $names[strlen($names) - 1] = ']';
+    echo $names.";";
+	for ($i=0; $i < 10; $i++) { 
+		echo "$( \"#Player$i\" ).autocomplete({source: availableTags});";
+	echo "$( \"#FirstBlood\" ).autocomplete({source: availableTags});";
+}
+?>
 <?php
 		getView("Footer.inc", NULL);
 		$res = SQL("select  Status, Name from Players join Statuses USING(StatusId)")->getAll();
@@ -105,4 +118,7 @@
 		echo "</datalist>";
 		echo "</body>";
 ?>
+
+
+
 	}
