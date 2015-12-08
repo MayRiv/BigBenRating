@@ -24,7 +24,6 @@ $names = "var availableTags = [";
     $names[strlen($names) - 1] = ']';
     echo $names.";";
 ?>
-];
 $( "#Player" ).autocomplete({source: availableTags});
 </script>
 
