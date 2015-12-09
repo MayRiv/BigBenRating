@@ -9,6 +9,7 @@
 	{
 		$i = 1;
 		$others = array();
+		var_dump($obj->players);
 		foreach ($obj->players as $name=>$stat) 
 			//if ($stat['t'] >= 15)		
 			{

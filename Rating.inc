@@ -8,6 +8,7 @@ class Rating
 		foreach ($res as $row) {
 			$this->players[$row['player']] = array('t'=>$row['t'], 'b' => $row['b'], 'v' => $row['v'], 'm'=>$row['m'], 'r'=>0);
 		}
+		
 		$this->calculateRating();
 		usort($this->players, "cmp");
 	}
