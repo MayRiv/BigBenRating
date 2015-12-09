@@ -44,9 +44,9 @@
     $names[strlen($names) - 1] = ']';
     echo $names.";";
 
-	echo "$( \"#Player1\" ).autocomplete({source: availableTags});";
+	echo "$( \"#ComparePlayer1\" ).autocomplete({source: availableTags});";
 
-	echo "$( \"#Player2\" ).autocomplete({source: availableTags});";
+	echo "$( \"#ComparePlayer2\" ).autocomplete({source: availableTags});";
 ?>
 </script>
 <?php getView("Footer.inc", null); ?>
