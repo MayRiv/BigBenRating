@@ -14,13 +14,17 @@ class Rating
 	}
 	private function calculateRating()
 	{
-		foreach ($this->players as $s) {
+		for ($i=0; $i < count($this->players); $i++) { 
+			$s = $this->players[$i];
+
 			$bestResult = ($s['b']+$s['m']);
 			$lose = $s['t'] - $s['v']; 
 			$koefWinStreak = $s['v']-$lose+$bestResult*0.5; 
 			$winStreak = ($koefWinStreak)*(pow((($koefWinStreak)/$s['t']), 2)); 
 			$result = $s['v']*1.6-$lose+$bestResult+$winStreak; 
-			$s['r'] = $result;
+
+			
+			$this->players[$i]['r'] = $result;
 		}
 	}
 	
