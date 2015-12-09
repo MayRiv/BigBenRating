@@ -9,7 +9,6 @@
 	{
 		$i = 1;
 		$others = array();
-		var_dump($obj->players);
 		foreach ($obj->players as $stat) 
 			//if ($stat['t'] >= 15)		
 			{
@@ -18,7 +17,10 @@
 				echo "<tr><td>$i</th><td>".$stat['p']."</td><td>".$stat['t']."</td><td>";
 				$percent = round($stat['v'] / $stat['t'] * 100, 2);
 				echo $stat['v']." ($percent%)";
-				echo"</td><td>".$stat['b']."</td><td>".$stat['r']."</td></tr>";
+				echo"</td><td>".$stat['b']."</td>";
+				if (($_SESSION['isAuth'] && ($_SESSION['status'] === "Master" || $_SESSION['status'] === "Admin")))
+					echo "<td>".$stat['r']."</td>";
+				echo "</tr>";
 				$i++;
 			}
 			/*else
