@@ -35,16 +35,18 @@
 			if (!($player['Status'] === "Master" || $player['Status'] === "Admin"))
     			echo "<option>".$player['Name']."</option>";?>
 </datalist>
+
 <script type="text/javascript">
 <?php
-    		$names = "var choices = [";
-        	foreach ($obj['players'] as $player)
-    			$names .= "'".$player['Name']."',";
-    		$names[strlen($names) - 1] = ']';
-    		echo $names.";";
+	$names = "var availableTags = [";
+	foreach ($obj['players'] as $player)
+    	$names .= '"'.$player["Name"].'",';
+    $names[strlen($names) - 1] = ']';
+    echo $names.";";
 
-    		echo " bbr.generateAutocompleter('Player1', choices);";
-    		echo " bbr.generateAutocompleter('Player2', choices);";
+	echo "$( \"#Player1\" ).autocomplete({source: availableTags});";
+
+	echo "$( \"#Player2\" ).autocomplete({source: availableTags});";
 ?>
 </script>
 <?php getView("Footer.inc", null); ?>
