@@ -5,13 +5,13 @@
 		<tr><th>Ник игрока</th><th>Баланс побед</th><th>Количество игр</th></tr>
 <?php
 {
-function cmp($a, $b) {
+function cmpDom($a, $b) {
    	if ($a[0] == $b[0]) {
         return 0;
     }
     return ($a[0] > $b[0]) ? -1 : 1;
 }
-		$players = uasort($obj->map, 'cmp');
+		$players = uasort($obj->map, 'cmpDom');
 		$zeroPlayerInserted = false;
 		foreach ($obj->map as $player => $domination) {
 			if ($domination[0]==0 && !$zeroPlayerInserted)
