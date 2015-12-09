@@ -48,7 +48,7 @@ WHERE StatusId !=2 AND StatusId != 0 AND DATE BETWEEN CAST(  '2015-11-12' AS DAT
 GROUP BY player
 ) s
 ORDER BY player ASC, b DESC")->getAll();*/
-		$r = new Rating('2015-11-12', '2015-11-30');
+		$r = new Rating('2015-11-12', '2015-12-9');
 		getView("RatingView.inc", $r);
 	}
 	public function showAdminPanel()
