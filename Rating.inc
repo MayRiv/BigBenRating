@@ -9,7 +9,7 @@ class Rating
 			$this->players[$row['player']] = array('t'=>$row['t'], 'b' => $row['b'], 'v' => $row['v'], 'm'=>$row['m'], 'r'=>0);
 		}
 		$this->calculateRating();
-		usort($this->players, cmp);
+		usort($this->players, "cmp");
 	}
 	private function calculateRating()
 	{
@@ -22,13 +22,13 @@ class Rating
 			$players[$player]['r'] = $result;
 		}
 	}
-	function cmp($a, $b)
+	
+}
+function cmp($a, $b)
 	{
 	    if ($a['r'] == $b['r']) {
 	        return 0;
 	    }
 	    return ($a['r'] < $b['r']) ? -1 : 1;
 	}
-}
-
 ?>
