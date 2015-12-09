@@ -1,6 +1,6 @@
 <?php getView("HeaderView.inc", NULL); ?>
 		<form id='form' action='?action=editGame' method='post'>
-		<input name='GameId' type='hidden'  value='<?=$obj->gameId?>'>
+		<input name='GameId' type='hidden'  value='<?=$obj["game"]->gameId?>'>
 		<div id='feed'>
 		<p>Выберите номер игрового зала
 		<select name='RoomId'>
