@@ -10,7 +10,7 @@ class Rating
 		}
 
 		$this->calculateRating();
-		usort($this->players, "cmp");
+		//usort($this->players, "cmp");
 	}
 	private function calculateRating()
 	{
