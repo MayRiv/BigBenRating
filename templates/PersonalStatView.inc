@@ -6,6 +6,7 @@
 		echo "<div><h2>Статистика игрока $obj->player</h2>";
 		echo "<p>Получил $obj->bestVotes лучших</p>";
 		echo "<p>Убит в первую ночь $obj->firstBloodCount раз</p>";
+		var_dump($obj->roomGameCount);
 		foreach ($obj->roomGameCount as $roomId => $gameCount) {
 			echo "<p>Сыграл $gameCount игр в $roomId зале</p>";
 		}
