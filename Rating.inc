@@ -9,11 +9,11 @@ class Rating
 			$this->players[$row['player']] = array('t'=>$row['t'], 'b' => $row['b'], 'v' => $row['v'], 'm'=>$row['m'], 'r'=>0);
 		}
 		$this->calculateRating();
-		usort($this->players, "$this->cmp");
+		usort($this->players, cmp);
 	}
 	private function calculateRating()
 	{
-		foreach ($ершы-Юplayers as $player => $s) {
+		foreach ($this->players as $player => $s) {
 			$bestResult = ($s['b']+$s['m']);
 			$lose = $s['t'] - $s['v']; 
 			$koefWinStreak = $s['v']-$lose+$bestResult*0.5; 
@@ -22,7 +22,7 @@ class Rating
 			$players[$player]['r'] = $result;
 		}
 	}
-	private function cmp($a, $b)
+	function cmp($a, $b)
 	{
 	    if ($a['r'] == $b['r']) {
 	        return 0;
