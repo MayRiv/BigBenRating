@@ -10,12 +10,12 @@
 		$i = 1;
 		$others = array();
 		var_dump($obj->players);
-		foreach ($obj->players as $name=>$stat) 
+		foreach ($obj->players as $stat) 
 			//if ($stat['t'] >= 15)		
 			{
 			
 				//echo "<tr><td>$i</th><td>".$stat['stat']."</td><td>".(int)(1000 * $stat['r'])."</td><td>".$stat['t']."</td><td>";
-				echo "<tr><td>$i</th><td>$name</td><td>".$stat['t']."</td><td>";
+				echo "<tr><td>$i</th><td>".$stat['p']."</td><td>".$stat['t']."</td><td>";
 				$percent = round($stat['v'] / $stat['t'] * 100, 2);
 				echo $stat['v']." ($percent%)";
 				echo"</td><td>".$stat['b']."</td><td>".$stat['r']."</td></tr>";
