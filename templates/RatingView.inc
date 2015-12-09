@@ -17,7 +17,7 @@
 				echo "<tr><td>$i</th><td>$name</td><td>".$stat['t']."</td><td>";
 				$percent = round($stat['v'] / $stat['t'] * 100, 2);
 				echo $stat['v']." ($percent%)";
-				echo"</td><td>".$stat['b']."</td><th>".$stat['r']."</th></tr>";
+				echo"</td><td>".$stat['b']."</td><td>".$stat['r']."</td></tr>";
 				$i++;
 			}
 			/*else

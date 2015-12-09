@@ -19,7 +19,7 @@ class Rating
 			$koefWinStreak = $s['v']-$lose+$bestResult*0.5; 
 			$winStreak = ($koefWinStreak)*(pow((($koefWinStreak)/$s['t']), 2)); 
 			$result = $s['v']*1.6-$lose+$bestResult+$winStreak; 
-			$players[$player]['r'] = $result;
+			$this->players[$player]['r'] = $result;
 		}
 	}
 	
