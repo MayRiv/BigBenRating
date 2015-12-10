@@ -1,7 +1,6 @@
 <?php getView("HeaderView.inc", null); ?>
 <div id="feed"><h2>Глобальная статистика</h2>
 <?php
-var_dump($obj);
 foreach ($obj->top as $role=>$stat) {
 
 	echo "<p>Top-3 $role</p><table class='table_dark'>
