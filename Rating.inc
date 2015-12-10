@@ -34,7 +34,7 @@ class Rating
 			$this->players[$i]['r'] = Rating::getRating($s);
 		}
 	}
-	public static function getRating($playerInfo)
+	public static function getRating($s)
 	{
 		static $constForSign = 20;
 		static $constKoefWin = 1.6;
