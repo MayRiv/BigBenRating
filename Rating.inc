@@ -24,13 +24,7 @@ class Rating
 		for ($i=0; $i < count($this->players); $i++) { 
 			$s = $this->players[$i];
 
-			$bestResult = ($s['b']+$s['m']);
-			$lose = $s['t'] - $s['v']; 
-			$koefWinStreak = $s['v']-$lose+$bestResult*0.5; 
-			$winStreak = ($koefWinStreak)*pow(($koefWinStreak/$s['t']), 2); 
-			$result = $s['v']*$constKoefWin-$lose+$bestResult+$winStreak; 
-			$result += $constForSign;
-			$result = sqrt(abs($result));
+			
 // count - кол-во сыгранных игр этим игроком 
 // win, lose, best - obvious 
 // power - возведение в степень. 
@@ -38,8 +32,19 @@ class Rating
 // bestmove - лучший ход. За 2х bestmove = 0.5, за 3х bestmove = 0.75; За 1го bestmove = 0 
 
 
-			$this->players[$i]['r'] = $result;
+			$this->players[$i]['r'] = Rating::getRating($s);
 		}
+	}
+	public static function getRating($playerInfo)
+	{
+		$bestResult = ($s['b']+$s['m']);
+			$lose = $s['t'] - $s['v']; 
+			$koefWinStreak = $s['v']-$lose+$bestResult*0.5; 
+			$winStreak = ($koefWinStreak)*pow(($koefWinStreak/$s['t']), 2); 
+			$result = $s['v']*$constKoefWin-$lose+$bestResult+$winStreak; 
+			$result += $constForSign;
+			$result = sqrt(abs($result));
+			return $result;
 	}
 	
 }
