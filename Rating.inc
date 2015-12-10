@@ -4,7 +4,7 @@ class Rating
 	public $players;
 	public function __construct($date1, $date2)
 	{
-		$res = SQL("SELECT player, t, b, v, m FROM ( SELECT player, COUNT( * ) t, SUM( BestPlayer ) b, SUM( Won ) v, SUM( BestMove ) * 0.25m FROM PlayerGame JOIN Games ON ( Game = GameId ) JOIN Players ON (player = Name ) WHERE StatusId !=2 AND StatusId !=0 AND DATE BETWEEN CAST(  ? AS DATE )  AND CAST(  ? AS DATE )  GROUP BY player) s ORDER BY  `s`.`m` DESC", array($date1, $date2))->getAll();
+		$res = SQL("SELECT player, t, b, v, m FROM ( SELECT player, COUNT( * ) t, SUM( BestPlayer ) b, SUM( Won ) v, SUM( BestMove ) * 0.25 m FROM PlayerGame JOIN Games ON ( Game = GameId ) JOIN Players ON (player = Name ) WHERE StatusId !=2 AND StatusId !=0 AND DATE BETWEEN CAST(  ? AS DATE )  AND CAST(  ? AS DATE )  GROUP BY player) s ORDER BY  `s`.`m` DESC", array($date1, $date2))->getAll();
 		foreach ($res as $row) {
 			$this->players[] = array('p'=>$row['player'],'t'=>$row['t'], 'b' => $row['b'], 'v' => $row['v'], 'm'=>$row['m'], 'r'=>0);
 		}
@@ -24,6 +24,17 @@ class Rating
 			$winStreak = ($koefWinStreak)*(pow((($koefWinStreak)/$s['t']), 2)); 
 			$result = $s['v']*1.6-$lose+$bestResult+$winStreak; 
 
+	
+// count - кол-во сыгранных игр этим игроком 
+// win, lose, best - obvious 
+// power - возведение в степень. 
+
+// bestmove - лучший ход. За 2х bestmove = 0.5, за 3х bestmove = 0.75; За 1го bestmove = 0 
+
+bestresult = (best+bestmove); 
+koefwinstreak = win-lose+bestresult*0.5; 
+winstreak = (koefwinstreak)*(power(((koefwinstreak)/count), 2)); 
+result = win*1.6-lose+bestresult+winstreak; 
 
 			$this->players[$i]['r'] = $result;
 		}
