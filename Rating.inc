@@ -19,8 +19,7 @@ class Rating
 	}
 	private function calculateRating()
 	{
-		$constForSign = 20;
-		$constKoefWin = 1.6;
+		
 		for ($i=0; $i < count($this->players); $i++) { 
 			$s = $this->players[$i];
 
@@ -37,14 +36,17 @@ class Rating
 	}
 	public static function getRating($playerInfo)
 	{
+		static $constForSign = 20;
+		static $constKoefWin = 1.6;
+
 		$bestResult = ($s['b']+$s['m']);
-			$lose = $s['t'] - $s['v']; 
-			$koefWinStreak = $s['v']-$lose+$bestResult*0.5; 
-			$winStreak = ($koefWinStreak)*pow(($koefWinStreak/$s['t']), 2); 
-			$result = $s['v']*$constKoefWin-$lose+$bestResult+$winStreak; 
-			$result += $constForSign;
-			$result = sqrt(abs($result));
-			return $result;
+		$lose = $s['t'] - $s['v']; 
+		$koefWinStreak = $s['v']-$lose+$bestResult*0.5; 
+		$winStreak = ($koefWinStreak)*pow(($koefWinStreak/$s['t']), 2); 
+		$result = $s['v']*$constKoefWin-$lose+$bestResult+$winStreak; 
+		$result += $constForSign;
+		$result = sqrt(abs($result));
+		return $result;
 	}
 	
 }
