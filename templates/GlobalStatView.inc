@@ -3,7 +3,8 @@
 <?php
 var_dump($obj);
 foreach ($obj->top as $role=>$stat) {
-	echo "<table class='table_dark'>
+
+	echo "<p>Top-3 $role</p><table class='table_dark'>
 	 <caption>Top-3 $role</caption>
 	 <th>Игрок</th><th>Сыграно игр</th><th>Процент победы</th>";
 
