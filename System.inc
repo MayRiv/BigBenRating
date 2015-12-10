@@ -83,7 +83,7 @@ ORDER BY player ASC, b DESC")->getAll();*/
 	public function getGlobalStat()
 	{
 		$stat = new GlobalStat();
-		//getView("GlobalStatView.inc", $stat);
+		getView("GlobalStatView.inc", $stat);
 	}
 	public function login()
 	{
