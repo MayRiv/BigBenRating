@@ -3,14 +3,13 @@
 <?php
 foreach ($obj->top as $role=>$stat) {
 
-	 echo "<div><p>Top-3 $role</p><table class='table_dark'>
-	 <caption>Top-3 $role</caption>
+	 echo "<p>Top-3 $role</p><table class='table_dark'>
 	 <th>Игрок</th><th>Сыграно игр</th><th>Процент победы</th>";
 
 	 foreach ($stat as $player) {
 	 	echo "<tr><td>".$player['player']."</td><td>".$player['t']."</td><td>".$player['r']."</td></tr>";
 	 }
-	 echo "</div>";
+
 }
 ?>
 </div>
