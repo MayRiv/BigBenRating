@@ -20,7 +20,7 @@
 				$percent = round($stat['v'] / $stat['t'] * 100, 2);
 				echo $stat['v']." ($percent%)";
 				echo"</td><td>".$stat['b']."</td>";
-				if (($_SESSION['isAuth'] && ($_SESSION['status'] === "Master" || $_SESSION['status'] === "Admin")))
+				//if (($_SESSION['isAuth'] && ($_SESSION['status'] === "Master" || $_SESSION['status'] === "Admin")))
 					echo "<td>".round($stat['r'], 2)."</td>";
 				echo "</tr>";
 				$i++;
