@@ -95,6 +95,10 @@ table {
 .table_dark tr:hover td {
   text-decoration: underline;
 }
+.table_dart caption
+{
+	color: black;
+}
 
 #inserter{
 	text-align: center;	
