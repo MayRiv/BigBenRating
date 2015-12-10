@@ -1,6 +1,8 @@
 <?php getView("HeaderView.inc", null); ?>
 <div id="feed"><h2>BigBen Rating</h2>
-		<p>Статисткика игроков за период от 12 до 30 ноября. Система рейтинга будет использована позже.</p></div>
+<?php
+	echo "<p>рейтинг игроков за период от $obj->date1 до $obj->date2.</p></div>";
+?>
 <table class="table_dark">
 		<tr><th>#</th><th>Игрок</th><th>Сыграно игр</th><th>Победы</th><th>Количество лучших</th><th>Рейтинг</th></tr>
 <?php
