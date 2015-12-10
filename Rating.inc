@@ -27,7 +27,7 @@ class Rating
 			$bestResult = ($s['b']+$s['m']);
 			$lose = $s['t'] - $s['v']; 
 			$koefWinStreak = $s['v']-$lose+$bestResult*0.5; 
-			$winStreak = ($koefWinStreak)*(pow((($koefWinStreak)/$s['t']), 2)); 
+			$winStreak = ($koefWinStreak)*pow(($koefWinStreak/$s['t']), 2); 
 			$result = $s['v']*1.6-$lose+$bestResult+$winStreak; 
 			$result += $constForSign;
 			$result = sqrt(abs($result));
