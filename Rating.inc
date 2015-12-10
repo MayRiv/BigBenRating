@@ -31,10 +31,6 @@ class Rating
 
 // bestmove - лучший ход. За 2х bestmove = 0.5, за 3х bestmove = 0.75; За 1го bestmove = 0 
 
-bestresult = (best+bestmove); 
-koefwinstreak = win-lose+bestresult*0.5; 
-winstreak = (koefwinstreak)*(power(((koefwinstreak)/count), 2)); 
-result = win*1.6-lose+bestresult+winstreak; 
 
 			$this->players[$i]['r'] = $result;
 		}
