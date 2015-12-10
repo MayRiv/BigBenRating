@@ -15,6 +15,8 @@ class Rating
 	}
 	private function calculateRating()
 	{
+		$constForSign = 20;
+
 		for ($i=0; $i < count($this->players); $i++) { 
 			$s = $this->players[$i];
 
@@ -23,8 +25,8 @@ class Rating
 			$koefWinStreak = $s['v']-$lose+$bestResult*0.5; 
 			$winStreak = ($koefWinStreak)*(pow((($koefWinStreak)/$s['t']), 2)); 
 			$result = $s['v']*1.6-$lose+$bestResult+$winStreak; 
-
-	
+			$result += $constForSign;
+			$result = sqrt(abs($result));
 // count - кол-во сыгранных игр этим игроком 
 // win, lose, best - obvious 
 // power - возведение в степень. 
