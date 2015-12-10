@@ -42,6 +42,10 @@
 					<span class="text-top">Личный кабинет</span>
 					<span class="text-bottom">Статистика игрока</span>
 				</a></li>
+				<li><a href="/?action=getGlobalStat">
+					<span class="text-top">Глобальная статистика</span>
+					<span class="text-bottom">Топы игроков</span>
+				</a></li>
 				<li><a href="/?action=getDomination">
 					<span class="text-top">Парная статистика</span>
 					<span class="text-bottom">Доминация</span>

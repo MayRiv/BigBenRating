@@ -27,6 +27,8 @@
 			System::getInstance()->showGames();
 		else if ($_GET['action'] == 'getPersonalStat')
 			System::getInstance()->getPersonalStat();
+		else if ($_GET['action'] == 'getGlobalStat')
+			System::getInstance()->getGlobalStat();
 		else if ($_GET['action'] == 'compare')
 			System::getInstance()->comparePlayer();
 		else if ($_GET['action'] == 'showAdminPanel')

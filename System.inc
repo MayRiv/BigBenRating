@@ -1,6 +1,7 @@
 <?php
 require("Game.inc");
 require("PersonalStat.inc");
+require("GlobalStat.inc");
 require("PowerMap.inc");
 require ("Domination.inc");
 require("Rating.inc");
@@ -78,6 +79,10 @@ ORDER BY player ASC, b DESC")->getAll();*/
 			}
 			getView("PersonalStatView.inc", $stat);
 		}
+	}
+	public function getGlobalStat()
+	{
+		$stat = new GlobalStat();
 	}
 	public function login()
 	{
