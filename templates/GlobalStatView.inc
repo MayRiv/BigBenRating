@@ -6,7 +6,7 @@ foreach ($obj->top as $role=>$stat) {
 	 <caption>Top-3 $role</caption>
 	 <th>Игрок</th><th>Сыграно игр</th><th>Процент победы</th>";
 	 foreach ($stat as $player) {
-	 	echo "<tr><td>".$player['player']."</td><td>".$player['t']."</td><td>".$player['r']."</td></tr>"
+	 	echo "<tr><td>".$player['player']."</td><td>".$player['t']."</td><td>".$player['r']."</td></tr>";
 	 }
 }
 ?>
