@@ -16,8 +16,8 @@ class GlobalStat
 	private function getStatRole($role)
 	{
 		$count = array();
-		$count[$role] = SQL($this->roleSQLCount, array($role))->getAll()[0]['m'];
-		$this->top[$role] = SQL($this->topSQL, array($role, $count[$role]))->getAll();
+		$count[$role] = DSQL($this->roleSQLCount, array($role))->getAll()[0]['m'];
+		$this->top[$role] = DSQL($this->topSQL, array($role, $count[$role]))->getAll();
 	}
 }
 
