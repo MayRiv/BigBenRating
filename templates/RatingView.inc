@@ -19,7 +19,7 @@
 				echo $stat['v']." ($percent%)";
 				echo"</td><td>".$stat['b']."</td>";
 				if (($_SESSION['isAuth'] && ($_SESSION['status'] === "Master" || $_SESSION['status'] === "Admin")))
-					echo "<td>".round($stat['r'], 3)."</td>";
+					echo "<td>".round($stat['r'], 2)."</td>";
 				echo "</tr>";
 				$i++;
 			}
