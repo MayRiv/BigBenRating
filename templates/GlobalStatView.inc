@@ -4,6 +4,7 @@
 foreach ($obj->top as $role=>$stat) {
 
 	 echo "<p>Top-3 $role</p><table class='table_dark'>
+	 <caption>Top-3 $role</caption>
 	 <th>Игрок</th><th>Сыграно игр</th><th>Процент победы</th>";
 
 	 foreach ($stat as $player) {
