@@ -1,13 +1,13 @@
 <?php
 class GlobalStat
 {
-	public $top;
+	public $topPlayers;
 	private $roleSQLCount;
 	private $topSQL;
 	public function __construct()
 	{
 		$this->roleSQLCount = "SELECT MAX(t) as m from (SELECT count(*) t from PlayerGame where Role=? group by player) s";
-		$this->topSQL = "SELECT player, w / t * 100 as r, t, b from (SELECT player, count(*) t, SUM(Won) w, SUM(BestPlayer) b from PlayerGame where Role=? group by player) s where t > ? order by r DESC limit";
+		$this->topSQL = "SELECT player, w / t * 100 as r, t, b from (SELECT player, count(*) t, SUM(Won) w, SUM(BestPlayer) b from PlayerGame where Role=? group by player) s where t > ? order by r DESC";
 		$this->getStatRole("Sherif");
 		$this->getStatRole("Don");
 		$this->getStatRole("Mafia");
@@ -17,7 +17,8 @@ class GlobalStat
 	{
 		$count = array();
 		$count[$role] = SQL($this->roleSQLCount, array($role))->getAll()[0]['m'];
-		$this->top[$role] = SQL($this->topSQL, array($role, $count[$role] / 2))->getAll();
+		$top[$role] = SQL($this->topSQL, array($role, $count[$role] / 3))->getAll();
+
 	}
 }
 
