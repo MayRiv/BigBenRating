@@ -39,7 +39,7 @@ getView("HeaderView.inc", $params ); ?>
     <div id="placeholder" style="height:300px;"></div>
     <div>
       <div id="legend"></div>
-      <p style="postion:relative;text-align: center;"><a href="#" onclick="switch_show(); return false;">Сменить вид</a></p>
+      <p text-align: center;"><a href="#" onclick="switch_show(); return false;">Сменить вид</a></p>
     </div>
     <div style="clear: both;"></div>
     <div id="overview" style="margin-top:20px;width:600px;height:50px;display: inline-block;"></div></div>';
