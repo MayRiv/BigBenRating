@@ -1,7 +1,7 @@
 <?php
 class GlobalStat
 {
-	public $topPlayers;
+	public $top;
 	private $roleSQLCount;
 	private $topSQL;
 	public function __construct()
@@ -17,7 +17,7 @@ class GlobalStat
 	{
 		$count = array();
 		$count[$role] = SQL($this->roleSQLCount, array($role))->getAll()[0]['m'];
-		$top[$role] = SQL($this->topSQL, array($role, $count[$role] / 3))->getAll();
+		$this->top[$role] = SQL($this->topSQL, array($role, $count[$role] / 3))->getAll();
 
 	}
 }
