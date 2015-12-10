@@ -13,6 +13,6 @@ foreach ($obj->top as $role=>$stat) {
 	 echo "</div>";
 }
 ?>
-</table>
+</div>
 <?php getView("Footer.inc", null); ?>
 </body>
