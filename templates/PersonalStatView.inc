@@ -1,4 +1,5 @@
-<?php getView("HeaderView.inc", null); ?>
+<?php $params = array('jQuerySwitchOff'=>true);
+getView("HeaderView.inc", $params ); ?>
 <div id="feed">
 	<h1>Личный кабинет</h1>
 	<?php
