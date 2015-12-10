@@ -61,7 +61,7 @@ getView("HeaderView.inc", $params ); ?>
 		$games[strlen($games) - 1] = ']';
 
 		$games .= "}];";
-		
+
 		echo $games;
 		echo "var selection = [\"$start\", \"$end\"];";
 		getView("DrawScriptRawPart.inc", null);*/
