@@ -14,7 +14,7 @@ class Rating
 		}
 
 		$this->calculateRating();
-		if (($_SESSION['isAuth'] && ($_SESSION['status'] === "Master" || $_SESSION['status'] === "Admin")))
+		//if (($_SESSION['isAuth'] && ($_SESSION['status'] === "Master" || $_SESSION['status'] === "Admin")))
 			usort($this->players, "cmp");
 	}
 	private function calculateRating()
