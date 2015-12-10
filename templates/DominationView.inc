@@ -49,5 +49,6 @@
 	echo "$( \"#ComparePlayer2\" ).autocomplete({source: availableTags});";
 ?>
 </script>
+
 <?php getView("Footer.inc", null); ?>
 </body>

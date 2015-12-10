@@ -10,7 +10,7 @@
     <script language="javascript" type="text/javascript" src="js/flot/jquery.flot.selection.js"></script>
 	<script src="http://code.jquery.com/jquery-1.8.3.js"></script>
   	<script src="js/jquery-ui-1.11.4/jquery-ui.js"></script>
-  	<link type="text/css" href="js/jquery-ui-1.11.4/jquery-ui.css" rel="stylesheet" />';
+  	<link type="text/css" href="js/jquery-ui-1.11.4/jquery-ui.css" rel="stylesheet" />
     <script type="text/javascript" src="js/auto-complete.min.js"></script>
 </head>
 <body>
