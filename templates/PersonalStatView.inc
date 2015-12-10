@@ -11,7 +11,7 @@
 		}
 			
 		if($obj->firstBloodCount)
-			echo "<p>В среднем $obj->averageBestMove черных в лучших ходе</p></div>";
+			echo "<p>В среднем $obj->averageBestMove черных в лучшем ходе</p></div>";
 		
 
 		echo '<body><table class="table_dark">';
