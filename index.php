@@ -19,6 +19,7 @@
 		$password = "B1gBenMafia";
 	}	
 	DBManager::getInstance()->connect($host, $dbName, $user, $password);
+	session_start();
 	if (isset($_GET['action']))
 	{
 		if ($_GET['action'] == 'getRating')

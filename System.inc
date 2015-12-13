@@ -21,7 +21,6 @@ class System
 	}
 	public function getRating()
 	{
-		session_start();
 		//$maxGameCount = SQL("select max(t) total from (SELECT COUNT( * ) t FROM PlayerGame JOIN Players ON ( player = Name ) WHERE StatusId !=2 GROUP BY player) t")->getAll()[0]['total'];
 		//$players = SQL("SELECT player, p /(t * 3.25 + ? - t) AS r, t, b FROM ( SELECT player, ( SUM( Won ) *2 + SUM( BestPlayer ) * 0.5 + SUM( BestMove ) * 0.25) p, COUNT( * ) t, SUM(BestPlayer) b FROM PlayerGame JOIN Players ON ( player = Name ) WHERE StatusId !=2 GROUP BY player ) s  ORDER BY r DESC", array($maxGameCount))->getAll();
 
@@ -54,7 +53,6 @@ ORDER BY player ASC, b DESC")->getAll();*/
 	}
 	public function showAdminPanel()
 	{
-		session_start();
 		if ($_SESSION['isAuth'] && ($_SESSION['status'] === "Master" || $_SESSION['status'] === "Admin"))	
 			getView("AdminPanelView.inc", null);
 		else 
@@ -62,7 +60,6 @@ ORDER BY player ASC, b DESC")->getAll();*/
 	}
 	public function getPersonalStat()
 	{
-		session_start();
 		if (!$_SESSION['isAuth'])
 		{
 			$players = SQL("Select Name from Players")->getAll();
@@ -87,7 +84,6 @@ ORDER BY player ASC, b DESC")->getAll();*/
 	}
 	public function login()
 	{
-		session_start();
 		if ($_SERVER['REQUEST_METHOD'] == 'POST')
 		{
 			$account = SQL("select  Status, Password from Players join Statuses USING(StatusId) where Name like ?", array($_POST['Player']))->getAll();
@@ -109,7 +105,7 @@ ORDER BY player ASC, b DESC")->getAll();*/
 	}
 	public function changePassword()
 	{
-		session_start();
+		
 		if (!($_SESSION['isAuth']))
 			header("Location: ?action=getRating");
 		else
@@ -134,13 +130,11 @@ ORDER BY player ASC, b DESC")->getAll();*/
 	}
 	public function logout()
 	{
-		session_start();
 		$_SESSION['isAuth'] = 0;
 		header("Location: ?action=getRating");
 	}
 	public function addGame()
 	{
-		session_start();
 		if (!($_SESSION['isAuth'] && ($_SESSION['status'] === "Master" || $_SESSION['status'] === "Admin")))
 			header("Location: ?action=getRating");
 		else
@@ -161,7 +155,6 @@ ORDER BY player ASC, b DESC")->getAll();*/
 	}
 	public function deleteGame()
 	{
-		session_start();
 
 		if (!($_SESSION['isAuth'] && ($_SESSION['status'] === "Master" || $_SESSION['status'] === "Admin")))
 			header("Location: ?action=getRating");
@@ -179,7 +172,6 @@ ORDER BY player ASC, b DESC")->getAll();*/
 
 	public function addPlayer()
 	{
-		session_start();
 		if (!($_SESSION['isAuth'] && ($_SESSION['status'] === "Master" || $_SESSION['status'] === "Admin")))
 			header("Location: ?action=getRating");
 		else
@@ -203,7 +195,6 @@ ORDER BY player ASC, b DESC")->getAll();*/
 	}
 	public function showGames()
 	{
-		session_start();
 		$games = null;
 		if (isset($_GET['date']))
 		{
@@ -224,14 +215,12 @@ ORDER BY player ASC, b DESC")->getAll();*/
 	}
 	public function showGame()
 	{
-		session_start();
 		$gameId = (int)$_GET['GameId'];
 		$game = new Game($gameId);
 		$game->show();
 	}
 	public function editGame()
 	{
-		session_start();
 		if (!($_SESSION['isAuth'] && ($_SESSION['status'] === "Master" || $_SESSION['status'] === "Admin")))
 			header("Location: ?action=getRating");
 		else
@@ -257,7 +246,6 @@ ORDER BY player ASC, b DESC")->getAll();*/
 	}
 	public function getDomination()
 	{
-		session_start();
 		$players = SQL("Select Name from Players")->getAll();
 		$data['players'] = $players;
 
@@ -269,7 +257,6 @@ ORDER BY player ASC, b DESC")->getAll();*/
 	}
 	public function getPowerMap()
 	{
-		session_start();
 		if ($_SESSION['isAuth'])
 		{
 			$pm = new PowerMap($_SESSION['player']);
