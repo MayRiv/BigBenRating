@@ -9,7 +9,7 @@ $password = "B1gBenMafia";
 DBManager::getInstance()->connect($host, $dbName, $user, $password);
 
 echo "<html><body><div id='feed' style='margin-left: 300px;'><div style='text-align:left'>";
-$res = SQL("Select  Name from Players order by Name DESC")->getAll();
+$res = SQL("Select  Name from Players order by Name ASC")->getAll();
 foreach ($res as  $player) {
 	echo "<p>".$player['Name']."</p>";
 }
