@@ -35,7 +35,7 @@ class PersonalStat
 		if ($period=='m')
 			$dateFilter = "and date > ".System::getInstance()->lastMonthEnd;
 		$this->player = $playerName;
-		$games  = DSQL("Select Game, RoomId, Role, Won, WasShotFirst, BestMove, BestPlayer, date from PlayerGame join Games ON (Game=GameId) where player like ? $dateFiler", array($playerName))->getAll();
+		$games  = DSQL("Select Game, RoomId, Role, Won, WasShotFirst, BestMove, BestPlayer, date from PlayerGame join Games ON (Game=GameId) where player like ? $dateFilter", array($playerName))->getAll();
 		$totalBestMove = 0;
 		$this->roomGameCount = array("1"=>0, "2"=>0, "3"=>0);
 		foreach($games as $game)
