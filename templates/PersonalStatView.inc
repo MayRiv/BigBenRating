@@ -6,11 +6,11 @@ getView("HeaderView.inc", $params ); ?>
 		//$obj->show();
 		if ($obj->period == 'a')
 		{
-			$period = "всё время (показать за <a href='/?action=getPersonalStat&p=m'>месяц</a>)"
+			$period = "всё время (показать за <a href='/?action=getPersonalStat&p=m'>месяц</a>)";
 		}
 		if ($obj->period == 'm')
 		{
-			$period = "последний месяц (показать за <a href='/?action=getPersonalStat&p=a'>все время</a>)"
+			$period = "последний месяц (показать за <a href='/?action=getPersonalStat&p=a'>все время</a>)";
 		}
 		echo "<div><h2>Статистика игрока $obj->player за $period.</h2>";
 		echO "<p>Показать статистику за <select><></p>"
