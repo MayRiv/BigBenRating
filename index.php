@@ -3,7 +3,7 @@
 	require("DBManager.inc");
 	require("System.inc");
 	require_once("Logger.inc");
-	define ("DEV", 0);
+	define ("DEV", 1);
 	if (DEV)
 	{
 		$host = "mysql.hostinger.com.ua"; 

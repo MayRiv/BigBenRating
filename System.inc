@@ -9,6 +9,7 @@ require_once("Logger.inc");
 class System 
 {
 	private static $_instance;
+	public $lastMonthEnd = '2015-12-9';
 	public static  function getInstance()
 	{
 		if (System::$_instance == null) System::$_instance = new System();
@@ -49,7 +50,7 @@ WHERE StatusId !=2 AND StatusId != 0 AND DATE BETWEEN CAST(  '2015-11-12' AS DAT
 GROUP BY player
 ) s
 ORDER BY player ASC, b DESC")->getAll();*/
-		$r = new Rating('2015-11-12', '2015-12-9');
+		$r = new Rating('2015-11-12', System::getInstance()->lastMonthEnd);
 		getView("RatingView.inc", $r);
 	}
 	public function showAdminPanel()
@@ -70,7 +71,10 @@ ORDER BY player ASC, b DESC")->getAll();*/
 		}
 		else
 		{
-			$stat = new PersonalStat($_SESSION['player']);
+			if ($_GET['p']=='m')
+				$stat = new PersonalStat($_SESSION['player'],'m');
+			else
+				$stat = new PersonalStat($_SESSION['player'],'a');
 			if (isset($_POST['name']))
 			{
 				$player = $_POST["name"];
