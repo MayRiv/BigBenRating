@@ -82,7 +82,7 @@ ORDER BY player ASC, b DESC")->getAll();*/
 
 				$stat->compare($player);		
 			}
-			getView("PersonalStatView.inc", $stat);
+			//getView("PersonalStatView.inc", $stat);
 		}
 	}
 	public function getGlobalStat()
