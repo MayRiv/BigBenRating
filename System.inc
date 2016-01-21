@@ -9,7 +9,7 @@ require_once("Logger.inc");
 class System 
 {
 	private static $_instance;
-	public $lastMonthEnd = '\'2015-12-9\'';
+	public $lastMonthEnd = '2015-12-9';
 	public static  function getInstance()
 	{
 		if (System::$_instance == null) System::$_instance = new System();
