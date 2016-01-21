@@ -13,7 +13,7 @@ getView("HeaderView.inc", $params ); ?>
 			$period = "последний месяц (показать за <a href='/?action=getPersonalStat&p=a'>все время</a>)";
 		}
 		echo "<div><h2>Статистика игрока $obj->player за $period.</h2>";
-		echO "<p>Показать статистику за <select><></p>"
+		echO "<p>Показать статистику за <select><></p>";
 		echo "<p>Получил $obj->bestVotes лучших</p>";
 		echo "<p>Убит в первую ночь $obj->firstBloodCount раз</p>";
 		foreach ($obj->roomGameCount as $roomId => $gameCount) {
