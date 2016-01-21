@@ -27,10 +27,15 @@ class PersonalStat
 	public $compareResult;
 	public $stat;
 	public $roomGameCount;
-	public function __construct($playerName)
+	public $period;
+	public function __construct($playerName,$period='a')
 	{
+		$this->period = $period;
+		$dateFilter = "";
+		if ($period=='m')
+			$dateFilter = "and date > ".System::getInstance()->lastMonthEnd;
 		$this->player = $playerName;
-		$games  = SQL("Select Game, RoomId, Role, Won, WasShotFirst, BestMove, BestPlayer, date from PlayerGame join Games ON (Game=GameId) where player like ?", array($playerName))->getAll();
+		$games  = SQL("Select Game, RoomId, Role, Won, WasShotFirst, BestMove, BestPlayer, date from PlayerGame join Games ON (Game=GameId) where player like ? $dateFiler", array($playerName))->getAll();
 		$totalBestMove = 0;
 		$this->roomGameCount = array("1"=>0, "2"=>0, "3"=>0);
 		foreach($games as $game)

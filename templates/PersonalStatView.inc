@@ -4,7 +4,15 @@ getView("HeaderView.inc", $params ); ?>
 	<h1>Личный кабинет</h1>
 	<?php
 		//$obj->show();
-		echo "<div><h2>Статистика игрока $obj->player</h2>";
+		if ($obj->period == 'a')
+		{
+			$period = "всё время (показать за <a href='/?action=getPersonalStat&p=m'>месяц</a>)";
+		}
+		if ($obj->period == 'm')
+		{
+			$period = "последний месяц (показать за <a href='/?action=getPersonalStat&p=a'>все время</a>)";
+		}
+		echo "<div><h2>Статистика игрока $obj->player за $period.</h2>";
 		echo "<p>Получил $obj->bestVotes лучших</p>";
 		echo "<p>Убит в первую ночь $obj->firstBloodCount раз</p>";
 		foreach ($obj->roomGameCount as $roomId => $gameCount) {
