@@ -28,7 +28,7 @@ class PersonalStat
 	public $stat;
 	public $roomGameCount;
 	public $period;
-	public function __construct($playerName,$period='a')
+	public function __construct($playerName,$period)
 	{
 		$this->period = $period;
 		$dateFilter = "";
