@@ -36,12 +36,14 @@ getView("HeaderView.inc", $params ); ?>
 		echo	"<tr><td>Дон</td><td>$obj->donGameCount</td><td>$obj->donVictoryCount</th></td>";
 		
 		echo '</table>';
-
-		echo "<div><p>Сыграл в играх: ";
-		foreach ($obj->games as $game) {
-			echo "<a href='?action=showGame&GameId=".$game."'>".$game."</a> ";
+		if (count($obj->games) > 0)
+		{
+			echo "<div><p>Сыграл в играх: ";
+			foreach ($obj->games as $game) {
+				echo "<a href='?action=showGame&GameId=".$game."'>".$game."</a> ";
+			}
+			echo "</p></div>";
 		}
-		echo "</p></div>";
 		/*echo "<p>График побед игровыми ролям по неделям.</p>";
 		echo '<div  style="margin:auto;"><p><noscript><strong style="color: red;">Для отображения данных необходимо включить JavaScript!</strong></noscript></p>
     <div id="placeholder" style="height:300px;"></div>
