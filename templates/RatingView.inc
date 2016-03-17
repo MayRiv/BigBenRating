@@ -32,10 +32,13 @@
 		echo "<tr><td colspan='6'>Игроки, сыгравшие менее 5 игр</td></tr>";
 		foreach($others as $stat)
 		{
-			echo "<tr><td>$i</th><td>".$stat['stat']."</td><td>".(int)(1000 * $stat['r'])."</td><td>".$stat['t']."</td><td>";
+			echo "<tr><td>$i</th><td>".$stat['p']."</td><td>".$stat['t']."</td><td>";
 				$percent = round($stat['v'] / $stat['t'] * 100, 2);
-				echo $stat['v']."($percent%)";
-				echo"</td><td>".$stat['b']."</td></tr>";
+				echo $stat['v']." ($percent%)";
+				echo"</td><td>".$stat['b']."</td>";
+				//if (($_SESSION['isAuth'] && ($_SESSION['status'] === "Master" || $_SESSION['status'] === "Admin")))
+					echo "<td>".round($stat['r'], 2)."</td>";
+				echo "</tr>";
 				$i++;
 		}
 	}
