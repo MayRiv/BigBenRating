@@ -12,7 +12,7 @@
 		$i = 1;
 		$others = array();
 		foreach ($obj->players as $stat) 
-			//if ($stat['t'] >= 15)		
+			if ($stat['t'] >= 5)		
 			{
 			
 				//echo "<tr><td>$i</th><td>".$stat['stat']."</td><td>".(int)(1000 * $stat['r'])."</td><td>".$stat['t']."</td><td>";
@@ -25,11 +25,11 @@
 				echo "</tr>";
 				$i++;
 			}
-			/*else
+			/lse
 			{
 				$others[] = $stat;
-			}*/
-		/*echo "<tr><td colspan='6'>Игроки, сыгравшие менее 15 игр</td></tr>";
+			}
+		echo "<tr><td colspan='6'>Игроки, сыгравшие менее 5 игр</td></tr>";
 		foreach($others as $stat)
 		{
 			echo "<tr><td>$i</th><td>".$stat['stat']."</td><td>".(int)(1000 * $stat['r'])."</td><td>".$stat['t']."</td><td>";
@@ -37,7 +37,7 @@
 				echo $stat['v']."($percent%)";
 				echo"</td><td>".$stat['b']."</td></tr>";
 				$i++;
-		}*/
+		}
 	}
 ?>
 </table>
