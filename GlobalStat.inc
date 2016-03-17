@@ -7,7 +7,7 @@ class GlobalStat
 	public function __construct()
 	{
 		$countBest = SQL("SELECT MAX(t) as m from (SELECT count(*) t from PlayerGame group by player) s")->getAll()[0]['m'];
-		$this->top["Лучший Игрок"] = SQL("SELECT player, b / t * 100 as r, t, b from (SELECT player, count(*) t, SUM(Won) b from PlayerGame  group by player) s where t > ? order by r DESC limit 3", array( $countBest / 3))->getAll();
+		$this->top["Лучших игроков"] = SQL("SELECT player, b / t * 100 as r, t, b from (SELECT player, count(*) t, SUM(Won) b from PlayerGame JOIN Players ON (player = Name ) WHERE StatusId !=2 AND StatusId !=0 AND  group by player) s where t > ? order by r DESC limit 3", array( $countBest / 3))->getAll();
 
 		$this->roleSQLCount = "SELECT MAX(t) as m from (SELECT count(*) t from PlayerGame where Role=? group by player) s";
 		$this->topSQL = "SELECT player, w / t * 100 as r, t, b from (SELECT player, count(*) t, SUM(Won) w, SUM(BestPlayer) b from PlayerGame JOIN Players ON (player = Name ) WHERE StatusId !=2 AND StatusId !=0 AND Role=? group by player) s where t > ? order by r DESC limit 3";
