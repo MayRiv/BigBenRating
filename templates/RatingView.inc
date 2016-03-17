@@ -29,7 +29,7 @@
 			{
 				$others[] = $stat;
 			}
-		echo "<tr><td colspan='6'>Игроки, сыгравшие менее 5 игр</td></tr>";
+		echo "<tr><td colspan='6'>Игроки, сыгравшие менее 6 игр</td></tr>";
 		foreach($others as $stat)
 		{
 			echo "<tr><td>$i</th><td>".$stat['p']."</td><td>".$stat['t']."</td><td>";
