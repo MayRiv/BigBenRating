@@ -9,7 +9,7 @@ require_once("Logger.inc");
 class System 
 {
 	private static $_instance;
-	public $lastMonthEnd = '2016-1-9';
+	public $lastMonthEnd = '2016-3-16';
 	public static  function getInstance()
 	{
 		if (System::$_instance == null) System::$_instance = new System();
@@ -53,7 +53,7 @@ ORDER BY player ASC, b DESC")->getAll();*/
 		
 		//$r = new Rating('2015-12-10', '2016-01-06');
 		$r = new Rating('2016-2-17', System::getInstance()->lastMonthEnd);
-//$r = new Rating('2016-2-18', System::getInstance()->lastMonthEnd);
+
 		getView("RatingView.inc", $r);
 	}
 	public function showAdminPanel()
