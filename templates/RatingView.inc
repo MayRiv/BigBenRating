@@ -25,7 +25,7 @@
 				echo "</tr>";
 				$i++;
 			}
-			/lse
+			else
 			{
 				$others[] = $stat;
 			}
