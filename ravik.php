@@ -14,7 +14,7 @@ FROM PlayerGame
 GROUP BY player
 ORDER BY c DESC ")->getAll();
 foreach ($res as  $player) {
-	echo "<p>".$player['Name']."</p><p>".$player['c']."</p>";
+	echo "<p>".$player['Name'].":".$player['c']."</p>";
 }
 echo "</div></div></body></html>";
 
