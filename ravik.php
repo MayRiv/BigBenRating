@@ -12,7 +12,7 @@ echo "<html><body><div id='feed' style='margin-left: 300px;'><div style='text-al
 $res = SQL("  SELECT player as Name, COUNT( * ) as t FROM PlayerGame JOIN Games ON ( Game = GameId ) JOIN Players ON (player = Name ) WHERE StatusId !=2 AND StatusId !=0 AND DATE BETWEEN CAST(  '2015-12-16' AS DATE )  AND CAST( '2016-3-16' AS DATE )  GROUP BY player  ORDER BY  t DESC")->getAll();
 $i = 1;
 foreach ($res as  $player) {
-	echo "<p>%i   ".$player['Name'].":".$player['t']."</p>";
+	echo "<p>$i   ".$player['Name'].":".$player['t']."</p>";
 	$i++;
 }
 echo "</div></div></body></html>";
