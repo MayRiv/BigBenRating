@@ -8,7 +8,7 @@ foreach ($obj->top as $role=>$stat) {
 	 <th>Игрок</th><th>Сыграно игр</th><th>Винрейт</th><th>Количество лучших</th>";
 
 	 foreach ($stat as $player) {
-	 	echo "<tr><td>".$player['player']."</td><td>".$player['t']."</td><td>".round($player['r'], 2)."</td><td>".$player['b']."</td></tr>";
+	 	echo "<tr><td><a href='/getPersonalStat/?player=".urlencode($stat['player'])."'>".$stat['player']."</a></td><td>".$player['t']."</td><td>".round($player['r'], 2)."</td><td>".$player['b']."</td></tr>";
 	 }
 	 echo "</table>";
 
