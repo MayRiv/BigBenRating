@@ -6,11 +6,11 @@ getView("HeaderView.inc", $params ); ?>
 		//$obj->show();
 		if ($obj->period == 'a')
 		{
-			$period = "всё время (показать за <a href='/?action=getPersonalStat&p=m'>месяц</a>)";
+			$period = "всё время (показать за <a href='/getPersonalStat/?p=m'>месяц</a>)";
 		}
 		if ($obj->period == 'm')
 		{
-			$period = "последний месяц (показать за <a href='/?action=getPersonalStat&p=a'>все время</a>)";
+			$period = "последний месяц (показать за <a href='/getPersonalStat/?p=a'>все время</a>)";
 		}
 		echo "<div><h2>Статистика игрока $obj->player за $period.</h2>";
 		echo "<p>Получил $obj->bestVotes лучших</p>";
@@ -40,7 +40,7 @@ getView("HeaderView.inc", $params ); ?>
 		{
 			echo "<div><p>Сыграл в играх: ";
 			foreach ($obj->games as $game) {
-				echo "<a href='?action=showGame&GameId=".$game."'>".$game."</a> ";
+				echo "<a href='/showGame/?GameId=".$game."'>".$game."</a> ";
 			}
 			echo "</p></div>";
 		}
@@ -77,7 +77,7 @@ getView("HeaderView.inc", $params ); ?>
 		getView("DrawScriptRawPart.inc", null);*/
 	?>
 
-<p><a href="?action=changePassword">Сменить пароль</a></p>
+<p><a href="/changePassword/">Сменить пароль</a></p>
 </div>
 
 <?php getView("Footer.inc", null); ?>
