@@ -24,7 +24,6 @@ class Router
   			$method = "getRating";
 
   		echo $parsed[1];
-  		echo ;
 		System::getInstance()->$method();
 	}
 }
