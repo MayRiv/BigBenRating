@@ -2,7 +2,7 @@
 <div id="feed">
 	<h1>Доминация</h1>
 
-	<p>Чтобы получить статистику общих игр двух игроков введите их ники и нажмите "Сравнить"</p> 
+	<p>Чтобы получить статистику общих игр двух игроков, введите их ники и нажмите "Сравнить"</p> 
 	<p><input id='ComparePlayer1' name="Player1" type="text"/><input id='ComparePlayer2' name="Player2" type="text"/></p> 
 	<p><input type="button" value="Сравнить" onclick="bbr.tryGetDomination()"/></p>
 
@@ -19,9 +19,9 @@
 		echo "<tr><td>".$obj['domination']->comparePlayer1." черный, ".$obj['domination']->comparePlayer2." красный</td><td>".$obj['domination']->BR['total']."</td><td>".$obj['domination']->BR['v1']."</td><td>".$obj['domination']->BR['v2']."</td></tr>";
 		echo '</table>';
 		if (isset($obj['domination']->BR['s']))
-			echo "<p>".$obj['domination']->comparePlayer1." застрелил ".$obj['domination']->comparePlayer2." ". $obj['domination']->BR['s']." раз</p>";
+			echo "<p><a href='/getPersonalstat?player=\"".$obj['domination']->comparePlayer1."'>".$obj['domination']->comparePlayer1."</a> застрелил ".$obj['domination']->comparePlayer2." ". $obj['domination']->BR['s']." раз</p>";
 		if (isset($obj['domination']->RB['s']))
-			echo "<p>".$obj['domination']->comparePlayer2 ." застрелил ".$obj['domination']->comparePlayer1 ." ". $obj['domination']->RB['s']." раз</p>";
+			echo "<p><a href='/getPersonalstat?player=\"".$obj['domination']->comparePlayer2."'>".$obj['domination']->comparePlayer2."</a> застрелил ".$obj['domination']->comparePlayer1 ." ". $obj['domination']->RB['s']." раз</p>";
 		echo "<div><p>Сыграли в играх: ";
 		foreach ($obj['domination']->games as $game) {
 			echo "<a href='/showGame/?GameId=".$game['id']."'>".$game['id']."</a> ";
