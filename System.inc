@@ -65,14 +65,15 @@ ORDER BY player ASC, b DESC")->getAll();*/
 	}
 	public function getPersonalStat()
 	{
-		if (!$_SESSION['isAuth'])
+		if (!$_SESSION['isAuth'] && !isset($_GET['player']))
 		{
 			$players = SQL("Select Name from Players")->getAll();
 			getView("Auth.inc",$players);
 		}
 		else
 		{
-			$playerName = $_SESSION['player'];
+			if (isset($_SESSION['player'])
+				$playerName = $_SESSION['player'];
 			if (isset($_GET['player']))
 			{
 				$playerName = urldecode($_GET['player']);
