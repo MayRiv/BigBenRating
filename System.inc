@@ -74,7 +74,15 @@ ORDER BY player ASC, b DESC")->getAll();*/
 		{
 			$playerName = $_SESSION['player'];
 			if (isset($_GET['player']))
+			{
 				$playerName = urldecode($_GET['player']);
+				$result = SQL("Select isPrivate from Players where Name like ?", array($playerName))->getAll()[0];
+				if (!$result)
+				{
+					getView("PrivateError.inc");
+					return;
+				}
+			}
 			if ($_GET['p']=='m')
 				$stat = new PersonalStat($playerName,'m');
 			else
