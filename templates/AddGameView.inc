@@ -3,7 +3,7 @@
 <div id="inserter">
 <div>
 	
-	<form id="form" action="?action=addGame" method="post">
+	<form id="form" action="/addGame/" method="post">
 		<div>
 		<p>Выберите номер игрового зала
 		<select name='RoomId'>

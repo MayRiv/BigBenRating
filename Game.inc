@@ -106,10 +106,10 @@ class Game
 			echo "<p>Первоубиенный ".$firstBlood['Name']." Попал в ".$firstBlood['BestMove']." черных игроков</p>";
 		echo "<p>Победила команда: $victoryTeam</p>";
 		echo "<p>Ведущий: ".$this->master."</p>";
-		echo "<p><a href='?action=showGames&date=".$this->date."'>Назад</a></p>";
+		echo "<p><a href='/showGames/?date=".$this->date."'>Назад</a></p>";
 		if (($_SESSION['isAuth'] && ($_SESSION['status'] === "Master" || $_SESSION['status'] === "Admin")))
 		{
-			echo "<p><a href='?action=editGame&GameId=$this->gameId'><img src='Pictures/edit.png'></a>";
+			echo "<p><a href='/editGame/?GameId=$this->gameId'><img src='Pictures/edit.png'></a>";
 			//echo "<a href='?action=deleteGame&GameId=$this->gameId'><img src='Pictures/delete.png'></a></p></div>";
 		}
 		getView("Footer.inc", NULL);
@@ -118,7 +118,7 @@ class Game
 	public function editShow()
 	{
 		getView("HeaderView.inc", NULL);
-		echo "<form id='form' action='?action=editGame' method='post'>
+		echo "<form id='form' action='/editGame/' method='post'>
 		<input name='GameId' type='hidden'  value='$this->gameId'>
 		<div id='feed'>
 		<p>Выберите номер игрового зала
