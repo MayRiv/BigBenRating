@@ -20,7 +20,7 @@ function cmpDom($a, $b) {
 				$zeroPlayerInserted = true;
 			}
 			if ($domination[1])
-				echo "<tr><td><a href='?action=getDomination&ComparePlayer1=".urlencode($_SESSION['player'])."&ComparePlayer2=".urlencode($player)."'>$player</a></td><td>$domination[0]</td><td>$domination[1]</td></tr>";
+				echo "<tr><td><a href='/getDomination/?ComparePlayer1=".urlencode($_SESSION['player'])."&ComparePlayer2=".urlencode($player)."'>$player</a></td><td>$domination[0]</td><td>$domination[1]</td></tr>";
 		}
 		echo '</table>';
 }
