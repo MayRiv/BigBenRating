@@ -15,13 +15,16 @@ class Router
 	}
 	public function handle()
 	{	
-		Router::$url = $_GET['url'];
+		Router::$url = $_SERVER['REQUEST_URI'];
   		Router::$url = rtrim($url, '/');
   		$parsed = explode('/', Router::$url);
   		if(count($parsed) > 1 && property_exists('System', $parsed[1]))
   			$method = $parsed[1];
   		else
   			$method = "getRating";
+
+  		echo $parsed[1];
+  		echo ;
 		System::getInstance()->$method();
 	}
 }
