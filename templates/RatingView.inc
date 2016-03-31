@@ -16,7 +16,7 @@
 			{
 			
 				//echo "<tr><td>$i</th><td>".$stat['stat']."</td><td>".(int)(1000 * $stat['r'])."</td><td>".$stat['t']."</td><td>";
-				echo "<tr><td>$i</th><td><a href='/getPersonalStat/?player='".$stat['p']."'>".$stat['p']."</a></td><td>".$stat['t']."</td><td>";
+				echo "<tr><td>$i</th><td><a href='/getPersonalStat/?player=\"".$stat['p']."\"'>".$stat['p']."</a></td><td>".$stat['t']."</td><td>";
 				$percent = round($stat['v'] / $stat['t'] * 100, 2);
 				echo $stat['v']." ($percent%)";
 				echo"</td><td>".$stat['b']."</td>";
