@@ -24,7 +24,7 @@
 			echo "<p>".$obj['domination']->comparePlayer2 ." застрелил ".$obj['domination']->comparePlayer1 ." ". $obj['domination']->RB['s']." раз</p>";
 		echo "<div><p>Сыграли в играх: ";
 		foreach ($obj['domination']->games as $game) {
-			echo "<a href='?action=showGame&GameId=".$game['id']."'>".$game['id']."</a> ";
+			echo "<a href='/showGame/?GameId=".$game['id']."'>".$game['id']."</a> ";
 		}
 		echo "</p></div>";
 	}
