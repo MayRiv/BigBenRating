@@ -21,8 +21,8 @@ class Router
   		if(count($parsed) > 1 && property_exists('System', $parsed[1]))
   			$method = $parsed[1];
   		else
-  			$method = 'getRating';
-		System::method();
+  			$method = "getRating";
+		System::$method();
 	}
 }
 
