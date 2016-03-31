@@ -69,8 +69,6 @@
   			$method = $parsed[1];
   		else
   			$method = "getRating";
-
-  		echo $parsed[1];
 		System::getInstance()->$method();
 	Logger::getInstance()->save();
 ?>
