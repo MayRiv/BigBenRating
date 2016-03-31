@@ -22,6 +22,8 @@
 	DBManager::getInstance()->connect($host, $dbName, $user, $password);
 	session_start();
 	echo $_SERVER['REQUEST_URI'];
+	$test = rtrim($url, '/');
+  	var_dump(explode('/', $test));
 	/*if (isset($_GET['action']))
 	{
 		if ($_GET['action'] == 'getRating')
