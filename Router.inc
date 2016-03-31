@@ -18,7 +18,7 @@ class Router
 		Router::$url = $_SERVER['REQUEST_URI'];
   		Router::$url = rtrim($url, '/');
   		$parsed = explode('/', Router::$url);
-  		if(count($parsed) > 1 && property_exists('System', $parsed[1]))
+  		if(count($parsed) > 1 && method_exists('System', $parsed[1]))
   			$method = $parsed[1];
   		else
   			$method = "getRating";

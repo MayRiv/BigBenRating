@@ -21,13 +21,13 @@
 	}	
 	DBManager::getInstance()->connect($host, $dbName, $user, $password);
 	session_start();
-	$url = $_SERVER['REQUEST_URI'];
+	/*$url = $_SERVER['REQUEST_URI'];
 	$test = rtrim($url, '/');
   	$parsed = explode('/', $test);
   	if (method_exists('System', $parsed[1]))
   		echo "exist";
   	else
-  		echo "not";
+  		echo "not";*/
 	/*if (isset($_GET['action']))
 	{
 		if ($_GET['action'] == 'getRating')
