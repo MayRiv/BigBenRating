@@ -23,7 +23,9 @@
 	session_start();
 	$url = $_SERVER['REQUEST_URI'];
 	$test = rtrim($url, '/');
-  	var_dump(explode('/', $test));
+  	$parsed = explode('/', $test);
+  	if (property_exists('System', $parsed[1]))
+  		echo "exist";
 	/*if (isset($_GET['action']))
 	{
 		if ($_GET['action'] == 'getRating')
