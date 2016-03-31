@@ -109,7 +109,7 @@ class Game
 		echo "<p><a href='/showGames/?date=".$this->date."'>Назад</a></p>";
 		if (($_SESSION['isAuth'] && ($_SESSION['status'] === "Master" || $_SESSION['status'] === "Admin")))
 		{
-			echo "<p><a href='/editGame/?GameId=$this->gameId'><img src='Pictures/edit.png'></a>";
+			echo "<p><a href='/editGame/?GameId=$this->gameId'><img src='/Pictures/edit.png'></a>";
 			//echo "<a href='?action=deleteGame&GameId=$this->gameId'><img src='Pictures/delete.png'></a></p></div>";
 		}
 		getView("Footer.inc", NULL);
