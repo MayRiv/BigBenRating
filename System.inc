@@ -149,6 +149,17 @@ ORDER BY player ASC, b DESC")->getAll();*/
 			}
 		}
 	}
+	public function changePrivate()
+	{
+		if (!($_SESSION['isAuth']))
+			header("Location: /getRating/");
+		else
+		{
+				SQL("Update Players SET isPrivate=isPrivate XOR 1 where Name like ?", array(MD5($_POST['NewPass1']),$_SESSION['player']));
+				header("Location: /getPersonalStat/");
+		}
+		
+	}
 	public function logout()
 	{
 		$_SESSION['isAuth'] = 0;

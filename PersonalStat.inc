@@ -28,6 +28,7 @@ class PersonalStat
 	public $stat;
 	public $roomGameCount;
 	public $period;
+	public $isPrivate;
 	public function __construct($playerName,$period)
 	{
 		$this->period = $period;
@@ -35,7 +36,8 @@ class PersonalStat
 		if ($period=='m')
 			$dateFilter = "and date > '".System::getInstance()->lastMonthEnd."'";
 		$this->player = $playerName;
-		$games  = SQL("Select Game, RoomId, Role, Won, WasShotFirst, BestMove, BestPlayer, date from PlayerGame join Games ON (Game=GameId) where player like ? $dateFilter", array($playerName))->getAll();
+		$games  = SQL("Select Game, RoomId, Role, Won, WasShotFirst, BestMove, BestPlayer, date, isPrivate from PlayerGame join Games ON (Game=GameId) where player like ? $dateFilter", array($playerName))->getAll();
+		$this->isPrivate = $games[0]['isPrivate'];
 		$totalBestMove = 0;
 		$this->roomGameCount = array("1"=>0, "2"=>0, "3"=>0);
 		foreach($games as $game)
