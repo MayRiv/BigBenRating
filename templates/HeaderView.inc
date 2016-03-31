@@ -31,33 +31,33 @@
 	<div id="css-menu-wrapper">
 		<div id="css-menu">
 			<ul>
-				<li><a href="/getRating">
+				<li><a href="/getRating/">
 					<span class="text-top">Общий рейтинг</span>
 					<span class="text-bottom">Рейтинг игроков</span>
 				</a></li>
-				<li><a href="/getPersonalStat">
+				<li><a href="/getPersonalStat/">
 					<span class="text-top">Личный кабинет</span>
 					<span class="text-bottom">Статистика игрока</span>
 				</a></li>
-				<li><a href="/getGlobalStat">
+				<li><a href="/getGlobalStat/">
 					<span class="text-top">Глобальная статистика</span>
 					<span class="text-bottom">Топы игроков</span>
 				</a></li>
-				<li><a href="/getDomination">
+				<li><a href="/getDomination/">
 					<span class="text-top">Парная статистика</span>
 					<span class="text-bottom">Доминация</span>
 				</a></li>
-				<li><a href="/getPowerMap">
+				<li><a href="/getPowerMap/">
 					<span class="text-top">Групповая статистика</span>
 					<span class="text-bottom">Карта силы</span>
 				</a></li>
-				<li><a href="/showGames">
+				<li><a href="/showGames/">
 					<span class="text-top">Подробно про игры</span>
 					<span class="text-bottom">История игр</span>
 				</a></li>
 				<?php
 				if ($_SESSION['isAuth'] && ($_SESSION['status'] === "Master" || $_SESSION['status'] === "Admin"))
-				echo '<li><a href="/showAdminPanel">
+				echo '<li><a href="/showAdminPanel/">
 					<span class="text-top">Административная панель</span>
 					<span class="text-bottom">Для ведущих</span>
 				</a></li>';
