@@ -24,7 +24,7 @@
 	$url = $_SERVER['REQUEST_URI'];
 	$test = rtrim($url, '/');
   	$parsed = explode('/', $test);
-  	if (property_exists('System', $parsed[1]))
+  	if (method_exists('System', $parsed[1]))
   		echo "exist";
   	else
   		echo "not";
