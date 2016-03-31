@@ -19,11 +19,11 @@
 		if (isset($_SESSION['isAuth']) && $_SESSION['isAuth'] == 1)
 		{
 			echo "<p>Привет, ".$_SESSION['player']."</p>";
-			echo "<a href='?action=logout'>Выйти</a>";
+			echo "<a href='/logout/'>Выйти</a>";
 		}
 		else
 		{
-			echo "<a href='?action=login'>Авторизироваться</a>";
+			echo "<a href='/login/'>Авторизироваться</a>";
 		}
 		?>
 	</div>
