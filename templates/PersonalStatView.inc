@@ -78,10 +78,16 @@ getView("HeaderView.inc", $params ); ?>
 	?>
 
 <p><a href="/changePassword/">Сменить пароль</a></p>
-<?php if(!$obj->isPrivate)
-	echo '<p><a href="/changePrivate/">Закрыть профиль</a></p>';
-else
-	echo '<p><a href="/changePrivate/">Открыть профиль</a></p>'; ?>
+<?php 
+
+if ($obj->player == $_SESSION['player'])
+{
+	if(!$obj->isPrivate)
+		echo '<p><a href="/changePrivate/">Закрыть профиль</a></p>';
+	else
+		echo '<p><a href="/changePrivate/">Открыть профиль</a></p>';
+}
+?>
 </div>
 
 <?php getView("Footer.inc", null); ?>
