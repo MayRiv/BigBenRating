@@ -74,6 +74,7 @@
   		$method = "getRating";
 
   	echo $parsed[1];
+  	var_dump($_GET);
 	System::getInstance()->$method();
 	//Router::getInstance()->handle();
 	Logger::getInstance()->save();
