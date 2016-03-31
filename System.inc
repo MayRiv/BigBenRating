@@ -72,10 +72,13 @@ ORDER BY player ASC, b DESC")->getAll();*/
 		}
 		else
 		{
+			$playerName = $_SESSION['player'];
+			if (isset($_GET['player']))
+				$playerName = $_GET['player'];
 			if ($_GET['p']=='m')
-				$stat = new PersonalStat($_SESSION['player'],'m');
+				$stat = new PersonalStat($playerName,'m');
 			else
-				$stat = new PersonalStat($_SESSION['player'],'a');
+				$stat = new PersonalStat($playerName,'a');
 			if (isset($_POST['name']))
 			{
 				$player = $_POST["name"];
