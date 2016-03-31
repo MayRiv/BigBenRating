@@ -74,7 +74,7 @@ ORDER BY player ASC, b DESC")->getAll();*/
 		{
 			$playerName = $_SESSION['player'];
 			if (isset($_GET['player']))
-				$playerName = $_GET['player'];
+				$playerName = urldecode($_GET['player']);
 			if ($_GET['p']=='m')
 				$stat = new PersonalStat($playerName,'m');
 			else
