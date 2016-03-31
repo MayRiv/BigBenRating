@@ -61,6 +61,16 @@
 	else 
 		System::getInstance()->getRating();
 */
-		Router::getInstance()->handle();
+		//Router::getInstance()->handle();
+		$url = $_SERVER['REQUEST_URI'];
+  		$url = rtrim($url, '/');
+  		$parsed = explode('/', $url);
+  		if(count($parsed) > 1 && method_exists('System', $parsed[1]))
+  			$method = $parsed[1];
+  		else
+  			$method = "getRating";
+
+  		echo $parsed[1];
+		System::getInstance()->$method();
 	Logger::getInstance()->save();
 ?>
