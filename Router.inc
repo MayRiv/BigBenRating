@@ -22,7 +22,7 @@ class Router
   			$method = $parsed[1];
   		else
   			$method = 'getRating';
-		System::$this->method();
+		System::method();
 	}
 }
 
