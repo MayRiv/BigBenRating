@@ -32,7 +32,7 @@
 	{
 		echo "<tr><th>Дата</th><th>Посмотреть игры</th></tr>";
 		foreach ($obj['dates'] as $date) {
-				echo "<tr><td>".$date['date']."</td><td><a href='/showGames/?&date=".$date['date']."'>Перейти к играм</a></td></tr>";
+				echo "<tr><td>".$date['date']."</td><td><a href='/showGames/?date=".$date['date']."'>Перейти к играм</a></td></tr>";
 		}
 	}
 

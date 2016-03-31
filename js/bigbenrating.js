@@ -56,7 +56,7 @@ var bbr = (function() {
 	tryDelete: function(gameId){
 		if (confirm("Вы действительно хотиле удалить игру " + gameId + "?"))
 		{
-			window.location = "?action=deleteGame&GameId=" + gameId;
+			window.location = "/deleteGame/?GameId=" + gameId;
 		}
 	},
 	tryGetDomination: function(){
