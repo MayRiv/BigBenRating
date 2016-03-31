@@ -40,7 +40,7 @@ var bbr = (function() {
 
 		var body = 'name=' + encodeURIComponent(player);
 
-		xhr.open("POST", '?action=compare', true)
+		xhr.open("POST", '/compare/', true)
 		xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
 
 		xhr.onreadystatechange = function() { 
@@ -60,7 +60,7 @@ var bbr = (function() {
 		}
 	},
 	tryGetDomination: function(){
-		document.location.href = "?action=getDomination/?ComparePlayer1=" + encodeURIComponent(document.getElementById('ComparePlayer1').value) + "&ComparePlayer2=" + encodeURIComponent(document.getElementById('ComparePlayer2').value) //.submit()encodeURIComponent	
+		document.location.href = "/getDomination/?ComparePlayer1=" + encodeURIComponent(document.getElementById('ComparePlayer1').value) + "&ComparePlayer2=" + encodeURIComponent(document.getElementById('ComparePlayer2').value) //.submit()encodeURIComponent	
 	},
 	generateAutocompleter: function(fieldMame, values)
 	{
