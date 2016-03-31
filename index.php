@@ -1,8 +1,9 @@
 <?php
 	require("viewer.inc");
 	require("DBManager.inc");
-	require("System.inc");
+	require_once("System.inc");
 	require_once("Logger.inc");
+	require_once("Router.inc");
 	define ("DEV", 0);
 	if (DEV)
 	{
@@ -20,7 +21,7 @@
 	}	
 	DBManager::getInstance()->connect($host, $dbName, $user, $password);
 	session_start();
-	if (isset($_GET['action']))
+/*	if (isset($_GET['action']))
 	{
 		if ($_GET['action'] == 'getRating')
 			System::getInstance()->getRating();
@@ -59,6 +60,7 @@
 	}
 	else 
 		System::getInstance()->getRating();
-
+*/
+		Router::getInstance()->handle();
 	Logger::getInstance()->save();
 ?>
