@@ -6,8 +6,8 @@ class Router
 	public $lastMonthEnd = '2016-3-16';
 	public static  function getInstance()
 	{
-		if (System::$_instance == null) System::$_instance = new System();
-		return System::$_instance;
+		if (Router::$_instance == null) Router::$_instance = new Router();
+		return Router::$_instance;
 	}
 	private static $url;
 	private function __construct()
