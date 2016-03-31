@@ -1,8 +1,9 @@
 <?php
 	require("viewer.inc");
 	require("DBManager.inc");
-	require("System.inc");
+	require_once("System.inc");
 	require_once("Logger.inc");
+	require_once('Router.inc');
 	define ("DEV", 1);
 	if (DEV)
 	{
@@ -20,7 +21,7 @@
 	}	
 	DBManager::getInstance()->connect($host, $dbName, $user, $password);
 	session_start();
-	if (isset($_GET['action']))
+	/*if (isset($_GET['action']))
 	{
 		if ($_GET['action'] == 'getRating')
 			System::getInstance()->getRating();
@@ -30,8 +31,6 @@
 			System::getInstance()->getPersonalStat();
 		else if ($_GET['action'] == 'getGlobalStat')
 			System::getInstance()->getGlobalStat();
-		else if ($_GET['action'] == 'compare')
-			System::getInstance()->comparePlayer();
 		else if ($_GET['action'] == 'showAdminPanel')
 			System::getInstance()->showAdminPanel();
 		else if ($_GET['action'] == 'logout')
@@ -58,7 +57,8 @@
 			System::getInstance()->getRating();
 	}
 	else 
-		System::getInstance()->getRating();
+		System::getInstance()->getRating();*/
 
+	Router::getInstance()->handle();
 	Logger::getInstance()->save();
 ?>
