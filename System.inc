@@ -80,7 +80,7 @@ ORDER BY player ASC, b DESC")->getAll();*/
 				$result = SQL("Select isPrivate from Players where Name like ?", array($playerName))->getAll()[0];
 				if ($result['isPrivate'])
 				{
-					getView("PrivateError.inc");
+					getView("PrivateError.inc", null);
 					return;
 				}
 			}
