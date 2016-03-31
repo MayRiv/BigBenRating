@@ -9,7 +9,6 @@ class Router
 		if (Router::$_instance == null) Router::$_instance = new Router();
 		return Router::$_instance;
 	}
-	private static $url;
 	private function __construct()
 	{
 
