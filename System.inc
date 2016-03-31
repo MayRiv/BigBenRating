@@ -73,7 +73,7 @@ ORDER BY player ASC, b DESC")->getAll();*/
 		else
 		{
 			$playerName = null;
-			if (isset($_SESSION['player'])
+			//if (isset($_SESSION['player'])
 				$playerName = $_SESSION['player'];
 			if (isset($_GET['player']))
 			{
