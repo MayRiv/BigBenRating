@@ -26,6 +26,8 @@
   	$parsed = explode('/', $test);
   	if (property_exists('System', $parsed[1]))
   		echo "exist";
+  	else
+  		echo "not";
 	/*if (isset($_GET['action']))
 	{
 		if ($_GET['action'] == 'getRating')
