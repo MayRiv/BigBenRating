@@ -139,7 +139,7 @@ ORDER BY player ASC, b DESC")->getAll();*/
 	public function logout()
 	{
 		$_SESSION['isAuth'] = 0;
-		header("Location: ?action=getRating");
+		header("Location: /getRating/");
 	}
 	public function addGame()
 	{
