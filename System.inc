@@ -155,7 +155,7 @@ ORDER BY player ASC, b DESC")->getAll();*/
 			header("Location: /getRating/");
 		else
 		{
-				SQL("Update Players SET isPrivate=isPrivate XOR 1 where Name like ?", array(MD5($_POST['NewPass1']),$_SESSION['player']));
+				SQL("Update Players SET isPrivate=isPrivate XOR 1 where Name like ?", array($_SESSION['player']));
 				header("Location: /getPersonalStat/");
 		}
 		
