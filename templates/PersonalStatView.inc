@@ -80,7 +80,7 @@ getView("HeaderView.inc", $params ); ?>
 <p><a href="/changePassword/">Сменить пароль</a></p>
 <?php 
 
-if ($obj->player == $_SESSION['player'])
+if ($_SESSION['isAuth'] && ($obj->player === $_SESSION['player']))
 {
 	if(!$obj->isPrivate)
 		echo '<p><a href="/changePrivate/">Закрыть профиль</a></p>';
