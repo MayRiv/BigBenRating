@@ -1,17 +1,17 @@
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href="templates/bigbenrating.css"/>
-	<link rel="stylesheet" type="text/css" href="templates/auto-complete.css">
+	<link rel="stylesheet" type="text/css" href="/templates/bigbenrating.css"/>
+	<link rel="stylesheet" type="text/css" href="/templates/auto-complete.css">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<script type="text/javascript" src="js/bigbenrating.js"></script>
-	<script language="javascript" type="text/javascript" src="js/flot/jquery.js"></script>
-    <script language="javascript" type="text/javascript" src="js/flot/jquery.flot.js"></script>
-    <script language="javascript" type="text/javascript" src="js/flot/jquery.flot.stack.js"></script>
-    <script language="javascript" type="text/javascript" src="js/flot/jquery.flot.selection.js"></script>
+	<script type="text/javascript" src="/js/bigbenrating.js"></script>
+	<script language="javascript" type="text/javascript" src="/js/flot/jquery.js"></script>
+    <script language="javascript" type="text/javascript" src="/js/flot/jquery.flot.js"></script>
+    <script language="javascript" type="text/javascript" src="/js/flot/jquery.flot.stack.js"></script>
+    <script language="javascript" type="text/javascript" src="/js/flot/jquery.flot.selection.js"></script>
 	<script src="http://code.jquery.com/jquery-1.8.3.js"></script>
-  	<script src="js/jquery-ui-1.11.4/jquery-ui.js"></script>
-  	<link type="text/css" href="js/jquery-ui-1.11.4/jquery-ui.css" rel="stylesheet" />
-    <script type="text/javascript" src="js/auto-complete.min.js"></script>
+  	<script src="/js/jquery-ui-1.11.4/jquery-ui.js"></script>
+  	<link type="text/css" href="/js/jquery-ui-1.11.4/jquery-ui.css" rel="stylesheet" />
+    <script type="text/javascript" src="/js/auto-complete.min.js"></script>
 </head>
 <body>
 	<div id="auth-div" style="float:right">
