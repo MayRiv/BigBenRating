@@ -81,7 +81,7 @@ ORDER BY player ASC, b DESC")->getAll();*/
 				echo "playerName = ".$_GET['player'];
 				echo " sessionName is $playerName";
 				var_dump($_SESSION);
-				if ($result['isPrivate'] && ($_GET['player'] != $playerName) && $_SESSION['status']!='admin')
+				if ($result['isPrivate'] && ($_GET['player'] != $playerName) && $_SESSION['status']!='Admin')
 				{
 					//getView("PrivateError.inc", null);
 					return;
