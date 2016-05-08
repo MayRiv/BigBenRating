@@ -79,6 +79,8 @@ ORDER BY player ASC, b DESC")->getAll();*/
 			{
 				$playerName = urldecode($_GET['player']);
 				$result = SQL("Select isPrivate from Players where Name like ?", array($_GET['player']))->getAll()[0];
+				echo "playerName = ".$_GET['player'];
+				echo " sessionName is $playerName";
 				if ($result['isPrivate'] && ($_GET['player'] != $playerName))
 				{
 					getView("PrivateError.inc", null);
@@ -95,7 +97,7 @@ ORDER BY player ASC, b DESC")->getAll();*/
 
 				$stat->compare($player);		
 			}
-			getView("PersonalStatView.inc", $stat);
+			//getView("PersonalStatView.inc", $stat);
 		}
 	}
 	public function getGlobalStat()
