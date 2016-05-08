@@ -74,7 +74,7 @@ ORDER BY player ASC, b DESC")->getAll();*/
 		{
 			$playerName = null;
 			//if (isset($_SESSION['player'])
-				$playerName = urlencode($_SESSION['player']);
+				$playerName = $_SESSION['player'];
 			if (isset($_GET['player']))
 			{
 				$result = SQL("Select isPrivate from Players where Name like ?", array(urldecode($_GET['player'])))->getAll()[0];
