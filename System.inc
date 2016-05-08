@@ -73,15 +73,12 @@ ORDER BY player ASC, b DESC")->getAll();*/
 		else
 		{
 			$playerName = null;
-			//if (isset($_SESSION['player'])
-				$playerName = $_SESSION['player'];
+			
 			if (isset($_GET['player']))
 			{
-				$result = SQL("Select isPrivate from Players where Name like ?", array(urldecode($_GET['player'])))->getAll()[0];
-				echo "playerName = ".$_GET['player'];
-				echo " sessionName is $playerName";
-				var_dump($_SESSION);
-				if ($result['isPrivate'] && ($_GET['player'] != $playerName) && $_SESSION['status']!='Admin')
+				$playerName = urldecode($_GET['player']);
+				$result = SQL("Select isPrivate from Players where Name like ?", array($playerName))->getAll()[0];
+				if ($result['isPrivate'] && ($_SESSION['player'] != $playerName) && $_SESSION['status']!='Admin')
 				{
 					getView("PrivateError.inc", null);
 					return;
