@@ -77,7 +77,7 @@ ORDER BY player ASC, b DESC")->getAll();*/
 				$playerName = urlencode($_SESSION['player']);
 			if (isset($_GET['player']))
 			{
-				$result = SQL("Select isPrivate from Players where Name like ?", array(urldecode($_GET['player']))->getAll()[0];
+				$result = SQL("Select isPrivate from Players where Name like ?", array(urldecode($_GET['player'])))->getAll()[0];
 				var_dump($_SESSION);
 				echo "playerName = ".$_GET['player'];
 				echo " sessionName is $playerName";
