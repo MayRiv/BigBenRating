@@ -78,8 +78,8 @@ ORDER BY player ASC, b DESC")->getAll();*/
 			if (isset($_GET['player']))
 			{
 				$playerName = urldecode($_GET['player']);
-				$result = SQL("Select isPrivate from Players where Name like ?", array($playerName))->getAll()[0];
-				if ($result['isPrivate'])
+				$result = SQL("Select isPrivate from Players where Name like ?", array($_GET['player']))->getAll()[0];
+				if ($result['isPrivate'] && ($_GET['player'] != $playerName))
 				{
 					getView("PrivateError.inc", null);
 					return;
