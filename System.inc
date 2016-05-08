@@ -83,7 +83,7 @@ ORDER BY player ASC, b DESC")->getAll();*/
 				var_dump($_SESSION);
 				if ($result['isPrivate'] && ($_GET['player'] != $playerName) && $_SESSION['status']!='Admin')
 				{
-					//getView("PrivateError.inc", null);
+					getView("PrivateError.inc", null);
 					return;
 				}
 			}
@@ -97,7 +97,7 @@ ORDER BY player ASC, b DESC")->getAll();*/
 
 				$stat->compare($player);		
 			}
-			//getView("PersonalStatView.inc", $stat);
+			getView("PersonalStatView.inc", $stat);
 		}
 	}
 	public function getGlobalStat()
