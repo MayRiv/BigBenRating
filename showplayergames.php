@@ -1,12 +1,14 @@
 <?php
 require("DBManager.inc");
 require("viewer.inc");
+session_start();
 getView("HeaderView.inc", null);
 $host = "mysql.hostinger.com.ua";
 $dbName = "u450038591_bbrat";
 $user = "u450038591_bbrat";
 $password = "konoplya_1";
 DBManager::getInstance()->connect($host, $dbName, $user, $password);
+
 
 session_start();
 
