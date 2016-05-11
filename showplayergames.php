@@ -8,7 +8,7 @@ $user = "u450038591_bbrat";
 $password = "konoplya_1";
 DBManager::getInstance()->connect($host, $dbName, $user, $password);
 
-
+session_start();
 
 echo "<html><body><div id='feed' style='margin-left: 300px;'><div style='text-align:left'>";
 $res = SQL("Select player as Name, game as Id from PlayerGame group by Name order by player")->getAll();
