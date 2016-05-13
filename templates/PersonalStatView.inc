@@ -3,6 +3,7 @@ getView("HeaderView.inc", $params ); ?>
 <div id="feed">
 	<h1>Личный кабинет</h1>
 	<?php
+		var_dump($obj);
 		//$obj->show();
 		if ($obj->period == 'a')
 		{

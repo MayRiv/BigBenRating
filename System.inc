@@ -84,6 +84,10 @@ ORDER BY player ASC, b DESC")->getAll();*/
 					return;
 				}
 			}
+			else
+			{
+				$result = SQL("Select isPrivate from Players where Name like ?", array($_SESSION['player']))->getAll()[0];
+			}
 			if ($_GET['p']=='m')
 				$stat = new PersonalStat($playerName,'m');
 			else
