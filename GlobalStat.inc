@@ -16,7 +16,7 @@ class GlobalStat
 		$this->getStatRole("Mafia");
 		$this->getStatRole("Citizen");
 		$count = SQL("SELECT MAX(t) as m from (SELECT count(*) t from PlayerGame group by player) s")->getAll()[0]['m'];
-		$this->top["Голосование за лучших"] = SQL("SELECT player, b / t * 100 as r, t, b from (SELECT player, count(*) t, SUM(BestPlayer) b from PlayerGame  group by player) s where t > ? order by r DESC limit 3", array( $count / 3))->getAll();
+		$this->top["Голосование за лучших"] = SQL("SELECT player, b / t * 100 as r, t, b from (SELECT player, count(*) t, SUM(BestPlayer) b from PlayerGame JOIN Players ON (player = Name ) WHERE StatusId !=2 AND StatusId !=0  group by player) s where t > ? order by r DESC limit 3", array( $count / 3))->getAll();
 		
 	}
 	private function getStatRole($role)
