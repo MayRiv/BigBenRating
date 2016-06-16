@@ -12,7 +12,7 @@
 		$i = 1;
 		$others = array();
 		foreach ($obj->players as $stat) 
-			if ($stat['t'] >= 15)		
+			if ($stat['t'] >= 6)		
 			{
 			
 				//echo "<tr><td>$i</th><td>".$stat['stat']."</td><td>".(int)(1000 * $stat['r'])."</td><td>".$stat['t']."</td><td>";
