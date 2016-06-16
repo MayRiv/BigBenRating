@@ -1,7 +1,14 @@
 <?php getView("HeaderView.inc", null); ?>
 <div id="feed"><h2>BigBen Rating</h2>
 <?php
-	echo "<p>Рейтинг игроков за период от $obj->date1 до $obj->date2.</p></div>";
+	if (isset($_GET['p']) && $_GET['p']=='a') {
+		$header="<p>Рейтинг игроков за всё время (Показать за <a href='/getRating/>последний месяц</a>)</p></div>";
+	}
+	else
+	{
+		$header = "<p>Рейтинг игроков за период от $obj->date1 до $obj->date2. (Показать за <a href='/getRating/?p=a>всё время</a>)</p></div>";
+	}
+	echo "<p>Рейтинг игроков за период от $obj->date1 до $obj->date2. (Показать за <a href='/getRating/?p=a>всё время</a>)</p></div>";
 ?>
 <table class="table_dark">
 		<tr><th>#</th><th>Игрок</th><th>Сыграно игр</th><th>Победы</th><th>Количество лучших</th><th>Рейтинг</th></tr>
