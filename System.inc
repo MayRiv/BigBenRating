@@ -24,6 +24,9 @@ class System
 	}
 	public function getRating()
 	{
+		$firstMonth = '2015-10-19';
+		if (isset($_GET['p'] && $_GET['p']=='a')
+			$firstMonth = '2015-10-19';
 		//$maxGameCount = SQL("select max(t) total from (SELECT COUNT( * ) t FROM PlayerGame JOIN Players ON ( player = Name ) WHERE StatusId !=2 GROUP BY player) t")->getAll()[0]['total'];
 		//$players = SQL("SELECT player, p /(t * 3.25 + ? - t) AS r, t, b FROM ( SELECT player, ( SUM( Won ) *2 + SUM( BestPlayer ) * 0.5 + SUM( BestMove ) * 0.25) p, COUNT( * ) t, SUM(BestPlayer) b FROM PlayerGame JOIN Players ON ( player = Name ) WHERE StatusId !=2 GROUP BY player ) s  ORDER BY r DESC", array($maxGameCount))->getAll();
 
@@ -57,7 +60,7 @@ ORDER BY player ASC, b DESC")->getAll();*/
 		//$r = new Rating('2016-2-17', System::getInstance()->lastMonthEnd);
 		//$r = new Rating('2016-4-14', System::getInstance()->lastMonthEnd);
 		//$r = new Rating('2016-5-19', System::getInstance()->lastMonthEnd);
-		$r = new Rating('2015-10-19', System::getInstance()->lastMonthEnd);
+		$r = new Rating($firstMonth, System::getInstance()->lastMonthEnd);
 	
 		getView("RatingView.inc", $r);
 	}
