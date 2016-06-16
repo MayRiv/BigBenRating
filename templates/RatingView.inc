@@ -9,10 +9,11 @@
     //<tr><th>#</th><th>Игрок</th><th>Рейтинг</th><th>Сыграно игр</th><th>Победы</th><th>Количество лучших</th></tr>
 	//if (($_SESSION['isAuth'] && ($_SESSION['status'] === "Master" || $_SESSION['status'] === "Admin")))
 	{
+		$boundary = 10;
 		$i = 1;
 		$others = array();
 		foreach ($obj->players as $stat) 
-			if ($stat['t'] >= 10)		
+			if ($stat['t'] >= $boundary)		
 			{
 			
 				//echo "<tr><td>$i</th><td>".$stat['stat']."</td><td>".(int)(1000 * $stat['r'])."</td><td>".$stat['t']."</td><td>";
@@ -29,7 +30,7 @@
 			{
 				$others[] = $stat;
 			}
-		echo "<tr><td colspan='6'>Игроки, сыгравшие менее 15 игр</td></tr>";
+		echo "<tr><td colspan='6'>Игроки, сыгравшие менее $boundary игр</td></tr>";
 		foreach($others as $stat)
 		{
 			echo "<tr><td>$i</th><td><a href='/getPersonalStat/?player=".urlencode($stat['p'])."'>".$stat['p']."</a><td>".$stat['t']."</td><td>";
