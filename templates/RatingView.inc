@@ -2,11 +2,11 @@
 <div id="feed"><h2>BigBen Rating</h2>
 <?php
 	if (isset($_GET['p']) && $_GET['p']=='a') {
-		$headerText="<p>Рейтинг игроков за всё время (Показать за <a href='/getRating/>последний месяц</a>)</p></div>";
+		$headerText="<p>Рейтинг игроков за всё время (Показать за <a href=/getRating/>последний месяц</a>)</p></div>";
 	}
 	else
 	{
-		$headerText = "<p>Рейтинг игроков за период от $obj->date1 до $obj->date2. (Показать за <a href='/getRating/?p=a>всё время</a>)</p></div>";
+		$headerText = "<p>Рейтинг игроков за период от $obj->date1 до $obj->date2. (Показать за <a href=/getRating/?p=a>всё время</a>)</p></div>";
 	}
 	echo $headerText;
 ?>
