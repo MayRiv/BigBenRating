@@ -24,7 +24,7 @@ class System
 	}
 	public function getRating()
 	{
-		$firstMonth = '2016-5-19'
+		$firstMonth = '2016-5-19';
 		if (isset($_GET['p']) && $_GET['p']=='a')
 			$firstMonth = '2015-10-19';
 		//$maxGameCount = SQL("select max(t) total from (SELECT COUNT( * ) t FROM PlayerGame JOIN Players ON ( player = Name ) WHERE StatusId !=2 GROUP BY player) t")->getAll()[0]['total'];
