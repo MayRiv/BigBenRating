@@ -12,7 +12,8 @@ class System
 	//public $lastMonthEnd = '2016-4-13';
 	//public $lastMonthEnd = '2016-5-18';
 	//public $lastMonthEnd = '2016-6-16';
-	public $lastMonthEnd = '2016-7-14';
+	//public $lastMonthEnd = '2016-7-14';
+	public $lastMonthEnd = '2016-8-10';
 	public static  function getInstance()
 	{
 		if (System::$_instance == null) System::$_instance = new System();
@@ -25,7 +26,8 @@ class System
 	}
 	public function getRating()
 	{
-		$firstMonth = '2016-6-19';
+		//$firstMonth = '2016-6-19';
+                $firstMonth = '2016-7-14';
 		if (isset($_GET['p']) && $_GET['p']=='a')
 			$firstMonth = '2015-10-19';
 		//$maxGameCount = SQL("select max(t) total from (SELECT COUNT( * ) t FROM PlayerGame JOIN Players ON ( player = Name ) WHERE StatusId !=2 GROUP BY player) t")->getAll()[0]['total'];
