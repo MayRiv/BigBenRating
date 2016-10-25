@@ -33,7 +33,7 @@ bmD.write('<a href="http://www.bigmir.net/" target="_blank" onClick="img=new Ima
 */
 ?>
 <!--bigmir)net TOP 100 Part 1-->
-<script type="text/javascript" language="javascript"><!--
+<script type="text/javascript"                                              language="javascript"><!--
 bmN=navigator,bmD=document,bmD.cookie='b=b',i=0,bs=[],bm={v:16942748,s:16942748,t:6,c:bmD.cookie?1:0,n:Math.round((Math.random()* 1000000)),w:0};
 for(var f=self;f!=f.parent;f=f.parent)bm.w++;
 try{if(bmN.plugins&&bmN.mimeTypes.length&&(x=bmN.plugins['Shockwave Flash']))bm.m=parseInt(x.description.replace(/([a-zA-Z]|\s)+/,''));
