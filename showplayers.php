@@ -3,8 +3,8 @@ require("DBManager.inc");
 require("viewer.inc");
 getView("HeaderView.inc", null);
 $host = "mysql.hostinger.com.ua";
-$dbName = "u450038591_bbrat";
-$user = "u450038591_bbrat";
+$dbName = "u483570622_bbrat";
+$user = "u483570622_bbrat";
 $password = "konoplya_1";
 DBManager::getInstance()->connect($host, $dbName, $user, $password);
 
