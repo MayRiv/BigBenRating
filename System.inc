@@ -15,8 +15,8 @@ class System
 	//public $lastMonthEnd = '2016-7-14';
 	//public $lastMonthEnd = '2016-8-10';
 	//public $lastMonthEnd = '2016-10-1';
-	//public $lastMonthEnd = '2016-12-31';
-	public $lastMonthEnd = '2016-11-30';
+	public $lastMonthEnd = '2016-12-31';
+	//public $lastMonthEnd = '2016-11-30';
 	public static  function getInstance()
 	{
 		if (System::$_instance == null) System::$_instance = new System();
@@ -32,8 +32,8 @@ class System
 		//$firstMonth = '2016-6-19';
         //$firstMonth = '2016-7-15';
         //$firstMonth = '2016-8-11';
-        //$firstMonth = '2016-12-1';
-        $firstMonth = '2016-11-1';
+        $firstMonth = '2016-12-1';
+        //$firstMonth = '2016-11-1';
 		if (isset($_GET['p']) && $_GET['p']=='a')
 			$firstMonth = '2015-10-19';
 		//$maxGameCount = SQL("select max(t) total from (SELECT COUNT( * ) t FROM PlayerGame JOIN Players ON ( player = Name ) WHERE StatusId !=2 GROUP BY player) t")->getAll()[0]['total'];
