@@ -16,7 +16,7 @@ class System
 	//public $lastMonthEnd = '2016-8-10';
 	//public $lastMonthEnd = '2016-10-1';
 	//public $lastMonthEnd = '2016-12-31';
-	public $lastMonthEnd = '2016-11-31';
+	public $lastMonthEnd = '2016-11-30';
 	public static  function getInstance()
 	{
 		if (System::$_instance == null) System::$_instance = new System();
