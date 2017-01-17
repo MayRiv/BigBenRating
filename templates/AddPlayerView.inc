@@ -5,6 +5,7 @@
 	<p>Установите права <select name="Status">
 		<option selected value="1">Игрок</option>
 		<option value="2">Ведущий</option>
+		<option value="0">Член Клуба</option>
 	</select></p>
 	<p><input type="submit" value="Добавить"></p>
 	</form>
