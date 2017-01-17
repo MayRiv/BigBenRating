@@ -236,7 +236,7 @@ ORDER BY player ASC, b DESC")->getAll();*/
 			}
 			else
 			{
-				if ($_POST['Status'] == 1)
+				if ($_POST['Status'] == 1 || $_POST['Status'] == 0)
 					$pass = MD5("player");
 				else
 					$pass = MD5("bbmaster123");
