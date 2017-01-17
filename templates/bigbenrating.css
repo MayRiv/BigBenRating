@@ -99,7 +99,9 @@ table {
 {
 	color: black;
 }
-
+.table_dark a{
+	color:white;
+}
 #inserter{
 	text-align: center;	
 }
