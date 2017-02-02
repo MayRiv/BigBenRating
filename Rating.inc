@@ -12,7 +12,7 @@ class Rating
 		
 		/*if ($_SESSION['status'] != 1)
 			$hideClubMembers = "";*/
-		$res = SQL("SELECT player, t, b, v, m FROM ( SELECT player, COUNT( * ) t, SUM( BestPlayer ) b, SUM( Won ) v, SUM( BestMove ) * 0.25 m FROM PlayerGame JOIN Games ON ( Game = GameId ) JOIN Players ON (player = Name ) WHERE $hideClubMembers DATE BETWEEN CAST(  ? AS DATE )  AND CAST(  ? AS DATE )  GROUP BY player) s ORDER BY  `s`.`m` DESC", array($date1, $date2))->getAll();
+		$res = SQL("SELECT p as player, t, b, v, m FROM ( SELECT TRIM(player) as p, COUNT( * ) t, SUM( BestPlayer ) b, SUM( Won ) v, SUM( BestMove ) * 0.25 m FROM PlayerGame JOIN Games ON ( Game = GameId ) JOIN Players ON (TRIM(player) = Name ) WHERE $hideClubMembers DATE BETWEEN CAST(  ? AS DATE )  AND CAST(  ? AS DATE )  GROUP BY p) s ORDER BY  `s`.`m` DESC", array($date1, $date2))->getAll();
 		foreach ($res as $row) {
 			$this->players[] = array('p'=>$row['player'],'t'=>$row['t'], 'b' => $row['b'], 'v' => $row['v'], 'm'=>$row['m'], 'r'=>0);
 		}
