@@ -36,7 +36,7 @@ class PersonalStat
 		if ($period=='m')
 			$dateFilter = "and date > '".System::getInstance()->lastMonthEnd."'";
 		$this->player = $playerName;
-		$games  = SQL("Select Game, RoomId, Role, Won, WasShotFirst, BestMove, BestPlayer, date, isPrivate from PlayerGame join Games ON (Game=GameId) join Players ON(Name=TRIM(Player) where TRIM(player) like ? $dateFilter", array($playerName))->getAll();
+		$games  = SQL("Select Game, RoomId, Role, Won, WasShotFirst, BestMove, BestPlayer, date, isPrivate from PlayerGame join Games ON (Game=GameId) join Players ON(Name=TRIM(Player)) where TRIM(player) like ? $dateFilter", array($playerName))->getAll();
 		$this->isPrivate = $games[0]['isPrivate'];
 		$totalBestMove = 0;
 		$this->roomGameCount = array("1"=>0, "2"=>0, "3"=>0);
