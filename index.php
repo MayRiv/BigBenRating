@@ -4,21 +4,8 @@
 	require_once("System.inc");
 	require_once("Logger.inc");
 	require_once("Router.inc");
-	define ("DEV", 0);
-	if (DEV)
-	{
-		$host = "mysql.hostinger.com.ua"; 
-		$dbName = "u833869977_bbrat"; 
-		$user = "u833869977_bbrat"; 
-		$password = "konoplya_1";
-	}
-	else
-	{
-		$host = "mysql.hostinger.com.ua";
-		$dbName = "u483570622_bbrat";
-		$user = "u483570622_bbrat";
-		$password = "konoplya_1";
-	}	
+	require_once("Config.inc");
+
 	DBManager::getInstance()->connect($host, $dbName, $user, $password);
 	session_start();
 /*	if (isset($_GET['action']))
