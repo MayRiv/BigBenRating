@@ -1,7 +1,7 @@
 <?php
 require("DBManager.inc");
 require("viewer.inc");
-require("Config.inc")
+require("Config.inc")''
 getView("HeaderView.inc", null);
 DBManager::getInstance()->connect($host, $dbName, $user, $password);
 
