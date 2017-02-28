@@ -1,11 +1,8 @@
 <?php
 require("DBManager.inc");
 require("viewer.inc");
+require("Config.inc")
 getView("HeaderView.inc", null);
-$host = "mysql.hostinger.com.ua";
-$dbName = "u483570622_bbrat";
-$user = "u483570622_bbrat";
-$password = "konoplya_1";
 DBManager::getInstance()->connect($host, $dbName, $user, $password);
 
 echo "<html><body><div id='feed' style='margin-left: 300px;'><div style='text-align:left'>";
