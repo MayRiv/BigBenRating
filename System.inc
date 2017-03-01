@@ -31,6 +31,7 @@ class System
 	}
 	public function getRating()
 	{
+		$showMembers = false;
 		//$firstMonth = '2016-6-19';
         //$firstMonth = '2016-7-15';
         //$firstMonth = '2016-8-11';
@@ -74,8 +75,10 @@ ORDER BY player ASC, b DESC")->getAll();*/
 		//$r = new Rating('2016-4-14', System::getInstance()->lastMonthEnd);
 		//$r = new Rating('2016-5-19', System::getInstance()->lastMonthEnd);
 		//$r = new Rating($firstMonth, System::getInstance()->lastMonthEnd);
-		$r = new Rating($firstMonth, System::getInstance()->lastMonthEnd);
-	
+		//$r = new Rating($firstMonth, System::getInstance()->lastMonthEnd, $showMembers);
+		if ($_SESSION['status'] == "Admin" && isset($_GET['members'])
+			$showMembers = true;
+		$r = new Rating($firstMonth, System::getInstance()->lastMonthEnd, $showMembers);
 		getView("RatingView.inc", $r);
 	}
 	public function showAdminPanel()
