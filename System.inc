@@ -17,7 +17,8 @@ class System
 	//public $lastMonthEnd = '2016-10-1';
 	//public $lastMonthEnd = '2016-12-31';
 	//public $lastMonthEnd = '2016-11-30';
-	public $lastMonthEnd = '2017-1-31';
+	//public $lastMonthEnd = '2017-1-31';
+	public $lastMonthEnd = '2017-2-31';
 	public static  function getInstance()
 	{
 		if (System::$_instance == null) System::$_instance = new System();
@@ -34,6 +35,7 @@ class System
         //$firstMonth = '2016-7-15';
         //$firstMonth = '2016-8-11';
         //$firstMonth = '2016-12-1';
+        //$firstMonth = '2017-2-1';
         $firstMonth = '2017-1-1';
         //$firstMonth = '2016-11-1';
 		if (isset($_GET['p']) && $_GET['p']=='a')
