@@ -76,7 +76,7 @@ ORDER BY player ASC, b DESC")->getAll();*/
 		//$r = new Rating('2016-5-19', System::getInstance()->lastMonthEnd);
 		//$r = new Rating($firstMonth, System::getInstance()->lastMonthEnd);
 		//$r = new Rating($firstMonth, System::getInstance()->lastMonthEnd, $showMembers);
-		if ($_SESSION['status'] == "Admin" && isset($_GET['members'])
+		if ($_SESSION['status'] == "Admin" && isset($_GET['members']))
 			$showMembers = true;
 		$r = new Rating($firstMonth, System::getInstance()->lastMonthEnd, $showMembers);
 		getView("RatingView.inc", $r);
