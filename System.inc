@@ -326,6 +326,42 @@ ORDER BY player ASC, b DESC")->getAll();*/
 		else
 			getView("Auth.inc",$players);
 	}
+	public function Test()
+	{
+		echo "<html>
+<head>
+</head>
+<body>
+	<div id=\"example\">
+	</div>
+
+	<script type="text/javascript" language="javascript">
+function BM_Draw(oBM_STAT){
+	a1=document.createElement('table')
+  m1=document.getElementsByTagName('script')[0];
+  a1.async=1;
+  m1.parentNode.insertBefore(a1,m1)
+
+  a1.innerHTML = '<tr><td><div style=\"margin:0px;padding:0px;font-size:1px;width:88px;\"><div style=\"background:url(\'//i.bigmir.net/cnt/samples/diagonal/b58_top.gif\') no-repeat bottom;\"> </div><div style=\"font:10px Tahoma;background:url(\'//i.bigmir.net/cnt/samples/diagonal/b58_center.gif\');\"><div style="text-align:center;"><a href=\"http://www.bigmir.net/\" target=\"_blank\" style=\"color:#0000ab;text-decoration:none;font:10px Tahoma;\">bigmir<span style=\"color:#ff0000;\">)</span>net</a></div><div style=\"margin-top:3px;padding: 0px 6px 0px 6px;color:#003596;\"><div style=\"float:left;font:10px Tahoma;\">'+oBM_STAT.hits+'</div><div style=\"float:right;font:10px Tahoma;\">'+BM_STAT.hits+'</div></div><br clear=\"all\"/></div><div style=\"background:url(\'//i.bigmir.net/cnt/samples/diagonal/b58_bottom.gif\') no-repeat top;\"> </div></div></td></tr>'
+}
+</script>
+<script type=\"text/javascript\" language=\"javascript\" src=\"//c.bigmir.net/?s16942748&t0&l1&o1\"></script>
+<noscript>
+<a href=\"http://www.bigmir.net/\" target=\"_blank\"><img src=\"//c.bigmir.net/?v16942748&s16942748&t2&l1\" width=\"88\" height=\"31\" alt=\"bigmir)net TOP 100\" title=\"bigmir)net TOP 100\" border=\"0\" /></a>
+</noscript>
+<!--bigmir)net TOP 100 Part 2-->
+<script type=\"text/javascript\">
+  a=document.createElement('script'),
+  m=document.getElementsByTagName('script')[0];
+  a.async=1;
+  a.src='http://c.bigmir.net/?o1&v16852993&s16854927&t6&c1&n109355&w0&m25&y0&d24&r1920';m.parentNode.insertBefore(a,m)
+
+</script>
+<!--bigmir)net TOP 100 Part 2-->
+
+</body>
+</html>";
+	}
 
 }
 
